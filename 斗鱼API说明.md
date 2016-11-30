@@ -1615,7 +1615,7 @@
 }
  ```
 
-###3.首页推荐页面轮播图接口
+###3.首页--推荐页面轮播图接口
 >
 * 接口描述： 首页推荐页面轮播图接口
 * 请求URL：http://capi.douyucdn.cn/api/v1/slide/6？version=2.411&client_sys=android
@@ -1959,44 +1959,192 @@
 }
  ```
  
-###4.首页分类列表
+###4.首页--推荐--滑动分类列表
 >
-* 接口描述： 获取首页分类信息
-* 请求URL：http://capi.douyucdn.cn/api/homeCate/getCateList
+* 接口描述：获取到推荐页面 如英雄联盟，户外，数码科技等栏目
+* 请求URL：http://capi.douyucdn.cn/api/v1/getHotCate?aid=android1&client_sys=android&time=1480500054&token=89175431_12_cd2cb4963d259081_1_54371072&auth=19ca301d4523a0af1c4945887ae0b03e
 * 请求方式：Get
 * 请求参数：
 *        client_sys：设备类型 默认为：Android
+*        time：时间戳
+*        token：登录后token值
+*        auth：
 * 返回数据:
 
  ```
- {
-    "error": 0,
-    "data": [
+{
+    "room_list": [
         {
-            "title": "手游",
-            "show_order": "1",
-            "identification": "3e760da75be261a588c74c4830632360",
-            "is_video": 0
+            "specific_catalog": "",
+            "vertical_src": "https://rpic.douyucdn.cn/a1611/30/17/846805_161130175453.jpg",
+            "ranktype": "0",
+            "nickname": "青铜皇帝赏金术士",
+            "subject": "",
+            "room_src": "https://rpic.douyucdn.cn/a1611/30/17/846805_161130175453.jpg",
+            "cate_id": "1",
+            "specific_status": "0",
+            "game_name": "英雄联盟",
+            "avatar_small": "https://apic.douyucdn.cn/upload/avatar/face/201607/27/7dd14fa4de36dd10104c3e5f92f63e06_small.jpg",
+            "online": 180377,
+            "avatar_mid": "https://apic.douyucdn.cn/upload/avatar/face/201607/27/7dd14fa4de36dd10104c3e5f92f63e06_middle.jpg",
+            "vod_quality": "0",
+            "room_name": "赏金术士:答应大家的发条来了",
+            "child_id": "32",
+            "room_id": "846805",
+            "show_time": "1480496318",
+            "isVertical": 0,
+            "show_status": "1",
+            "jumpUrl": ""
         },
         {
-            "title": "娱乐",
-            "show_order": "2",
-            "identification": "9acf9c6f117a4c2d02de30294ec29da9",
-            "is_video": 0
+            "specific_catalog": "cangshu",
+            "vertical_src": "https://rpic.douyucdn.cn/a1611/30/17/244317_161130175502.jpg",
+            "ranktype": "0",
+            "nickname": "仓鼠炼金",
+            "subject": "",
+            "room_src": "https://rpic.douyucdn.cn/a1611/30/17/244317_161130175502.jpg",
+            "cate_id": "1",
+            "specific_status": "1",
+            "game_name": "英雄联盟",
+            "avatar_small": "https://apic.douyucdn.cn/upload/avatar/014/77/41/84_avatar_small.jpg",
+            "online": 62224,
+            "avatar_mid": "https://apic.douyucdn.cn/upload/avatar/014/77/41/84_avatar_middle.jpg",
+            "vod_quality": "0",
+            "room_name": "三天上不了王者是狗",
+            "child_id": "32",
+            "room_id": "244317",
+            "show_time": "1480495547",
+            "isVertical": 0,
+            "show_status": "1",
+            "jumpUrl": ""
         },
         {
-            "title": "游戏",
-            "show_order": "3",
-            "identification": "ba08216f13dd1742157412386eee1225",
-            "is_video": 0
+            "specific_catalog": "liangrenmiao",
+            "vertical_src": "https://rpic.douyucdn.cn/a1611/30/17/526408_161130175455.jpg",
+            "ranktype": "0",
+            "nickname": "良人与猫zzz",
+            "subject": "",
+            "room_src": "https://rpic.douyucdn.cn/a1611/30/17/526408_161130175455.jpg",
+            "cate_id": "1",
+            "specific_status": "0",
+            "game_name": "英雄联盟",
+            "avatar_small": "https://apic.douyucdn.cn/upload/avatar/face/201608/09/097352252f6ec72a4ad8942bbeb7ddf8_small.jpg",
+            "online": 34482,
+            "avatar_mid": "https://apic.douyucdn.cn/upload/avatar/face/201608/09/097352252f6ec72a4ad8942bbeb7ddf8_middle.jpg",
+            "vod_quality": "0",
+            "room_name": "骚良Adc: 韩服Adc从零单排新界面!",
+            "child_id": "35",
+            "room_id": "526408",
+            "show_time": "1480496260",
+            "isVertical": 0,
+            "show_status": "1",
+            "jumpUrl": ""
         },
         {
-            "title": "趣玩",
-            "show_order": "4",
-            "identification": "393b245e8046605f6f881d415949494c",
-            "is_video": 0
+            "specific_catalog": "",
+            "vertical_src": "https://rpic.douyucdn.cn/a1611/30/18/12313_161130180106.jpg",
+            "ranktype": "0",
+            "nickname": "叶音符",
+            "subject": "",
+            "room_src": "https://rpic.douyucdn.cn/a1611/30/18/12313_161130180106.jpg",
+            "cate_id": "1",
+            "specific_status": "0",
+            "game_name": "英雄联盟",
+            "avatar_small": "https://apic.douyucdn.cn/upload/avanew/face/201611/16/00/4585c56859a589c549a5986619dd88aa_small.jpg",
+            "online": 3693,
+            "avatar_mid": "https://apic.douyucdn.cn/upload/avanew/face/201611/16/00/4585c56859a589c549a5986619dd88aa_middle.jpg",
+            "vod_quality": "0",
+            "room_name": "100%胜率皇子，输就送10000点券",
+            "child_id": "34",
+            "room_id": "12313",
+            "show_time": "1480499987",
+            "isVertical": 0,
+            "show_status": "1",
+            "jumpUrl": ""
         }
-    ]
+    ],
+    "push_vertical_screen": "0",
+    "icon_url": "https://staticlive.douyucdn.cn/upload/game_cate/f0a531a7198cac2ba0747c435644d690.jpg",
+    "tag_name": "英雄联盟",
+    "tag_id": "1"
+}
+ ```
+
+###5.首页--推荐页--最热栏目
+>
+* 接口描述：首页--推荐页--最热栏目
+* 请求URL：http://capi.douyucdn.cn/api/v1/getbigDataRoom?aid=android1&client_sys=android&time=1480501445&token=89175431_12_cd2cb4963d259081_1_54371072&auth=43b3facb607f9f0251a49182491bdceb
+* 请求方式：Get
+* 请求参数：
+*        client_sys：设备类型 默认为：Android
+*        time：时间戳
+*        token：登录后token值
+*        auth：
+* 返回数据:
+
+ ```
+{
+    "specific_catalog": "kk9",
+    "vertical_src": "https://rpic.douyucdn.cn/a1611/30/18/235520_161130181604.jpg",
+    "ranktype": "6",
+    "nickname": "14yearsold天残少年K9",
+    "subject": "",
+    "room_src": "https://rpic.douyucdn.cn/a1611/30/18/235520_161130181604.jpg",
+    "cate_id": "3",
+    "specific_status": "1",
+    "game_name": "DOTA2",
+    "online": 11857,
+    "avatar_small": "https://apic.douyucdn.cn/upload/avatar/013/50/64/21_avatar_small.jpg",
+    "avatar_mid": "https://apic.douyucdn.cn/upload/avatar/013/50/64/21_avatar_middle.jpg",
+    "recomType": "0",
+    "vod_quality": "0",
+    "room_name": "K9：无情的上分机器！++25",
+    "child_id": "92",
+    "room_id": "235520",
+    "show_time": "1480490200",
+    "isVertical": 0,
+    "show_status": "1",
+    "jumpUrl": ""
+}
+ ```
+ 
+
+###6.首页--推荐页--颜值栏目 
+>
+* 接口描述：首页--推荐页--颜值栏目 本栏目做全屏直播 单独跳转到全屏直播详情页
+* 请求URL：http://capi.douyucdn.cn/api/v1/getVerticalRoom?offset=0&limit=4&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        client_sys：设备类型 默认为：Android
+*        offset：从第几个开始  （分页加载数据）
+*        limit： 到那个结束
+* 返回数据：
+
+ ```
+ {
+    "room_id": "622090",
+    "room_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_small.jpg",
+    "vertical_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_big.jpg",
+    "isVertical": 1,
+    "cate_id": "201",
+    "room_name": "我是中国人！！",
+    "show_status": "1",
+    "subject": "",
+    "show_time": "1480499177",
+    "owner_uid": "47020181",
+    "specific_catalog": "",
+    "specific_status": "0",
+    "vod_quality": "0",
+    "nickname": "杨家有个欢妹子",
+    "online": 66172,
+    "game_name": "颜值",
+    "child_id": "0",
+    "avatar_mid": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_middle.jpg",
+    "avatar_small": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_small.jpg",
+    "jumpUrl": "",
+    "ranktype": 0,
+    "show_type": 1,
+    "anchor_city": "Seongbuk"
 }
  ```
  
