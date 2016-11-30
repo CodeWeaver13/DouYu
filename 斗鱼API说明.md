@@ -1,7 +1,7 @@
 
 ![斗鱼TV](https://staticlive.douyucdn.cn/upload/signs/201610291926483131.png)
 #斗鱼Tv API
-版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
+####版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
 
 ##一.首页模块 
 
@@ -45,6 +45,7 @@
     ]
 }
  ```
+ ---
 ###2.首页分类列表详情页
 >
 * 接口描述： 获取首页列表详情接口
@@ -1614,6 +1615,7 @@
     ]
 }
  ```
+----
 
 ###3.首页--推荐页面轮播图接口
 >
@@ -1958,6 +1960,7 @@
     ]
 }
  ```
+ ---
  
 ###4.首页--推荐--滑动分类列表
 >
@@ -2069,6 +2072,7 @@
     "tag_id": "1"
 }
  ```
+ ----
 
 ###5.首页--推荐页--最热栏目
 >
@@ -2107,7 +2111,7 @@
     "jumpUrl": ""
 }
  ```
- 
+ ---
 
 ###6.首页--推荐页--颜值栏目 
 >
@@ -2147,6 +2151,7 @@
     "anchor_city": "Seongbuk"
 }
  ```
+ ----
  
 ###7.首页--推荐页--颜值栏目 
 >
@@ -2186,6 +2191,7 @@
     "anchor_city": "Seongbuk"
 }
  ```
+ ---
 ###7.直播房间详情页
 >
 * 接口描述：直播房间详情页---为了查找auth的算法，我先是反编译了斗鱼的apk，结果他们把算法藏在了JNI里，随后尝试反汇编找出来的Share Object,无果。然后在斗鱼网页里的javascript里各种找，也没有，不过发现网页里也有一条类似的API，是从swf里发出的。之后去逐个反编译斗鱼网页里的swf，发现核心的core.swf是被加密了的，好在webroom.swf里找到了解密逻辑。解密后找到一个算sign/auth的function，然而没看懂，是一种变形的C。。最后的最后我在github上搜了一下之前解密用的key，发现之前果然有大神找到了auth算法，[附链接](https://github.com/0987363/douyutv-fix/blob/3dd6b9762a4cf5d359170b4a912457a0d4b5f5e5/DouYu-kodi-fix/APIHelper.py)。拿到算法，玩了一圈发现必须是这个格式才行，把android换成ios就会验证失败
@@ -2272,7 +2278,53 @@
     ]
     }
 } 
-```
+
+ ```
+ ----
+
+###8.
+>
+* 接口描述： 获取首页分类信息
+* 请求URL：http://capi.douyucdn.cn/api/homeCate/getCateList
+* 请求方式：Get
+* 请求参数：
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+
+ {
+    "error": 0,
+    "data": [
+        {
+            "title": "手游",
+            "show_order": "1",
+            "identification": "3e760da75be261a588c74c4830632360",
+            "is_video": 0
+        },
+        {
+            "title": "娱乐",
+            "show_order": "2",
+            "identification": "9acf9c6f117a4c2d02de30294ec29da9",
+            "is_video": 0
+        },
+        {
+            "title": "游戏",
+            "show_order": "3",
+            "identification": "ba08216f13dd1742157412386eee1225",
+            "is_video": 0
+        },
+        {
+            "title": "趣玩",
+            "show_order": "4",
+            "identification": "393b245e8046605f6f881d415949494c",
+            "is_video": 0
+        }
+    ]
+}
+ ```
+---
+
 
  
 
