@@ -1,7 +1,7 @@
 
 ![斗鱼TV](https://staticlive.douyucdn.cn/upload/signs/201610291926483131.png)
 #斗鱼Tv API
-版权说明：该版本为抓取Android端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
+版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
 
 ##一.首页模块 
 
@@ -2147,5 +2147,132 @@
     "anchor_city": "Seongbuk"
 }
  ```
+ 
+###7.首页--推荐页--颜值栏目 
+>
+* 接口描述：首页--推荐页--颜值栏目 本栏目做全屏直播 单独跳转到全屏直播详情页
+* 请求URL：http://capi.douyucdn.cn/api/v1/getVerticalRoom?offset=0&limit=4&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        client_sys：设备类型 默认为：Android
+*        offset：从第几个开始  （分页加载数据）
+*        limit： 到那个结束
+* 返回数据：
+
+ ```
+ {
+    "room_id": "622090",
+    "room_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_small.jpg",
+    "vertical_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_big.jpg",
+    "isVertical": 1,
+    "cate_id": "201",
+    "room_name": "我是中国人！！",
+    "show_status": "1",
+    "subject": "",
+    "show_time": "1480499177",
+    "owner_uid": "47020181",
+    "specific_catalog": "",
+    "specific_status": "0",
+    "vod_quality": "0",
+    "nickname": "杨家有个欢妹子",
+    "online": 66172,
+    "game_name": "颜值",
+    "child_id": "0",
+    "avatar_mid": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_middle.jpg",
+    "avatar_small": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_small.jpg",
+    "jumpUrl": "",
+    "ranktype": 0,
+    "show_type": 1,
+    "anchor_city": "Seongbuk"
+}
+ ```
+###7.直播房间详情页
+>
+* 接口描述：直播房间详情页---为了查找auth的算法，我先是反编译了斗鱼的apk，结果他们把算法藏在了JNI里，随后尝试反汇编找出来的Share Object,无果。然后在斗鱼网页里的javascript里各种找，也没有，不过发现网页里也有一条类似的API，是从swf里发出的。之后去逐个反编译斗鱼网页里的swf，发现核心的core.swf是被加密了的，好在webroom.swf里找到了解密逻辑。解密后找到一个算sign/auth的function，然而没看懂，是一种变形的C。。最后的最后我在github上搜了一下之前解密用的key，发现之前果然有大神找到了auth算法，[附链接](https://github.com/0987363/douyutv-fix/blob/3dd6b9762a4cf5d359170b4a912457a0d4b5f5e5/DouYu-kodi-fix/APIHelper.py)。拿到算法，玩了一圈发现必须是这个格式才行，把android换成ios就会验证失败
+* 请求URL：http://capi.douyucdn.cn/api/v1/room/235520?aid=android1&client_sys=android&ne=1&support_pwd=1&time=1480501469&token=89175431_12_cd2cb4963d259081_1_54371072&auth=6fddd0d2e155255e923e208bebd7efb9
+* 请求方式：Get
+* 请求参数：
+*        client_sys：设备类型 默认为：Android
+*        roomid:房间ID
+*        time:unixtime/1000 
+*        aid:设备标示   默认：Android1
+*        ne：          默认：1
+*        support_pwd： 默认：1
+*        token： 登录后获取token
+*        auth: md5("room/"+roomid+"?aid=android&clientsys=android&time="+1231) 注意：time要和上面一致，android也不能改成ios 
+*        
+* 返回数据：
+
+ ```
+ {
+    "error": 0,
+    "data": {
+    "room_id": "58428",
+    "room_src": "http://rpic.douyucdn.cn/z1602/23/23/58428_160223234559.jpg",
+    "cate_id": "3",
+    "room_name": "yyf直播间  电子竞技只有锤！",
+    "vod_quality": "0",
+    "show_status": "2",
+    "show_time": "1456221459",
+    "owner_uid": "236231",
+    "specific_catalog": "",
+    "specific_status": "1",
+    "online": 0,   // 这个是在线人数，虽然比较虚
+    "nickname": "yyfyyf",
+    "url": "/58428",
+    "game_url": "/directory/game/DOTA2",
+    "game_name": "DOTA2",
+    "game_icon_url": "http://staticlive.douyutv.com/upload/game_cate/bfe845a28fef8106cf645ed3b83aa375.jpg",
+    "rtmp_url": "",   //如果再直播会有，我抓这个时候鱼鱼枫已经被怼的下播了
+    "rtmp_live": "",
+    "rtmp_cdn": "",
+    "rtmp_multi_bitrate": [],
+    "hls_url": "",
+    "servers": [   //这个就比较重要了，这个是弹幕验证服务器列表！弹幕相关的socket加密解密源代码我也找到了。如有需求请留言，我看情况发出来。
+        {
+        "ip": "119.90.49.93",
+        "port": "8063"
+        },
+        ....略
+    ],
+    "use_p2p": "0",
+    "room_dm_delay": 30,
+    "black": [],
+    "show_details": "yyf贴吧: http://tieba.baidu.com/f?kw=yyf&amp;fr=ala0&amp;tpl=5\n新浪微博: http://www.weibo.com/u/2176141495/home?wvr=5",
+    "owner_avatar": "http://uc.douyutv.com/avatar.php?uid=236231&size=big",
+    "cdns": [],
+    "owner_weight": "304.67t",   //主播体重
+    "fans": "492867",             //这个应该是关注数。
+    "gift": [                  //一些礼物信息
+        {
+        "id": "59",
+        "name": "火箭",
+        "pc": "50000",
+        "type": "2",
+        "gx": 5000,
+        "desc": "赠送网站广播并派送出神秘宝箱",
+        "intro": "我们的征途是星辰大海",
+        "ef": 1,
+        "pimg": "http://staticlive.douyutv.com/upload/dygift/447b61f6c0d6890d4490a90d0bdbf8bc.png",
+        "mimg": "http://staticlive.douyutv.com/upload/dygift/ab957377200959761121a3791a54b9b7.png",
+        "cimg": "http://staticlive.douyutv.com/upload/dygift/7dce6b2170eebecf85596b47370217ce.gif",
+        "himg": "http://staticlive.douyutv.com/upload/dygift/7f0643700d331aca31a6f6ea255e323e.gif",
+        "stay_time": 200000,
+        "drgb": "",
+        "urgb": "#732909",
+        "grgb": "#732909",
+        "brgb": "#5861b5",
+        "pdbimg": "http://staticlive.douyutv.com/upload/dygift/005786105dd86e3964732e7fc2fc2085.png",
+        "pdhimg": "http://staticlive.douyutv.com/upload/dygift/6ffb9bc8d35d315943ae117dc788824e.gif",
+        "small_effect_icon": "http://staticlive.douyutv.com/upload/dygift/75e55aae938fc703d977e8c966fef91d.png",
+        "big_effect_icon": "http://staticlive.douyutv.com/upload/dygift/40f964e70faa46923dcc4c4931bbac8f.gif",
+        "pad_big_effect_icon": "http://staticlive.douyutv.com/upload/dygift/ccffe8c6453074a68be1730802203241.gif"
+        },
+        ...略
+    ]
+    }
+} 
+```
+
  
 
