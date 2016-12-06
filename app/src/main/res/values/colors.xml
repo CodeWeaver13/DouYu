@@ -12,4 +12,15 @@
     <color name="background">#ffffff</color>
     <color name="btn_ok_pressed">#ff4248</color>
     <color name="btn_ok_unpressed">#99ff4248</color>
+
+
+    <color name="actionsheet_gray">#8F8F8F</color>
+    <color name="actionsheet_text">#555555</color>
+    <color name="dialog_white">#fdfdfd</color>
+    <color name="black">#000000</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="alerDialogMsg">#343434</color>
+    <color name="alerDialogPosBtn">#ffffff</color>
+    <color name="picker_button">#ff4248</color>
+    <color name="title_bar_cancel">#ff8400</color>
 </resources>
