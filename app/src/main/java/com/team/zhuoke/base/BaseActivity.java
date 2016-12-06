@@ -1,6 +1,8 @@
 package com.team.zhuoke.base;
 
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -84,5 +86,18 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
             ContractProxy.getInstance().unbind(getContractClazz(),this);
             mPresenter.detachView();
         }
+    }
+    /**
+     * 控制APP字体不受系统字体大小影响
+     *
+     * @return res
+     */
+    @Override
+    public Resources getResources() {
+        Resources res = super.getResources();
+        Configuration config = new Configuration();
+        config.setToDefaults();
+        res.updateConfiguration(config, res.getDisplayMetrics());
+        return res;
     }
 }

@@ -1,5 +1,6 @@
-package com.team.zhuoke.view;
+package com.team.zhuoke.view.common.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -18,17 +19,17 @@ import com.team.zhuoke.view.common.fragment.VideoFragment;
 import butterknife.BindView;
 
 /**
- *  作者：gaoyin
- *  电话：18810474975
- *  邮箱：18810474975@163.com
- *  版本号：1.0
- *  类描述：
- *  备注消息：
- *  修改时间：2016/11/30 上午9:56
+ * 作者：gaoyin
+ * 电话：18810474975
+ * 邮箱：18810474975@163.com
+ * 版本号：1.0
+ * 类描述：
+ * 备注消息：
+ * 修改时间：2016/11/30 上午9:56
  **/
 public class MainActivity extends BaseActivity<HomePresenterImp> {
     private static final String TAG_PAGE_HOME = "首页";
-    private static final String TAG_PAGE_LIVE= "直播";
+    private static final String TAG_PAGE_LIVE = "直播";
     private static final String TAG_PAGE_VIDEO = "视频";
     private static final String TAG_PAGE_FOLLOW = "关注";
     private static final String TAG_PAGE_USER = "我的";
@@ -38,10 +39,12 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     @BindView(R.id.mainTabBar)
     NavigateTabBar mNavigateTabBar;
     NavigateTabBar.ViewHolder mHolder;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
+
     @Override
     protected void onInitView(Bundle bundle) {
         mNavigateTabBar.onRestoreInstanceState(bundle);
@@ -88,14 +91,17 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
 
 
     }
+
     @Override
     protected void onEvent() {
 
     }
+
     @Override
     protected Class getContractClazz() {
         return HomeContract.class;
     }
+
     /**
      * 拦截返回键，要求点击两次返回键才退出应用
      *
@@ -134,4 +140,12 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
         mNavigateTabBar.onSaveInstanceState(outState);
     }
 
+    @Override
+    public void onBackPressed() {
+//        Splash页面只有在初次启动时才会显示
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
 }
