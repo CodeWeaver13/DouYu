@@ -1,4 +1,4 @@
-package com.team.zhuoke.view.common.fragment;
+package com.team.zhuoke.view.home.fragment;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -40,9 +40,14 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
     protected void onEvent() {
 
     }
+
     @Override
-    protected Class getContractClazz() {
-        return HomeContract.class;
+    protected Class getPresenterClazz() {
+        return HomeContract.Presenter.class;
+    }
+    @Override
+    protected Class getModelClazz() {
+        return HomeContract.Model.class;
     }
 
     @OnClick(R.id.btn_home)

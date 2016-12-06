@@ -1,6 +1,7 @@
 package com.team.zhuoke.model;
 
 
+import com.team.zhuoke.base.BaseModel;
 import com.team.zhuoke.base.BasePresenter;
 import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.model.annotation.Implement;
@@ -41,8 +42,16 @@ public class ContractProxy {
         }
     }
 
-    // 初始化presenter add map
-    public <T> T bind(Class clzz, BaseView var1) {
+
+    /**
+     * 绑定Persenter
+     *
+     * @param clzz
+     * @param var1
+     * @param <T>
+     * @return
+     */
+    public <T> T bindPresenter(Class clzz, BaseView var1) {
         if (!m_objects.containsKey(clzz)) {
             init(clzz);
         }
@@ -56,13 +65,39 @@ public class ContractProxy {
         return (T) presenter;
     }
 
+    // 初始化model add map
+    public <M> M bindModel(Class clzz,BasePresenter presenter) {
+        if (!m_objects.containsKey(clzz)) {
+            init(clzz);
+        }
+        BaseModel model = ((BaseModel) m_objects.get(clzz));
+        if (model != presenter.getModel()) {
+            if (presenter.getModel() != null) {
+                presenter.detachModel();
+            }
+            presenter.attachModel(model);
+        }
+        return (M) model;
+    }
+
     // 解除绑定 移除map
-    public void unbind(Class clzz, BaseView var1) {
+    public void unbindPresenter(Class clzz, BaseView var1) {
         if (m_objects.containsKey(clzz)) {
             BasePresenter presenter = ((BasePresenter) m_objects.get(clzz));
             if (var1 != presenter.getView()) {
                 if (presenter.getView() != null)
                     presenter.detachView();
+                m_objects.remove(clzz);
+            }
+        }
+    }
+    // 解除绑定 移除map
+    public void unbindModel(Class clzz, BasePresenter presenter) {
+        if (m_objects.containsKey(clzz)) {
+            BaseModel model = ((BaseModel) m_objects.get(clzz));
+            if (model != presenter.getModel()) {
+                if (presenter.getModel() != null)
+                    presenter.detachModel();
                 m_objects.remove(clzz);
             }
 

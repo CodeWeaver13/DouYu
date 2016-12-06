@@ -3,13 +3,20 @@ package com.team.zhuoke.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import com.team.zhuoke.model.ContractProxy;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
+/**
+ *  作者：gaoyin
+ *  电话：18810474975
+ *  邮箱：18810474975@163.com
+ *  版本号：1.0
+ *  类描述：
+ *  备注消息：
+ *  修改时间：2016/12/5 下午3:03
+ **/
 public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatActivity implements BaseView<T> {
     //    定义Presenter
     protected  T mPresenter;
@@ -26,8 +33,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
     protected  abstract  void onEvent();
 
-    //    获得抽取接口Class对象
-    protected  abstract  Class getContractClazz();
+    //    获得抽取接口Presenter对象
+    protected  abstract Class getPresenterClazz();
+    //    获得抽取接口Model对象
+    protected  abstract Class getModelClazz();
 
 
 
@@ -41,23 +50,36 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 //            注解绑定
             unbinder=  ButterKnife.bind(this);
             bindPresenter();
+            bindModel();
             onInitView(savedInstanceState);
             onEvent();
         }
     }
+    private  void bindModel()
+    {
+        if(getModelClazz()!=null&&mPresenter!=null)
+        {
+            getModelImpl();
+        }
 
+    }
+    private <T> T getModelImpl()
+    {
+
+        return ContractProxy.getInstance().bindModel(getModelClazz(),mPresenter);
+    }
     private  void bindPresenter()
     {
-        if(getContractClazz()!=null)
+        if(getPresenterClazz()!=null)
         {
             mPresenter=getPresenterImpl();
+            mPresenter.mContext=this;
         }
     }
 
     private <T> T getPresenterImpl()
     {
-
-        return ContractProxy.getInstance().bind(getContractClazz(),this);
+        return ContractProxy.getInstance().bindPresenter(getPresenterClazz(),this);
     }
 
     @Override
@@ -65,11 +87,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
         if(mPresenter!=null&&!mPresenter.isViewBind())
         {
-            ContractProxy.getInstance().bind(getContractClazz(),this);
+            ContractProxy.getInstance().bindPresenter(getPresenterClazz(),this);
+            ContractProxy.getInstance().bindModel(getModelClazz(),mPresenter);
+            mPresenter.mContext=this;
         }
         super.onStart();
     }
-
     /**
      *  activity摧毁
      */
@@ -81,7 +104,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         }
         if(mPresenter!=null)
         {
-            ContractProxy.getInstance().unbind(getContractClazz(),this);
+            ContractProxy.getInstance().unbindPresenter(getPresenterClazz(),this);
+            ContractProxy.getInstance().unbindModel(getModelClazz(),mPresenter);
             mPresenter.detachView();
         }
     }

@@ -1,4 +1,4 @@
-package com.team.zhuoke.view.common.fragment;
+package com.team.zhuoke.view.live.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,9 +48,15 @@ public class LiveFragment extends BaseFragment<LivePresenterImp> implements Live
     }
 
     @Override
-    protected Class getContractClazz() {
-        return LiveContract.class;
+    protected Class getPresenterClazz() {
+        return null;
     }
+
+    @Override
+    protected Class getModelClazz() {
+        return null;
+    }
+
 
     @OnClick(R.id.btn_live)
     public void home() {

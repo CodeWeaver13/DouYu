@@ -1,4 +1,4 @@
-package com.team.zhuoke.view.common.fragment;
+package com.team.zhuoke.view.follow.fragment;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -38,10 +38,17 @@ public class FollowFragment extends BaseFragment {
     protected void onEvent() {
 
     }
+
     @Override
-    protected Class getContractClazz() {
+    protected Class getPresenterClazz() {
         return null;
     }
+
+    @Override
+    protected Class getModelClazz() {
+        return null;
+    }
+
 
     @OnClick(R.id.btn_home)
     public void home()

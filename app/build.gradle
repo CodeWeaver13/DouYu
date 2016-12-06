@@ -27,6 +27,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
+//     适配
     compile 'com.zhy:autolayout:1.4.5'
     //黄油刀
     compile 'com.jakewharton:butterknife:8.1.0'

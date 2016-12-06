@@ -1,4 +1,4 @@
-package com.team.zhuoke.view.common.fragment;
+package com.team.zhuoke.view.video.fragment;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -19,7 +19,7 @@ import butterknife.OnClick;
  * 备注消息：
  * 修改时间：2016/11/14 上午11:50
  **/
-public class UserFragment extends BaseFragment {
+public class VideoFragment extends BaseFragment {
     @BindView(R.id.btn_home)
     Button btnHome;
     SVProgressHUD svProgressHUD;
@@ -38,8 +38,14 @@ public class UserFragment extends BaseFragment {
     protected void onEvent() {
 
     }
+
     @Override
-    protected Class getContractClazz() {
+    protected Class getPresenterClazz() {
+        return null;
+    }
+
+    @Override
+    protected Class getModelClazz() {
         return null;
     }
 

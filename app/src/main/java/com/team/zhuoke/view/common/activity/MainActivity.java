@@ -7,13 +7,12 @@ import android.widget.Toast;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
-import com.team.zhuoke.presenter.home.interfaces.HomeContract;
 import com.team.zhuoke.ui.NavigateTabBar;
-import com.team.zhuoke.view.common.fragment.FollowFragment;
-import com.team.zhuoke.view.common.fragment.HomeFragment;
-import com.team.zhuoke.view.common.fragment.LiveFragment;
-import com.team.zhuoke.view.common.fragment.UserFragment;
-import com.team.zhuoke.view.common.fragment.VideoFragment;
+import com.team.zhuoke.view.follow.fragment.FollowFragment;
+import com.team.zhuoke.view.home.fragment.HomeFragment;
+import com.team.zhuoke.view.live.fragment.LiveFragment;
+import com.team.zhuoke.view.user.fragment.UserFragment;
+import com.team.zhuoke.view.video.fragment.VideoFragment;
 
 import butterknife.BindView;
 
@@ -92,10 +91,17 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     protected void onEvent() {
 
     }
+
     @Override
-    protected Class getContractClazz() {
-        return HomeContract.class;
+    protected Class getPresenterClazz() {
+        return null;
     }
+
+    @Override
+    protected Class getModelClazz() {
+        return null;
+    }
+
     /**
      * 拦截返回键，要求点击两次返回键才退出应用
      *
