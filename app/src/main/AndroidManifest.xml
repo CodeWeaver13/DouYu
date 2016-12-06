@@ -11,7 +11,6 @@
         <activity
             android:name=".view.common.activity.MainActivity"
             android:screenOrientation="portrait">
-
         </activity>
 
         <!-- 适配规格 -->
@@ -32,6 +31,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.common.activity.GuideActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

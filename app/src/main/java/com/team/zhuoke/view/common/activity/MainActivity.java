@@ -1,4 +1,4 @@
-package com.team.zhuoke.view;
+package com.team.zhuoke.view.common.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
