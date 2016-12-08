@@ -89,6 +89,8 @@ public class GenderPickerDialog extends Dialog {
             provinceItem = 0;
         } else {
             for (int i = 0; i < mGender.size(); i++) {
+
+
                 if (mGender.get(i)
                         .equals(defaultGender)) {
                     provinceItem = i;
