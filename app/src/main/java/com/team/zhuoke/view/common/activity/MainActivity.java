@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
 import com.team.zhuoke.ui.NavigateTabBar;
+import com.team.zhuoke.utils.PermissionUtil;
 import com.team.zhuoke.view.follow.fragment.FollowFragment;
 import com.team.zhuoke.view.home.fragment.HomeFragment;
 import com.team.zhuoke.view.live.fragment.LiveFragment;
@@ -89,7 +91,18 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     }
     @Override
     protected void onEvent() {
+        // 获取所有权限
+        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
+            @Override
+            public void onRequestPermissionSuccess() {
 
+            }
+
+            @Override
+            public void onRequestPermissionFailed() {
+
+            }
+        }, new RxPermissions(MainActivity.this), this);
     }
 
     @Override
