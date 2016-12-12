@@ -96,18 +96,18 @@ public class MainActivity extends BaseActivity<HomeModelLogic,HomePresenterImp> 
     }
     @Override
     protected void onEvent() {
-//        // 获取所有权限
-//        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
-//            @Override
-//            public void onRequestPermissionSuccess() {
-//
-//            }
-//
-//            @Override
-//            public void onRequestPermissionFailed() {
-//
-//            }
-//        }, new RxPermissions(MainActivity.this), getView());
+        // 获取所有权限
+        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
+            @Override
+            public void onRequestPermissionSuccess() {
+
+            }
+
+            @Override
+            public void onRequestPermissionFailed() {
+
+            }
+        }, new RxPermissions(MainActivity.this), getView());
     }
 
     @Override

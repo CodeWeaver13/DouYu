@@ -24,13 +24,13 @@ public class PermissionUtil {
     }
 //
     public static <T> LifecycleTransformer<T> bindToLifecycle(BaseView view) {
-//        if (view instanceof BaseActivity) {
-//            return ((BaseActivity) view).<T>bindToLifecycle();
-//        } else if (view instanceof BaseFragment) {
-//            return ((BaseFragment) view).<T>bindToLifecycle();
-//        } else {
+        if (view instanceof BaseActivity) {
+            return ((BaseActivity) view).<T>bindToLifecycle();
+        } else if (view instanceof BaseFragment) {
+            return ((BaseFragment) view).<T>bindToLifecycle();
+        } else {
             throw new IllegalArgumentException("view isn't activity or fragment");
-//        }
+        }
 
     }
 
