@@ -55,7 +55,7 @@ public class HomeFragment extends BaseFragment<HomeCateModelLogic,HomeCatePresen
     public void home()
     {
 //        正常数据
-     mPresenter.getHomeCate("3e760da75be261a588c74c4830632360");
+//     mPresenter.getHomeCate("3e760da75be261a588c74c4830632360");
 //        错误数据
         mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
     }

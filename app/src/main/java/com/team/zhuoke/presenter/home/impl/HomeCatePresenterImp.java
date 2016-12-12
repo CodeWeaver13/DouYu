@@ -26,10 +26,9 @@ public class HomeCatePresenterImp extends HomeCateContract.Presenter {
                  public void onSuccess(List<HomeCate> homeCates) {
                      L.i(homeCates.toString());
                  }
-
                  @Override
                  protected void onError(ResponeThrowable ex) {
-                L.i(ex.message+""+ex.code+"");
+                   L.i(ex.message+""+ex.code+"");
                  }
              }));
     }
