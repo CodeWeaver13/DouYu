@@ -3,185 +3,324 @@ package com.team.zhuoke.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
 import android.telephony.TelephonyManager;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.URL;
-import java.util.Enumeration;
-
 /**
- *  作者：gaoyin
- *  电话：18810474975
- *  邮箱：18810474975@163.com
- *  版本号：1.0
- *  类描述：  网络辅助类
- *  备注消息：
- *  修改时间：16/9/18 下午3:35
- **/
+ * @author: 范建海
+ * @createTime: 2016/10/30 13:55
+ * @className:  NetworkUtil
+ * @description: 网络状态工具类
+ * @changed by:
+ */
 public class NetworkUtil {
 
-    public static int NET_CNNT_BAIDU_OK = 1; // NetworkAvailable
-    public static int NET_CNNT_BAIDU_TIMEOUT = 2; // no NetworkAvailable
-    public static int NET_NOT_PREPARE = 3; // Net no ready
-    public static int NET_ERROR = 4; //net error
-    private static int TIMEOUT = 3000; // TIMEOUT
+
+    public static final int CHINA_MOBILE = 1; // 中国移动
+    public static final int CHINA_UNICOM = 2; // 中国联通
+    public static final int CHINA_TELECOM = 3; // 中国电信
+
+
+    public static final int SIM_OK = 0;
+    public static final int SIM_NO = -1;
+    public static final int SIM_UNKNOW = -2;
+
+    public static final String CONN_TYPE_WIFI = "wifi";
+    public static final String CONN_TYPE_GPRS = "gprs";
+    public static final String CONN_TYPE_NONE = "none";
 
     /**
-     *  检查网络
-     * @param context
-     * @return
+     * 判断网络连接有效
+     *
+     * @return 判断网络连接有效
      */
     public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager manager = (ConnectivityManager) context.getApplicationContext().getSystemService(
-                Context.CONNECTIVITY_SERVICE);
-        if (null == manager)
+        if (context == null) {
             return false;
-        NetworkInfo info = manager.getActiveNetworkInfo();
-        if (null == info || !info.isAvailable())
-            return false;
-        return true;
-    }
-
-    /**
-     *   获得本地地址
-     * @return
-     */
-    public static String getLocalIpAddress() {
-        String ret = "";
-        try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
-                NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
-                    InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress()) {
-                        ret = inetAddress.getHostAddress().toString();
-                    }
-                }
-            }
-        } catch (SocketException ex) {
-            ex.printStackTrace();
         }
-        return ret;
+        ConnectivityManager manager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] infos = manager.getAllNetworkInfo();
+        for (NetworkInfo info : infos) {
+            if (info.isConnected()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
-     * 返回当前网络状态
+     * 判断当前网络是否是wifi网络
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return boolean 是否是wifi网络
      */
-    public static int getNetState(Context context) {
-        try {
-            ConnectivityManager connectivity = (ConnectivityManager) context
-                    .getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connectivity != null) {
-                NetworkInfo networkinfo = connectivity.getActiveNetworkInfo();
-                if (networkinfo != null) {
-                    if (networkinfo.isAvailable() && networkinfo.isConnected()) {
-                        if (!connectionNetwork())
-                            return NET_CNNT_BAIDU_TIMEOUT;
-                        else
-                            return NET_CNNT_BAIDU_OK;
-                    } else {
-                        return NET_NOT_PREPARE;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static boolean isWifi(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+            return true;
         }
-        return NET_ERROR;
+        return false;
     }
 
     /**
-     *    检测网络NDS  是否PING通
-     *ping "http://www.baidu.com"
-     * @return
+     * 判断当前网络是否是3g网络
+     *
+     * @param context 上下文
+     * @return 是否是3g网络
      */
-    static private boolean connectionNetwork() {
-        boolean result = false;
-        HttpURLConnection httpUrl = null;
-        try {
-            httpUrl = (HttpURLConnection) new URL("http://www.baidu.com")
-                    .openConnection();
-            httpUrl.setConnectTimeout(TIMEOUT);
-            httpUrl.connect();
-            result = true;
-        } catch (IOException e) {
-        } finally {
-            if (null != httpUrl) {
-                httpUrl.disconnect();
-            }
-            httpUrl = null;
+    public static boolean is3G(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+            return true;
         }
+        return false;
+    }
+
+    /**
+     * 取得网络类型，wifi 2G 3G
+     *
+     * @param context 上下文
+     * @return WF 2G 3G 4G，或空 如果没网
+     */
+    public static String getWifiOr2gOr3G(Context context) {
+        String networkType = "";
+        if (context != null) {
+            try {
+                ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetInfo = cm.getActiveNetworkInfo();
+                if (activeNetInfo != null && activeNetInfo.isConnectedOrConnecting()) { // 有网
+                    networkType = activeNetInfo.getTypeName().toLowerCase();
+                    if (networkType.equals("wifi")) {
+                        networkType = "WF";
+                    } else { // 移动网络
+                        // //如果使用移动网络，则取得apn
+                        // apn = activeNetInfo.getExtraInfo();
+                        // 将移动网络具体类型归一化到2G 3G 4G
+                        networkType = "2G"; // 默认是2G
+                        int subType = activeNetInfo.getSubtype();
+                        switch (subType) {
+                            case TelephonyManager.NETWORK_TYPE_1xRTT:
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_CDMA: // IS95
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_EDGE: // 2.75
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_EVDO_0:
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_EVDO_A:
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_GPRS: // 2.5
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_HSDPA: // 3.5
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_HSPA: // 3.5
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_HSUPA:
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_UMTS:
+                                networkType = "3G";
+                                break;
+                            case TelephonyManager.NETWORK_TYPE_EHRPD:
+                                networkType = "3G";
+                                break; // ~ 1-2 Mbps
+                            case TelephonyManager.NETWORK_TYPE_EVDO_B:
+                                networkType = "3G";
+                                break; // ~ 5 Mbps
+                            case TelephonyManager.NETWORK_TYPE_HSPAP:
+                                networkType = "3G";
+                                break; // ~ 10-20 Mbps
+                            case TelephonyManager.NETWORK_TYPE_IDEN:
+                                break; // ~25 kbps
+                            case TelephonyManager.NETWORK_TYPE_LTE:
+                                networkType = "4G";
+                                break; // ~ 10+ Mbps
+                            default:
+                                break;
+                        }
+                    } // end 移动网络if
+                } // end 有网的if
+            } catch (Exception e) {
+                e.printStackTrace();
+                // TODO: handle exception
+            }
+        }
+        return networkType;
+    }
+
+    /**
+     * 程序启动时判断活动状态的网络类型
+     *
+     * @param context 上下文
+     * @return 网络类型
+     */
+    public static String getNetworkType(Context context) {
+        String result = null;
+
+
+        ConnectivityManager connectivity = (ConnectivityManager) (context.getSystemService(Context.CONNECTIVITY_SERVICE));
+
+        if (connectivity == null) {
+            result = null;
+        } else {
+
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i] != null) {
+                        State tem = info[i].getState();
+                        if ((tem == State.CONNECTED || tem == State.CONNECTING)) {
+                            String temp = info[i].getExtraInfo();
+                            result = info[i].getTypeName() + " "
+                                    + info[i].getSubtypeName() + temp;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
         return result;
     }
 
     /**
-     * 检查是否是 is3G
-     * @param context
-     * @return boolean
+     * 获得网络连接类型
+     *
+     * @param context 上下文
+     * @return 网络连接类型
      */
-    public static boolean is3G(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context
+    public static String getNetConnectType(Context context) {
+        ConnectivityManager connManager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-            return true;
+
+        if (null == connManager) {
+            return CONN_TYPE_NONE;
         }
-        return false;
+
+        NetworkInfo info = null;
+        info = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (null != info) {
+            State wifiState = info.getState();
+            if (State.CONNECTED == wifiState) {
+                return CONN_TYPE_WIFI;
+            }
+        } else {
+        }
+
+        info = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if (null != info) {
+            State mobileState = info.getState();
+            if (State.CONNECTED == mobileState) {
+                return CONN_TYPE_GPRS;
+            }
+        } else {
+        }
+        return CONN_TYPE_NONE;
     }
 
     /**
-     *  检查是否是 isWifi
-     * @param context
-     * @return boolean
+     * 获得Proxy地址
+     *
+     * @param context 上下文
+     * @return Proxy地址
      */
-    public static boolean isWifi(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            return true;
+    public static String getProxy(Context context) {
+        String proxy = null;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo networkinfo = connectivityManager.getActiveNetworkInfo();
+            if (networkinfo != null && networkinfo.isAvailable()) {
+                String stringExtraInfo = networkinfo.getExtraInfo();
+                if (stringExtraInfo != null && ("cmwap".equals(stringExtraInfo) || "uniwap".equals(stringExtraInfo))) {
+                    proxy = "10.0.0.172:80";
+                } else if (stringExtraInfo != null && "ctwap".equals(stringExtraInfo)) {
+                    proxy = "10.0.0.200:80";
+                }
+            }
         }
-        return false;
+
+        return proxy;
     }
+
+    /*
+     * 获取SIM卡状态
+     */
 
     /**
-     *  检查是否 is2G
-     * @param context
-     * @return boolean
+     * 获取SIM卡状态
+     *
+     * @param context 上下文
+     * @return SIM卡状态
      */
-    public static boolean is2G(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && (activeNetInfo.getSubtype() == TelephonyManager.NETWORK_TYPE_EDGE
-                || activeNetInfo.getSubtype() == TelephonyManager.NETWORK_TYPE_GPRS || activeNetInfo
-                .getSubtype() == TelephonyManager.NETWORK_TYPE_CDMA)) {
-            return true;
+    public static int getSimState(Context context) {
+        TelephonyManager telMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        int simState = telMgr.getSimState();
+        if (simState == TelephonyManager.SIM_STATE_READY) {
+            return SIM_OK;
+        } else if (simState == TelephonyManager.SIM_STATE_ABSENT) {
+            return SIM_NO;
+        } else {
+            return SIM_UNKNOW;
         }
-        return false;
     }
+    
+    /*	获取运营商类型
+     * 	此方法判断不是很全
+     * */
 
     /**
-     *   检查wifi是否开启  is wifi on
+     * 获取运营商类型,此方法判断不是很全
+     *
+     * @param context 上下文
+     * @param nsp     StringBuffer
+     * @return 营商类型
      */
-    public static boolean isWifiEnabled(Context context) {
-        ConnectivityManager mgrConn = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        TelephonyManager mgrTel = (TelephonyManager) context
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        return ((mgrConn.getActiveNetworkInfo() != null && mgrConn
-                .getActiveNetworkInfo().getState() == NetworkInfo.State.CONNECTED) || mgrTel
-                .getNetworkType() == TelephonyManager.NETWORK_TYPE_UMTS);
-    }
+    public static int getNSP(Context context, StringBuffer nsp) {
 
+        if (getSimState(context) == SIM_OK) {
+            TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            String operator = tm.getNetworkOperatorName();
+
+            //String numeric = tm.getNetworkOperator();
+
+            if (operator == null || operator.length() == 0) {
+                return SIM_UNKNOW;
+            }
+            if (nsp != null) {
+                nsp.delete(0, nsp.length());
+                nsp.append(operator);
+            }
+            if (operator.compareToIgnoreCase("中国移动") == 0
+                    || operator.compareToIgnoreCase("CMCC") == 0
+                    || operator.compareToIgnoreCase("China Mobile") == 0
+                    || operator.compareToIgnoreCase("46000") == 0
+                    || operator.compareToIgnoreCase("46002") == 0) {
+                return CHINA_MOBILE;
+            } else if (operator.compareToIgnoreCase("中国电信") == 0
+                    || operator.compareToIgnoreCase("China Telecom") == 0
+                    || operator.compareToIgnoreCase("46003") == 0
+                    || operator.compareToIgnoreCase("China Telcom") == 0) {
+                return CHINA_TELECOM;
+            } else if (operator.compareToIgnoreCase("中国联通") == 0
+                    || operator.compareToIgnoreCase("China Unicom") == 0
+                    || operator.compareToIgnoreCase("46001") == 0
+                    || operator.compareToIgnoreCase("CU-GSM") == 0) {
+                return CHINA_UNICOM;
+            } else {
+                return SIM_UNKNOW;
+            }
+        } else {
+            return SIM_NO;
+        }
+    }
 }
