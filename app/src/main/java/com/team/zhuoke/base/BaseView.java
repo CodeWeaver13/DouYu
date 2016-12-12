@@ -11,4 +11,5 @@ package com.team.zhuoke.base;
  **/
 public interface BaseView<T> {
 
+
 }

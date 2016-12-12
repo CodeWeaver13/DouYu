@@ -2,11 +2,8 @@ package com.team.zhuoke.presenter.home.interfaces;
 
 
 import com.team.zhuoke.base.BaseModel;
-import com.team.zhuoke.base.CommonPresenter;
-import com.team.zhuoke.base.CommonView;
-import com.team.zhuoke.model.annotation.Implement;
-import com.team.zhuoke.model.logic.home.HomeModelLogic;
-import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
+import com.team.zhuoke.base.BasePresenter;
+import com.team.zhuoke.base.BaseView;
 
 /**
  *  作者：gaoyin
@@ -20,23 +17,23 @@ import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
 
 public interface HomeContract {
 
-      interface View extends CommonView {
-
+      interface View extends BaseView {
+           void getMessge(String msg);
       }
 
-      @Implement(HomePresenterImp.class)
-      interface Presenter extends CommonPresenter {
+    interface  Model extends BaseModel{
+
+    }
+
+      abstract class Presenter extends BasePresenter<View,Model> {
           /**
            *  提示消息
            */
-          void message(String msg);
-          void columnDetail();
+          public   abstract   void message(String msg);
+
+          public  abstract  void columnDetail();
       }
 
-    @Implement(HomeModelLogic.class)
-     interface  Model extends BaseModel{
-
-     }
 
 
 

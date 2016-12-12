@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">斗鱼tv</string>
+    <string name="app_name">斗鱼TV</string>
 
     <!--上拉刷新下拉加载-->
     <string name="xrefreshview_header_hint_normal">下拉刷新</string>
