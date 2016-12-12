@@ -54,7 +54,10 @@ public class HomeFragment extends BaseFragment<HomeCateModelLogic,HomeCatePresen
     @OnClick(R.id.btn_home)
     public void home()
     {
-     mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
+//        正常数据
+     mPresenter.getHomeCate("3e760da75be261a588c74c4830632360");
+//        错误数据
+        mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
     }
 
 }
