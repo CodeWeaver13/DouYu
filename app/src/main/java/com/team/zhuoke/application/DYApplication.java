@@ -44,6 +44,7 @@ public class DYApplication extends Application {
             @Override
             public void onInstallFinish(int i) {
                 Log.d("app","onInstallFinish");
+                Log.e("app","oninstallFinish");
             }
 
             @Override
