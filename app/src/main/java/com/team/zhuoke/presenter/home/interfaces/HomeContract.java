@@ -35,10 +35,4 @@ public interface HomeContract {
       }
 
 
-
-
-
-
-
-
 }

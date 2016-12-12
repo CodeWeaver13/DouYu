@@ -32,7 +32,7 @@ import butterknife.BindView;
  *  备注消息：
  *  修改时间：2016/11/30 上午9:56
  **/
-public class MainActivity extends BaseActivity<HomeModelLogic,HomePresenterImp> implements  BaseView{
+public class MainActivity extends BaseActivity implements  BaseView{
     private static final String TAG_PAGE_HOME = "首页";
     private static final String TAG_PAGE_LIVE= "直播";
     private static final String TAG_PAGE_VIDEO = "视频";
@@ -113,16 +113,6 @@ public class MainActivity extends BaseActivity<HomeModelLogic,HomePresenterImp> 
     @Override
     protected BaseView getView() {
         return this;
-    }
-
-    @Override
-    protected Class getPresenterClazz() {
-        return null;
-    }
-
-    @Override
-    protected Class getModelClazz() {
-        return null;
     }
 
     /**
