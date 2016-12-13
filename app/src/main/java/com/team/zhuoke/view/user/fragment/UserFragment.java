@@ -6,6 +6,7 @@ import android.widget.Button;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
+import com.team.zhuoke.base.BaseView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -38,13 +39,9 @@ public class UserFragment extends BaseFragment {
     protected void onEvent() {
 
     }
-    @Override
-    protected Class getPresenterClazz() {
-        return null;
-    }
 
     @Override
-    protected Class getModelClazz() {
+    protected BaseView getViewImp() {
         return null;
     }
 

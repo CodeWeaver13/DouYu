@@ -4,12 +4,22 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.team.zhuoke.api.NetWorkApi;
+import com.team.zhuoke.net.config.NetWorkConfiguration;
+import com.team.zhuoke.net.http.HttpUtils;
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsListener;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
- * Created by Administrator on 2016/12/6 0006.
+ * Author： yolanda
+ *
+ * CreateTime： 2016/12/7 0007 下午 2:11
+ *
+ * description：
  */
+
 
 public class DYApplication extends Application {
     private static Context context;
@@ -18,6 +28,7 @@ public class DYApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
+        Fresco.initialize(context);
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         //TbsDownloader.needDownload(getApplicationContext(), false);
 
@@ -54,6 +65,21 @@ public class DYApplication extends Application {
         });
 
         QbSdk.initX5Environment(getApplicationContext(),  cb);
+        initOkHttpUtils();
+
+    }
+
+    private void initOkHttpUtils() {
+        /**
+         *  网络配置
+         */
+        NetWorkConfiguration configuration=new NetWorkConfiguration(this)
+                .baseUrl(NetWorkApi.baseUrl)
+                .isCache(true)
+                .isDiskCache(true)
+                .isMemoryCache(false);
+        HttpUtils.setConFiguration(configuration);
+
     }
 
     public static Context getContext() {

@@ -15,10 +15,10 @@ import com.team.zhuoke.view.home.fragment.HomeFragment;
  *  备注消息：
  *  修改时间：2016/11/14 下午3:22
  **/
-public class HomePresenterImp extends BasePresenter<HomeFragment,HomeModelLogic> implements HomeContract.Presenter {
+public class HomePresenterImp extends HomeContract.Presenter {
     @Override
     public void message(String msg) {
-        mView.showSuccessWithStatus(msg);
+          mView.getMessge(msg);
     }
     @Override
     public void columnDetail() {

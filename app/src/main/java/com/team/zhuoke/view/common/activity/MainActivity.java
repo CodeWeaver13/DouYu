@@ -1,14 +1,19 @@
 package com.team.zhuoke.view.common.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
+import com.team.zhuoke.base.BaseView;
+import com.team.zhuoke.model.logic.home.HomeModelLogic;
 import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
+import com.team.zhuoke.presenter.home.interfaces.HomeContract;
 import com.team.zhuoke.ui.NavigateTabBar;
+import com.team.zhuoke.utils.L;
 import com.team.zhuoke.utils.PermissionUtil;
 import com.team.zhuoke.view.follow.fragment.FollowFragment;
 import com.team.zhuoke.view.home.fragment.HomeFragment;
@@ -27,7 +32,7 @@ import butterknife.BindView;
  *  备注消息：
  *  修改时间：2016/11/30 上午9:56
  **/
-public class MainActivity extends BaseActivity<HomePresenterImp> {
+public class MainActivity extends BaseActivity implements  BaseView{
     private static final String TAG_PAGE_HOME = "首页";
     private static final String TAG_PAGE_LIVE= "直播";
     private static final String TAG_PAGE_VIDEO = "视频";
@@ -41,6 +46,7 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     NavigateTabBar.ViewHolder mHolder;
     @Override
     protected int getLayoutId() {
+
         return R.layout.activity_main;
     }
     @Override
@@ -102,17 +108,12 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
             public void onRequestPermissionFailed() {
 
             }
-        }, new RxPermissions(MainActivity.this), this);
+        }, new RxPermissions(MainActivity.this), getView());
     }
 
     @Override
-    protected Class getPresenterClazz() {
-        return null;
-    }
-
-    @Override
-    protected Class getModelClazz() {
-        return null;
+    protected BaseView getView() {
+        return this;
     }
 
     /**
@@ -152,5 +153,4 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
         super.onSaveInstanceState(outState);
         mNavigateTabBar.onSaveInstanceState(outState);
     }
-
 }

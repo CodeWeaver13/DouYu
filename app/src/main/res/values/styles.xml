@@ -15,6 +15,7 @@
     </style>
     <!--滑动返回主题-->
     <style name="AppTheme.NoActionBar.AppBaseTheme">
+        <!--设置窗口为透明窗体，所以APP启动时的黑白屏也变成了透明的-->
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>

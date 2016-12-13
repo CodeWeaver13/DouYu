@@ -11,4 +11,5 @@ package com.team.zhuoke.base;
  *  修改时间：2016/11/15 上午9:57
  **/
 public interface CommonPresenter {
+
 }
