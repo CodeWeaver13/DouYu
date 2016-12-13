@@ -46,6 +46,7 @@ public class MainActivity extends BaseActivity implements  BaseView{
     NavigateTabBar.ViewHolder mHolder;
     @Override
     protected int getLayoutId() {
+
         return R.layout.activity_main;
     }
     @Override
