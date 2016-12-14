@@ -26,23 +26,21 @@ public class SplashActivity extends AppCompatActivity {
         isFirst = SharedPreferenceUtils.getBooleanData("isFirst", true);
 //        LogUtils.e("isFirst=" + isFirst);
         handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+//        使用lamb代替new Runnable
+        handler.postDelayed(() -> {
 //                LogUtils.e(Thread.currentThread().getName() + "++++");
-                if (isFinishing()) {
-                    return;
-                }
-                if (isFirst) {
-                    intent = new Intent(SplashActivity.this, GuideActivity.class);
-                    SharedPreferenceUtils.setBooleanData("isFirst", false);
-
-                } else {
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
-                }
-                startActivity(intent);
-                finish();
+            if (isFinishing()) {
+                return;
             }
+            if (isFirst) {
+                intent = new Intent(SplashActivity.this, GuideActivity.class);
+                SharedPreferenceUtils.setBooleanData("isFirst", false);
+
+            } else {
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+            }
+            startActivity(intent);
+            finish();
         }, 3000);
 
     }

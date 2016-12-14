@@ -8,6 +8,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.team.zhuoke.api.NetWorkApi;
 import com.team.zhuoke.net.config.NetWorkConfiguration;
 import com.team.zhuoke.net.http.HttpUtils;
+import com.team.zhuoke.ui.pagestatemanager.PageManager;
 import com.tencent.smtt.sdk.QbSdk;
 
 
@@ -65,6 +66,7 @@ public class DYApplication extends Application {
 
         QbSdk.initX5Environment(getApplicationContext(),  cb);
         initOkHttpUtils();
+        PageManager.initInApp(context);
 
     }
 

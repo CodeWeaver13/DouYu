@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
@@ -14,6 +16,7 @@ import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.model.logic.home.HomeCateModelLogic;
 import com.team.zhuoke.presenter.home.impl.HomeCatePresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
+import com.team.zhuoke.ui.pagestatemanager.PageManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +31,8 @@ import butterknife.OnClick;
  * 备注消息：
  * 修改时间：2016/11/14 上午11:50
  **/
-public class HomeFragment extends BaseFragment<HomeCateModelLogic, HomeCatePresenterImp> implements HomeCateContract.View {
+public class HomeFragment extends BaseFragment<HomeCateModelLogic, HomeCatePresenterImp> implements HomeCateContract
+        .View {
     @BindView(R.id.btn_home)
     Button btnHome;
     SVProgressHUD svProgressHUD;
@@ -40,6 +44,9 @@ public class HomeFragment extends BaseFragment<HomeCateModelLogic, HomeCatePrese
     ImageView imgHistory;
     @BindView(R.id.img_message)
     ImageView imgMessage;
+    Handler handler = new Handler();
+    private PageManager pageStateManager;
+
 
     @Override
     protected int getLayoutId() {
@@ -67,7 +74,28 @@ public class HomeFragment extends BaseFragment<HomeCateModelLogic, HomeCatePrese
 //        正常数据
 //     mPresenter.getHomeCate("3e760da75be261a588c74c4830632360");
 //        错误数据
-        mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
+//        mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
+
+
+//        初始化pageStateManager
+        pageStateManager = PageManager.init(this, true, () -> Toast.makeText(getActivity().getApplicationContext(),
+                "点击重试了...", Toast
+                .LENGTH_LONG).show());
+        handler.postDelayed(() -> {
+//            修改state值来查看不同状态
+            int state = 2;
+            switch (state) {
+                case 0:
+                    pageStateManager.showError();
+                    break;
+                case 1:
+                    pageStateManager.showEmpty();
+                    break;
+                case 2:
+                    pageStateManager.showContent();
+            }
+
+        }, 2000);
     }
     @OnClick(R.id.img_message)
     public void message() {
