@@ -6,7 +6,7 @@ import com.team.zhuoke.api.home.HomeApi;
 import com.team.zhuoke.model.ParamsMapUtils;
 import com.team.zhuoke.net.http.HttpUtils;
 import com.team.zhuoke.net.transformer.DefaultTransformer;
-import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
+import com.team.zhuoke.presenter.home.interfaces.HomeCateListContract;
 
 import java.util.List;
 
@@ -21,18 +21,17 @@ import rx.Observable;
  * 修改时间：${DATA}1605
  */
 
-public class HomeCateModelLogic  implements HomeCateContract.Model {
-
+public class HomeCateListModelLogic implements HomeCateListContract.Model {
 
     @Override
-    public Observable<List<HomeCate>> getHomeCate(Context context, String identification) {
+    public Observable<List<HomeCateList>> getHomeCateList(Context context) {
         return HttpUtils.getInstance(context)
                 .setLoadDiskCache(false)
                 .setLoadMemoryCache(false)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
-                .getHomeCate(ParamsMapUtils.getHomeCate(identification))
+                .getHomeCateList(ParamsMapUtils.getDefaultParams())
 //               进行预处理
-                .compose(new DefaultTransformer<List<HomeCate>>());
+                .compose(new DefaultTransformer<List<HomeCateList>>());
     }
 }

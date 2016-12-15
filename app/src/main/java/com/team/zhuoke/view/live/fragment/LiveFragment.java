@@ -53,16 +53,6 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
         return this;
     }
 
-    @Override
-    protected Class getPresenterClazz() {
-        return null;
-    }
-
-    @Override
-    protected Class getModelClazz() {
-        return null;
-    }
-
 
     @OnClick(R.id.btn_live)
     public void home()

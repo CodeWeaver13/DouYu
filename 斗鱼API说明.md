@@ -1621,7 +1621,7 @@
 ###3.首页--推荐页面轮播图接口
 >
 * 接口描述： 首页推荐页面轮播图接口
-* 请求URL：http://capi.douyucdn.cn/api/v1/slide/6？version=2.411&client_sys=android
+* 请求URL：http://capi.douyucdn.cn/api/v1/slide/6?version=2.421&client_sys=android
 * 请求方式：Get
 * 请求参数：
 *        version：版本号
@@ -2154,45 +2154,7 @@
  ```
  ----
  
-###7.首页--推荐页--颜值栏目 
->
-* 接口描述：首页--推荐页--颜值栏目 本栏目做全屏直播 单独跳转到全屏直播详情页
-* 请求URL：http://capi.douyucdn.cn/api/v1/getVerticalRoom?offset=0&limit=4&client_sys=android
-* 请求方式：Get
-* 请求参数：
-*        client_sys：设备类型 默认为：Android
-*        offset：从第几个开始  （分页加载数据）
-*        limit： 到那个结束
-* 返回数据：
 
- ```
- {
-    "room_id": "622090",
-    "room_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_small.jpg",
-    "vertical_src": "https://rpic.douyucdn.cn/appCovers/2016/11/11/622090_201611112121_big.jpg",
-    "isVertical": 1,
-    "cate_id": "201",
-    "room_name": "我是中国人！！",
-    "show_status": "1",
-    "subject": "",
-    "show_time": "1480499177",
-    "owner_uid": "47020181",
-    "specific_catalog": "",
-    "specific_status": "0",
-    "vod_quality": "0",
-    "nickname": "杨家有个欢妹子",
-    "online": 66172,
-    "game_name": "颜值",
-    "child_id": "0",
-    "avatar_mid": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_middle.jpg",
-    "avatar_small": "https://apic.douyucdn.cn/upload/avanew/face/201611/12/18/cecdc51d522310faa050f501c1e0fb4c_small.jpg",
-    "jumpUrl": "",
-    "ranktype": 0,
-    "show_type": 1,
-    "anchor_city": "Seongbuk"
-}
- ```
- ---
 ###7.直播房间详情页
 >
 * 接口描述：直播房间详情页---为了查找auth的算法，我先是反编译了斗鱼的apk，结果他们把算法藏在了JNI里，随后尝试反汇编找出来的Share Object,无果。然后在斗鱼网页里的javascript里各种找，也没有，不过发现网页里也有一条类似的API，是从swf里发出的。之后去逐个反编译斗鱼网页里的swf，发现核心的core.swf是被加密了的，好在webroom.swf里找到了解密逻辑。解密后找到一个算sign/auth的function，然而没看懂，是一种变形的C。。最后的最后我在github上搜了一下之前解密用的key，发现之前果然有大神找到了auth算法，[附链接](https://github.com/0987363/douyutv-fix/blob/3dd6b9762a4cf5d359170b4a912457a0d4b5f5e5/DouYu-kodi-fix/APIHelper.py)。拿到算法，玩了一圈发现必须是这个格式才行，把android换成ios就会验证失败
@@ -2283,50 +2245,27 @@
  ```
  ----
 
-###8.
+###8.获取服务器端时间戳
 >
-* 接口描述： 获取首页分类信息
-* 请求URL：http://capi.douyucdn.cn/api/homeCate/getCateList
+* 接口描述： 获取服务端时间戳
+* 请求URL：http://capi.douyucdn.cn/api/v1/timestamp
 * 请求方式：Get
-* 请求参数：
-*        client_sys：设备类型 默认为：Android
 * 返回数据:
 
  ```
-
- {
+{
     "error": 0,
-    "data": [
-        {
-            "title": "手游",
-            "show_order": "1",
-            "identification": "3e760da75be261a588c74c4830632360",
-            "is_video": 0
-        },
-        {
-            "title": "娱乐",
-            "show_order": "2",
-            "identification": "9acf9c6f117a4c2d02de30294ec29da9",
-            "is_video": 0
-        },
-        {
-            "title": "游戏",
-            "show_order": "3",
-            "identification": "ba08216f13dd1742157412386eee1225",
-            "is_video": 0
-        },
-        {
-            "title": "趣玩",
-            "show_order": "4",
-            "identification": "393b245e8046605f6f881d415949494c",
-            "is_video": 0
-        }
-    ]
+    "data": 1481721800
 }
  ```
 ---
 
+###9.用户注册协议
+>
+* 接口描述： 用户注册协议
+* 请求URL：http://www.douyu.com/protocal/client
 
+ ---
 
 [^有接口相关问题]:
   联系QQ：377413612

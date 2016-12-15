@@ -1,5 +1,6 @@
 package com.team.zhuoke.model.logic.home;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**

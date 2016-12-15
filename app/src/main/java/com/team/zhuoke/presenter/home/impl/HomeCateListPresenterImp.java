@@ -1,9 +1,11 @@
 package com.team.zhuoke.presenter.home.impl;
 
 import com.team.zhuoke.model.logic.home.HomeCate;
+import com.team.zhuoke.model.logic.home.HomeCateList;
 import com.team.zhuoke.net.callback.RxSubscriber;
 import com.team.zhuoke.net.exception.ResponeThrowable;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
+import com.team.zhuoke.presenter.home.interfaces.HomeCateListContract;
 import com.team.zhuoke.utils.L;
 
 import java.util.List;
@@ -17,18 +19,18 @@ import java.util.List;
  *  备注消息：
  *  修改时间：2016/12/12 下午4:21
  **/
-public class HomeCatePresenterImp extends HomeCateContract.Presenter {
+public class HomeCateListPresenterImp extends HomeCateListContract.Presenter {
 
     @Override
-    public void getHomeCate(String identification) {
-             addSubscribe(mModel.getHomeCate(mContext,identification).subscribe(new RxSubscriber<List<HomeCate>>() {
+    public void getHomeCateList() {
+             addSubscribe(mModel.getHomeCateList(mContext).subscribe(new RxSubscriber<List<HomeCateList>>() {
                  @Override
-                 public void onSuccess(List<HomeCate> homeCates) {
-                    mView.getOtherList(homeCates);
+                 public void onSuccess(List<HomeCateList> homeCateListList) {
+                    mView.getOtherList(homeCateListList);
                  }
                  @Override
                  protected void onError(ResponeThrowable ex) {
-                   L.i(ex.message+""+ex.code+"");
+                     L.i(ex.message+""+ex.code+"");
                  }
              }));
     }

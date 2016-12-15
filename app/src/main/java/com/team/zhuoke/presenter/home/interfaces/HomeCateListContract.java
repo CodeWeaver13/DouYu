@@ -6,13 +6,11 @@ import android.content.Context;
 import com.team.zhuoke.base.BaseModel;
 import com.team.zhuoke.base.BasePresenter;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.HomeCate;
+import com.team.zhuoke.model.logic.home.HomeCateList;
 
 import java.util.List;
 
 import rx.Observable;
-
-import static com.team.zhuoke.api.NetWorkApi.getHomeCate;
 
 /**
  *  作者：gaoyin
@@ -23,14 +21,14 @@ import static com.team.zhuoke.api.NetWorkApi.getHomeCate;
  *  备注消息：
  *  修改时间：2016/12/12 下午4:04
  **/
-public interface HomeCateContract {
+public interface HomeCateListContract {
     interface View extends BaseView {
-       void getOtherList(List<HomeCate> homeCates);
+       void getOtherList(List<HomeCateList> cateLists);
     }
     interface  Model extends BaseModel {
-        Observable<List<HomeCate>> getHomeCate(Context context,String identification);
+        Observable getHomeCateList(Context context);
     }
     abstract class Presenter extends BasePresenter<View,Model> {
-        public abstract void  getHomeCate(String identification);
+        public abstract void  getHomeCateList();
     }
 }

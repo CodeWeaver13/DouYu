@@ -89,4 +89,8 @@ dependencies {
     // 仅支持 WebP 静态图，需要添加
     compile 'com.facebook.fresco:webpsupport:0.12.0'
     compile files('libs/tbs_sdk_thirdapp_v2.5.0.1037_36880_minsize_obfs_20161110_102536.jar')
+
+    //TabLayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+
 }
