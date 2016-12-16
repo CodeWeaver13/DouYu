@@ -27,8 +27,7 @@ public class HomeCateModelLogic  implements HomeCateContract.Model {
     @Override
     public Observable<List<HomeCate>> getHomeCate(Context context, String identification) {
         return HttpUtils.getInstance(context)
-                .setLoadDiskCache(false)
-                .setLoadMemoryCache(false)
+                .setLoadDiskCache(true)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
                 .getHomeCate(ParamsMapUtils.getHomeCate(identification))

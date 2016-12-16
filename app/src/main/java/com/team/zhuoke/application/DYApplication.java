@@ -69,7 +69,6 @@ public class DYApplication extends Application {
         PageManager.initInApp(context);
 
     }
-
     private void initOkHttpUtils() {
         /**
          *  网络配置
@@ -78,7 +77,7 @@ public class DYApplication extends Application {
                 .baseUrl(NetWorkApi.baseUrl)
                 .isCache(true)
                 .isDiskCache(true)
-                .isMemoryCache(false);
+                .isMemoryCache(true);
         HttpUtils.setConFiguration(configuration);
 
     }

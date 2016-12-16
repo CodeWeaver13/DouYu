@@ -27,8 +27,7 @@ public class HomeCateListModelLogic implements HomeCateListContract.Model {
     @Override
     public Observable<List<HomeCateList>> getHomeCateList(Context context) {
         return HttpUtils.getInstance(context)
-                .setLoadDiskCache(false)
-                .setLoadMemoryCache(false)
+                .setLoadDiskCache(true)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
                 .getHomeCateList(ParamsMapUtils.getDefaultParams())

@@ -24,7 +24,6 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
         addSubscribe(mModel.getModelCarousel(mContext).subscribe(new RxSubscriber<List<HomeCarousel>>() {
             @Override
             public void onSuccess(List<HomeCarousel> mHomeCarousel) {
-                L.i("View为"+mView);
                 mView.getViewCarousel(mHomeCarousel);
             }
             @Override

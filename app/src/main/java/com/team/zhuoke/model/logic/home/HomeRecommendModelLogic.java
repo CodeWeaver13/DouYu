@@ -34,8 +34,7 @@ public class HomeRecommendModelLogic implements HomeRecommendContract.Model {
     @Override
     public Observable<List<HomeCarousel>> getModelCarousel(Context context) {
         return  HttpUtils.getInstance(context)
-                .setLoadDiskCache(false)
-                .setLoadMemoryCache(false)
+                .setLoadDiskCache(true)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
                 .getCarousel(ParamsMapUtils.getHomeCarousel())

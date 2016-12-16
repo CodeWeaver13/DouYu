@@ -9,6 +9,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.team.zhuoke.utils.FrescoUtils;
 import com.team.zhuoke.utils.L;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
@@ -24,16 +25,13 @@ import cn.bingoogolapple.bgabanner.BGABanner;
 public class HomeCarouselAdapter implements BGABanner.Adapter<SimpleDraweeView, String> {
     @Override
     public void fillBannerItem(BGABanner banner, SimpleDraweeView itemView, String model, int position) {
-        ImageRequestBuilder builder = ImageRequestBuilder.newBuilderWithSource(Uri.parse(model));
-            builder.setResizeOptions(new ResizeOptions(1080 , 200));
-//        }
-        ImageRequest request = builder.build();
-        PipelineDraweeController controller = (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
-                .setImageRequest(request)
-                .setTapToRetryEnabled(true)
-                .setOldController(itemView.getController())
-                .build();
-        itemView.setController(controller);
-
+        itemView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                                                                     @Override
+                                                                     public void onGlobalLayout() {
+                                                                         if (itemView.getWidth() != 0 && itemView.getHeight() != 0) {
+                                                                             FrescoUtils.showThumb(itemView,model, itemView.getWidth(),itemView.getHeight());
+                                                                         }
+                                                                     }
+                                                                 });
     }
 }
