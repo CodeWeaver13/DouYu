@@ -2,10 +2,11 @@ package com.team.zhuoke.view.home.fragment;
 
 import android.os.Bundle;
 
+import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.HomeCate;
-import com.team.zhuoke.model.logic.home.HomeCateList;
+import com.team.zhuoke.model.logic.home.bean.HomeCate;
+import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.model.logic.home.HomeCateModelLogic;
 import com.team.zhuoke.presenter.home.impl.HomeCatePresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
@@ -13,8 +14,7 @@ import com.team.zhuoke.utils.L;
 
 import java.util.List;
 
-import static android.R.attr.fragment;
-import static com.team.zhuoke.R.layout.fragment_live;
+
 /**
  *  作者：gaoyin
  *  电话：18810474975
@@ -34,9 +34,8 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic,HomeCateP
     }
     @Override
     protected int getLayoutId() {
-        return fragment_live;
+        return R.layout.fragment_live;
     }
-
     @Override
     protected void onInitView(Bundle bundle) {
         Bundle arguments = getArguments();
@@ -48,14 +47,13 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic,HomeCateP
     protected void onEvent() {
 
     }
-
     @Override
     protected BaseView getViewImp() {
         return this;
     }
-
     @Override
     public void getOtherList(List<HomeCate> homeCates) {
-        L.i("获取到的数据为:"+homeCates.toString());
+
+//        L.i("获取到的数据为:"+homeCates.toString());
     }
 }

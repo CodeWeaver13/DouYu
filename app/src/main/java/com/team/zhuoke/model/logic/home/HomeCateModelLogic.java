@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.team.zhuoke.api.home.HomeApi;
 import com.team.zhuoke.model.ParamsMapUtils;
+import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.net.http.HttpUtils;
 import com.team.zhuoke.net.transformer.DefaultTransformer;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
@@ -22,7 +23,6 @@ import rx.Observable;
  */
 
 public class HomeCateModelLogic  implements HomeCateContract.Model {
-
 
     @Override
     public Observable<List<HomeCate>> getHomeCate(Context context, String identification) {

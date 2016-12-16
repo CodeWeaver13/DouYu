@@ -6,7 +6,7 @@ import android.content.Context;
 import com.team.zhuoke.base.BaseModel;
 import com.team.zhuoke.base.BasePresenter;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.bean.HomeCateList;
+import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
 
 import java.util.List;
 
@@ -21,14 +21,15 @@ import rx.Observable;
  *  备注消息：
  *  修改时间：2016/12/12 下午4:04
  **/
-public interface HomeCateListContract {
+public interface HomeRecommendContract {
     interface View extends BaseView {
-       void getOtherList(List<HomeCateList> cateLists);
+//        轮播图
+        void getViewCarousel(List<HomeCarousel> mHomeCarousel);
     }
     interface  Model extends BaseModel {
-        Observable getHomeCateList(Context context);
+        Observable<List<HomeCarousel>> getModelCarousel(Context context);
     }
     abstract class Presenter extends BasePresenter<View,Model> {
-        public abstract void  getHomeCateList();
+            public abstract  void  getPresenterCarousel();
     }
 }

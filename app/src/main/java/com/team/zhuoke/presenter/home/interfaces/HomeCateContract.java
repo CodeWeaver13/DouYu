@@ -6,13 +6,11 @@ import android.content.Context;
 import com.team.zhuoke.base.BaseModel;
 import com.team.zhuoke.base.BasePresenter;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.HomeCate;
+import com.team.zhuoke.model.logic.home.bean.HomeCate;
 
 import java.util.List;
 
 import rx.Observable;
-
-import static com.team.zhuoke.api.NetWorkApi.getHomeCate;
 
 /**
  *  作者：gaoyin

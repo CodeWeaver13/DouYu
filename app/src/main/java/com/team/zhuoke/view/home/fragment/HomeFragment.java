@@ -9,24 +9,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.HomeCateList;
 import com.team.zhuoke.model.logic.home.HomeCateListModelLogic;
-import com.team.zhuoke.model.logic.home.HomeCateModelLogic;
+import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.presenter.home.impl.HomeCateListPresenterImp;
-import com.team.zhuoke.presenter.home.impl.HomeCatePresenterImp;
-import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateListContract;
 import com.team.zhuoke.ui.pagestatemanager.PageManager;
-import com.team.zhuoke.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +28,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.R.attr.x;
 
 /**
  * 作者：gaoyin
@@ -149,8 +141,6 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
 
     @Override
     public void getOtherList(List<HomeCateList> cateLists) {
-        L.i("数据为:"+cateLists.toString());
-//        pageStateManager.showContent();
         /**
          *  默认数据
          */

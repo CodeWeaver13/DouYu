@@ -29,13 +29,19 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
     }
 
     /**
-     *
+     *   首页 列表详情
      * @param identification
      * @return
      */
     public static Map<String, String> getHomeCate(String identification) {
         mapparam = getDefaultParams();
         mapparam.put("identification", identification);
+        return mapparam;
+    }
+
+    public static Map<String, String> getHomeCarousel() {
+        mapparam = getDefaultParams();
+        mapparam.put("version", "2.421");
         return mapparam;
     }
 

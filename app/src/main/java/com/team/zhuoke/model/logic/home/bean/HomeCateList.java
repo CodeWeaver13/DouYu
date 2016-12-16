@@ -1,4 +1,4 @@
-package com.team.zhuoke.model.logic.home;
+package com.team.zhuoke.model.logic.home.bean;
 
 
 import java.io.Serializable;

@@ -1,19 +1,18 @@
 package com.team.zhuoke.api.home;
 
-import com.team.zhuoke.api.NetWorkApi;
-import com.team.zhuoke.model.logic.home.HomeCate;
-import com.team.zhuoke.model.logic.home.HomeCateList;
+import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
+import com.team.zhuoke.model.logic.home.bean.HomeCate;
+import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.net.response.HttpResponse;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
+import static com.team.zhuoke.api.NetWorkApi.getCarousel;
 import static com.team.zhuoke.api.NetWorkApi.getHomeCate;
 import static com.team.zhuoke.api.NetWorkApi.getHomeCateList;
 
@@ -41,5 +40,12 @@ public interface HomeApi {
      */
     @GET(getHomeCate)
     Observable<HttpResponse<List<HomeCate>>> getHomeCate(@QueryMap Map<String,String> params);
+
+    /**
+     *   首页   推荐轮播图
+     * @return
+     */
+    @GET(getCarousel)
+    Observable<HttpResponse<List<HomeCarousel>>> getCarousel(@QueryMap Map<String,String> params);
 
 }

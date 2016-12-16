@@ -1,6 +1,6 @@
 package com.team.zhuoke.presenter.home.impl;
 
-import com.team.zhuoke.model.logic.home.HomeCate;
+import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.net.callback.RxSubscriber;
 import com.team.zhuoke.net.exception.ResponeThrowable;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
