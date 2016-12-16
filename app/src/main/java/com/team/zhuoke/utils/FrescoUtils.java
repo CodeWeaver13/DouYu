@@ -62,8 +62,7 @@ public class FrescoUtils {
             return;
         initialize(draweeView.getContext());
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
-                .setResizeOptions(new ResizeOptions(DensityUtil.dip2px(draweeView.getContext(), resizeWidthDp),
-                        DensityUtil.dip2px(draweeView.getContext(), resizeHeightDp)))
+                .setResizeOptions(new ResizeOptions( resizeWidthDp,resizeHeightDp))
                 .build();
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setImageRequest(request)
