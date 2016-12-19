@@ -23,7 +23,7 @@ import rx.Observable;
  **/
 public interface HomeCateListContract {
     interface View extends BaseView {
-       void getOtherList(List<HomeCateList> cateLists);
+       void getHomeAllList(List<HomeCateList> cateLists);
     }
     interface  Model extends BaseModel {
         Observable getHomeCateList(Context context);

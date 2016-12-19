@@ -24,7 +24,7 @@ public class HomeCateListPresenterImp extends HomeCateListContract.Presenter {
              addSubscribe(mModel.getHomeCateList(mContext).subscribe(new RxSubscriber<List<HomeCateList>>() {
                  @Override
                  public void onSuccess(List<HomeCateList> homeCateListList) {
-                    mView.getOtherList(homeCateListList);
+                    mView.getHomeAllList(homeCateListList);
                  }
                  @Override
                  protected void onError(ResponeThrowable ex) {

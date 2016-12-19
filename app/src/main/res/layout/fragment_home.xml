@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#ffffff"
+        android:background="#eeeeee"
         >
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/sliding_tab"
@@ -28,9 +28,11 @@
         tl:tl_textSelectColor="#ff7800"
         tl:tl_textUnselectColor="#707070"
         />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#34707070"/>
         <android.support.v4.view.ViewPager
-
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

@@ -5,10 +5,8 @@ import android.content.Context;
 import com.team.zhuoke.api.home.HomeApi;
 import com.team.zhuoke.model.ParamsMapUtils;
 import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
-import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.net.http.HttpUtils;
 import com.team.zhuoke.net.transformer.DefaultTransformer;
-import com.team.zhuoke.presenter.home.interfaces.HomeCateListContract;
 import com.team.zhuoke.presenter.home.interfaces.HomeRecommendContract;
 
 import java.util.List;
@@ -34,7 +32,7 @@ public class HomeRecommendModelLogic implements HomeRecommendContract.Model {
     @Override
     public Observable<List<HomeCarousel>> getModelCarousel(Context context) {
         return  HttpUtils.getInstance(context)
-                .setLoadDiskCache(true)
+                .setLoadDiskCache(false)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
                 .getCarousel(ParamsMapUtils.getHomeCarousel())

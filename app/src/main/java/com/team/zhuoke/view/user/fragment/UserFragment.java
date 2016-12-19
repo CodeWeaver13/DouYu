@@ -44,4 +44,9 @@ public class UserFragment extends BaseFragment {
         return null;
     }
 
+    @Override
+    protected void lazyFetchData() {
+
+    }
+
 }

@@ -3,12 +3,7 @@ package com.team.zhuoke.view.home.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
@@ -21,12 +16,12 @@ import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.presenter.home.impl.HomeCateListPresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateListContract;
 import com.team.zhuoke.ui.pagestatemanager.PageManager;
+import com.team.zhuoke.view.home.adapter.HomeAllListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -57,7 +52,7 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
     private PageManager pageStateManager;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 
-    private MyPagerAdapter mAdapter;
+    private HomeAllListAdapter mAdapter;
     private String[] mTitles;
 
     @Override
@@ -71,7 +66,7 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
 //                "点击重试了...", Toast
 //                        .LENGTH_LONG).show());
 //              pageStateManager.showLoading();
-                mPresenter.getHomeCateList();
+
     }
     @Override
     protected void onEvent() {
@@ -80,6 +75,11 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
     @Override
     protected BaseView getViewImp() {
         return this;
+    }
+
+    @Override
+    protected void lazyFetchData() {
+        mPresenter.getHomeCateList();
     }
 
 //    @OnClick(R.id.btn_home)
@@ -131,50 +131,39 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        // TODO: inflate a fragment view
+//        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+//        ButterKnife.bind(this, rootView);
+//        return rootView;
+//    }
 
     @Override
-    public void getOtherList(List<HomeCateList> cateLists) {
+    public void getHomeAllList(List<HomeCateList> cateLists) {
         /**
          *  默认数据
          */
         mTitles = new String[cateLists.size()+1];
         mTitles[0]="推荐";
-        mFragments.add(RecommendHomeFragment.getInstance());
+//        mFragments.add(RecommendHomeFragment.getInstance());
         for (int i=0;i<cateLists.size();i++)
         {
             mTitles[i+1]=cateLists.get(i).getTitle();
-            Bundle bundle=new Bundle();
-             bundle.putSerializable("homecatelist",cateLists.get(i));
-            mFragments.add(OtherHomeFragment.getInstance(bundle));
+//            Bundle bundle=new Bundle();
+//             bundle.putSerializable("homecatelist",cateLists.get(i));
+//            mFragments.add(OtherHomeFragment.getInstance(bundle));
         }
-        mAdapter = new MyPagerAdapter(getFragmentManager());
+//        不摧毁Fragment
+        viewpager.setOffscreenPageLimit(mTitles.length);
+        mAdapter = new HomeAllListAdapter(getFragmentManager(),cateLists,mTitles);
         viewpager.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         slidingTab.setViewPager(viewpager,mTitles);
     }
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mTitles[position];
-        }
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
+    @Override
+    public void showErrorWithStatus(String msg) {
+        svProgressHUD.showErrorWithStatus(msg);
     }
+
 }

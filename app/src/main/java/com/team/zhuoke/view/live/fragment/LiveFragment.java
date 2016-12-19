@@ -69,4 +69,14 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
         ButterKnife.bind(this, rootView);
         return rootView;
     }
+
+    @Override
+    protected void lazyFetchData() {
+
+    }
+
+    @Override
+    public void showErrorWithStatus(String msg) {
+
+    }
 }

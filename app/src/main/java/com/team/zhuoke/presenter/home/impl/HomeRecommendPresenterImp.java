@@ -4,7 +4,6 @@ import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
 import com.team.zhuoke.net.callback.RxSubscriber;
 import com.team.zhuoke.net.exception.ResponeThrowable;
 import com.team.zhuoke.presenter.home.interfaces.HomeRecommendContract;
-import com.team.zhuoke.utils.L;
 
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
             }
             @Override
             protected void onError(ResponeThrowable ex) {
-                L.i(ex.message+""+ex.code+"");
+                mView.showErrorWithStatus(ex.message);
             }
         }));
     }

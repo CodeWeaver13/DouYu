@@ -10,6 +10,7 @@ package com.team.zhuoke.base;
  *  修改时间：2016/11/8 下午4:44
  **/
 public interface BaseView<T> {
-
+    //    提示错误消息
+    void showErrorWithStatus(String msg);
 
 }

@@ -28,7 +28,7 @@ public class HomeCatePresenterImp extends HomeCateContract.Presenter {
                  }
                  @Override
                  protected void onError(ResponeThrowable ex) {
-                   L.i(ex.message+""+ex.code+"");
+                  mView.showErrorWithStatus(ex.message);
                  }
              }));
     }

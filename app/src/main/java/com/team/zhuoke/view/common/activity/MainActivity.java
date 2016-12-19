@@ -153,4 +153,9 @@ public class MainActivity extends BaseActivity implements  BaseView{
         super.onSaveInstanceState(outState);
         mNavigateTabBar.onSaveInstanceState(outState);
     }
+
+    @Override
+    public void showErrorWithStatus(String msg) {
+
+    }
 }
