@@ -18,8 +18,8 @@ import com.team.zhuoke.ui.refreshview.listener.OnBottomLoadMoreTime;
 import com.team.zhuoke.ui.refreshview.listener.OnTopRefreshTime;
 import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.team.zhuoke.ui.refreshview.recyclerview.XSpanSizeLookup;
-import com.team.zhuoke.ui.refreshview.utils.LogUtils;
 import com.team.zhuoke.ui.refreshview.utils.Utils;
+import com.team.zhuoke.utils.L;
 
 
 public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, OnBottomLoadMoreTime {
@@ -156,7 +156,7 @@ public class XRefreshContentView implements OnScrollListener, OnTopRefreshTime, 
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         getRecyclerViewInfo(layoutManager);
         refreshAdapter(adapter, layoutManager);
-        LogUtils.d("test pre onScrolled mIsLoadingMore=" + mIsLoadingMore);
+        L.d("test pre onScrolled mIsLoadingMore=" + mIsLoadingMore);
         if (onRecyclerViewTop()) {
             if (Utils.isRecyclerViewFullscreen(recyclerView)) {
 //                        addFooterView(true);

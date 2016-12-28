@@ -1,7 +1,6 @@
 package com.team.zhuoke.view.common.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -9,11 +8,7 @@ import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
-import com.team.zhuoke.model.logic.home.HomeModelLogic;
-import com.team.zhuoke.presenter.home.impl.HomePresenterImp;
-import com.team.zhuoke.presenter.home.interfaces.HomeContract;
 import com.team.zhuoke.ui.NavigateTabBar;
-import com.team.zhuoke.utils.L;
 import com.team.zhuoke.utils.PermissionUtil;
 import com.team.zhuoke.view.follow.fragment.FollowFragment;
 import com.team.zhuoke.view.home.fragment.HomeFragment;
@@ -92,8 +87,6 @@ public class MainActivity extends BaseActivity implements  BaseView{
                 }
             }
         });
-
-
     }
     @Override
     protected void onEvent() {
@@ -108,7 +101,7 @@ public class MainActivity extends BaseActivity implements  BaseView{
             public void onRequestPermissionFailed() {
 
             }
-        }, new RxPermissions(MainActivity.this), getView());
+        }, new RxPermissions(MainActivity.this), this);
     }
 
     @Override

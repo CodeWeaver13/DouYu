@@ -92,5 +92,9 @@ dependencies {
 //    轮播图
     compile 'cn.bingoogolapple:bga-banner:2.1.5@aar'
     compile 'com.android.support:support-v4:25.0.1'
+//    RecyclerView辅助库
+    compile 'com.shizhefei:MultiTypeView:1.0.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+
 
 }

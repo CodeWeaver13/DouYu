@@ -1,5 +1,6 @@
 package com.team.zhuoke.net.callback;
 import com.team.zhuoke.net.exception.ResponeThrowable;
+import com.team.zhuoke.utils.L;
 
 import rx.Subscriber;
 
@@ -18,6 +19,7 @@ public abstract class ErrorSubscriber<T> extends Subscriber<T> {
         if(e instanceof ResponeThrowable){
             onError((ResponeThrowable)e);
         }else{
+            L.e("错误信息:"+e.getMessage());
             onError(new ResponeThrowable(e,1000));
         }
     }

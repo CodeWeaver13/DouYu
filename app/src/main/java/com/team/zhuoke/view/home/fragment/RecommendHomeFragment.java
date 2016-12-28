@@ -2,9 +2,8 @@ package com.team.zhuoke.view.home.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -16,13 +15,19 @@ import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
 import com.team.zhuoke.presenter.home.impl.HomeRecommendPresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeRecommendContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
+import com.team.zhuoke.utils.L;
 import com.team.zhuoke.view.home.adapter.HomeCarouselAdapter;
+import com.team.zhuoke.view.home.event.RecommendEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TooManyListenersException;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
 
@@ -47,7 +52,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
         RecommendHomeFragment rf = new RecommendHomeFragment();
         return rf;
     }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home_recommend;
@@ -55,7 +59,23 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
 
     @Override
     protected void onInitView(Bundle bundle) {
+        svProgressHUD = new SVProgressHUD(getActivity());
+        adapter = new HomeCarouselAdapter();
+        EventBus.getDefault().register(this);
+        refresh();
+        setXrefeshViewConfig();
+    }
 
+    /**
+     *  配置XRefreshView
+     */
+    protected  void setXrefeshViewConfig()
+    {
+        rtefreshContent.setPinnedTime(2000);
+        rtefreshContent.setPullLoadEnable(false);
+        rtefreshContent.setPullRefreshEnable(true);
+        rtefreshContent.setMoveForHorizontal(true);
+        rtefreshContent.setPinnedContent(true);
     }
     @Override
     protected void onEvent() {
@@ -73,12 +93,16 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
             }
         });
     }
-
     @Override
     protected BaseView getViewImp() {
         return this;
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN,priority = 100) //在ui线程执行
+    public void onRecommendEvent(RecommendEvent event) {
+        L.i("数据为:"+event.getMsg());
+        Toast.makeText(getActivity(),event.getMsg(),Toast.LENGTH_LONG).show();
+    }
     /**
      * 轮播图
      *
@@ -86,15 +110,17 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
      */
     @Override
     public void getViewCarousel(List<HomeCarousel> mHomeCarousel) {
-        rtefreshContent.stopRefresh();
+        if(rtefreshContent!=null) {
+            rtefreshContent.stopRefresh();
+        }
         ArrayList<String> pic_url = new ArrayList<String>();
-//        ArrayList<String>  title=new ArrayList<String>();
         for (int i = 0; i < mHomeCarousel.size(); i++) {
             pic_url.add(mHomeCarousel.get(i).getPic_url());
-//            title.add(mHomeCarousel.get(i).getTitle());
         }
-        recommed_banner.setAdapter(adapter);
-        recommed_banner.setData(R.layout.item_image_carousel, pic_url, null);
+        if(recommed_banner!=null) {
+            recommed_banner.setAdapter(adapter);
+            recommed_banner.setData(R.layout.item_image_carousel, pic_url, null);
+        }
     }
 
     /**
@@ -108,15 +134,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
     public void onBannerItemClick(BGABanner banner, SimpleDraweeView itemView, String model, int position) {
 
     }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
     /**
      *  刷新网络数据
      */
@@ -124,18 +141,11 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
     {
 //        轮播图
         mPresenter.getPresenterCarousel();
-
     }
     @Override
     protected void lazyFetchData() {
-        svProgressHUD = new SVProgressHUD(getActivity());
-        adapter = new HomeCarouselAdapter();
-        refresh();
-        rtefreshContent.setPinnedTime(2000);
-        rtefreshContent.setPullLoadEnable(false);
-        rtefreshContent.setPullRefreshEnable(true);
-    }
 
+    }
     @Override
     public void showErrorWithStatus(String msg) {
         svProgressHUD.showErrorWithStatus(msg);

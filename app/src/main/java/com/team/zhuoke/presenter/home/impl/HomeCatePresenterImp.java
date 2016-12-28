@@ -4,7 +4,6 @@ import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.net.callback.RxSubscriber;
 import com.team.zhuoke.net.exception.ResponeThrowable;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
-import com.team.zhuoke.utils.L;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class HomeCatePresenterImp extends HomeCateContract.Presenter {
              addSubscribe(mModel.getHomeCate(mContext,identification).subscribe(new RxSubscriber<List<HomeCate>>() {
                  @Override
                  public void onSuccess(List<HomeCate> homeCates) {
-                    mView.getOtherList(homeCates);
+                     mView.getOtherList(homeCates);
                  }
                  @Override
                  protected void onError(ResponeThrowable ex) {

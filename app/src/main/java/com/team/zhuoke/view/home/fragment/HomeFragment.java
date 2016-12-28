@@ -62,11 +62,6 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
     @Override
     protected void onInitView(Bundle bundle) {
         svProgressHUD = new SVProgressHUD(getActivity());
-//        pageStateManager = PageManager.init(this, true, () -> Toast.makeText(getActivity(),
-//                "点击重试了...", Toast
-//                        .LENGTH_LONG).show());
-//              pageStateManager.showLoading();
-
     }
     @Override
     protected void onEvent() {
@@ -131,14 +126,6 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
 
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        // TODO: inflate a fragment view
-//        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-//        ButterKnife.bind(this, rootView);
-//        return rootView;
-//    }
-
     @Override
     public void getHomeAllList(List<HomeCateList> cateLists) {
         /**
@@ -156,7 +143,7 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
         }
 //        不摧毁Fragment
         viewpager.setOffscreenPageLimit(mTitles.length);
-        mAdapter = new HomeAllListAdapter(getFragmentManager(),cateLists,mTitles);
+        mAdapter = new HomeAllListAdapter(getChildFragmentManager(),cateLists,mTitles);
         viewpager.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
         slidingTab.setViewPager(viewpager,mTitles);

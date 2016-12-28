@@ -71,7 +71,6 @@ public abstract class BaseFragment<M extends  BaseModel,P extends BasePresenter>
         unbinder= ButterKnife.bind(this, rootView);
         bindMVP();
         onInitView(savedInstanceState);
-
         return rootView;
     }
     @Override

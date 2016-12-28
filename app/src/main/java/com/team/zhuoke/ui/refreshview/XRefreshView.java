@@ -24,8 +24,8 @@ import com.team.zhuoke.ui.refreshview.callback.IFooterCallBack;
 import com.team.zhuoke.ui.refreshview.callback.IHeaderCallBack;
 import com.team.zhuoke.ui.refreshview.listener.OnBottomLoadMoreTime;
 import com.team.zhuoke.ui.refreshview.listener.OnTopRefreshTime;
-import com.team.zhuoke.ui.refreshview.utils.LogUtils;
 import com.team.zhuoke.ui.refreshview.utils.Utils;
+import com.team.zhuoke.utils.L;
 
 import java.util.Calendar;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -326,7 +326,7 @@ public class XRefreshView extends LinearLayout {
     protected void onLayout(boolean changed, int l, int t2, int r, int b) {
 //        super.onLayout(changed, l, t2, r, b);
 //        if(mHolder.mOffsetY!=0)return;
-        LogUtils.d("onLayout mHolder.mOffsetY=" + mHolder.mOffsetY);
+        L.d("onLayout mHolder.mOffsetY=" + mHolder.mOffsetY);
 
         int childCount = getChildCount();
         int top = getPaddingTop() + mHolder.mOffsetY;
@@ -438,7 +438,7 @@ public class XRefreshView extends LinearLayout {
                 if (mMoveForHorizontal) {
                     return super.dispatchTouchEvent(ev);
                 }
-                LogUtils.d("isTop=" + mContentView.isTop() + ";isBottom=" + mContentView.isBottom());
+                L.d("isTop=" + mContentView.isTop() + ";isBottom=" + mContentView.isBottom());
                 if (deltaY > 0 && mHolder.mOffsetY <= mHeadMoveDistence || deltaY < 0) {
                     deltaY = (int) (deltaY / OFFSET_RADIO);
                 } else {
@@ -529,7 +529,7 @@ public class XRefreshView extends LinearLayout {
 
     private void sendCancelEvent() {
         if (!mHasSendCancelEvent) {
-            LogUtils.d("sendCancelEvent");
+            L.d("sendCancelEvent");
             setRefreshTime();
             mHasSendCancelEvent = true;
             mHasSendDownEvent = false;
@@ -561,7 +561,7 @@ public class XRefreshView extends LinearLayout {
 
     private void sendDownEvent() {
         if (!mHasSendDownEvent) {
-            LogUtils.d("sendDownEvent");
+            L.d("sendDownEvent");
             mHasSendCancelEvent = false;
             mHasSendDownEvent = true;
             isIntercepted = false;
@@ -800,7 +800,7 @@ public class XRefreshView extends LinearLayout {
             offsetY = 0 - mHolder.mOffsetY;
             startScroll(offsetY, Utils.computeScrollVerticalDuration(offsetY, getHeight()));
         }
-        LogUtils.d("resetHeaderHeight offsetY=" + offsetY);
+        L.d("resetHeaderHeight offsetY=" + offsetY);
     }
 
     public void moveView(int deltaY) {
@@ -832,7 +832,7 @@ public class XRefreshView extends LinearLayout {
      * stop refresh, reset header view.
      */
     public void stopRefresh(boolean success) {
-        LogUtils.d("stopRefresh mPullRefreshing=" + mPullRefreshing);
+        L.d("stopRefresh mPullRefreshing=" + mPullRefreshing);
         if (mPullRefreshing == true) {
             mStopingRefresh = true;
             mHeaderCallBack.onStateFinish(success);
@@ -977,7 +977,7 @@ public class XRefreshView extends LinearLayout {
                 moveView(offsetY);
                 int[] location = new int[2];
                 mHeaderView.getLocationInWindow(location);
-                LogUtils.d("currentY=" + currentY + ";mHolder.mOffsetY=" + mHolder.mOffsetY);
+                L.d("currentY=" + currentY + ";mHolder.mOffsetY=" + mHolder.mOffsetY);
                 if (enableReleaseToLoadMore && mHolder.mOffsetY == 0 && mReleaseToLoadMore && mContentView != null && mContentView.isBottom()) {
                     mReleaseToLoadMore = false;
                     mContentView.startLoadMore(false, null, null);

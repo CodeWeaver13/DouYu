@@ -1,7 +1,6 @@
 package com.team.zhuoke.view.home.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
@@ -59,28 +57,57 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     ViewPager ngbarViewpager;
     @BindView(R.id.points)
     ViewGroup mPoints;
-    private HomeCateList mHomeCate;
+    private  static List<OtherHomeFragment> mOtherHomeFraments=new ArrayList<OtherHomeFragment>();
+
     private  HomeNgBarViewPagerAdapter homeNgBarViewPagerAdapter;
     private  HomeNgBarAdapter homeNgBarAdapter;
 
-    public static OtherHomeFragment getInstance(HomeCateList args) {
-        OtherHomeFragment sf = new OtherHomeFragment();
+    public static OtherHomeFragment getInstance(HomeCateList args,int position) {
+        OtherHomeFragment mInstance = new OtherHomeFragment();
         Bundle bundle=new Bundle();
         bundle.putSerializable("homecatelist",args);
-        sf.setArguments(bundle);
-        return sf;
+        bundle.putString("type",args.getShow_order());
+        bundle.putInt("position",position-1);
+        mInstance.setArguments(bundle);
+        mOtherHomeFraments.add(position-1,mInstance);
+        return mInstance;
     }
+
 
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home_otherlist;
     }
-
     @Override
     protected void onInitView(Bundle bundle) {
-
-
+        Bundle arguments = getArguments();
+        HomeCateList mHomeCate = (HomeCateList) arguments.getSerializable("homecatelist");
+        String  show_order=arguments.getString("type");
+        if(show_order.equals(mHomeCate.getShow_order()))
+        {
+            mPresenter.getHomeCate(mHomeCate.getIdentification());
+        }
     }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        // TODO: inflate a fragment view
+//
+//        if (rootView != null) {
+//            ViewGroup parent = (ViewGroup) rootView.getParent();
+//            if (parent != null) {
+//                parent.removeView(rootView);
+//            }
+//            return rootView;
+//        }
+//        if (getLayoutId() != 0) {
+//            rootView = inflater.inflate(getLayoutId(),container, false);
+//        } else {
+//            rootView = super.onCreateView(inflater, container, savedInstanceState);
+//        }
+//        unbinder= ButterKnife.bind(this, rootView);
+//        onInitView(savedInstanceState);
+//        return rootView;
+//    }
     @Override
     protected void onEvent() {
      ngbarViewpager.addOnPageChangeListener(this);
@@ -88,24 +115,15 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
 
     @Override
     protected BaseView getViewImp() {
-        return this;
-    }
-
-//    onAttachFragment
-
-    @Override
-    public void onAttachFragment(Fragment childFragment) {
-        super.onAttachFragment(childFragment);
+        Bundle arguments = getArguments();
+        return mOtherHomeFraments.get(arguments.getInt("position"));
     }
     /**
      * 进行懒加载   只进行加载一次
      */
     @Override
     protected void lazyFetchData() {
-        Bundle arguments = getArguments();
-        mHomeCate = (HomeCateList) arguments.getSerializable("homecatelist");
 
-        mPresenter.getHomeCate(mHomeCate.getIdentification());
     }
 
     @Override
@@ -116,11 +134,9 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
          * @param homeCates
          */
       getNgBarView(homeCates);
-//        L.i("获取到的数据为:"+homeCates.toString());
     }
     public void getNgBarView(List<HomeCate> homeCates)
     {
-
         LayoutInflater inflater=LayoutInflater.from(getActivity());
 //        显示总的页数  Math.ceil 先上取整
         mTotalPage=(int)Math.ceil(homeCates.size()*1.0/mPageSize);
@@ -177,13 +193,7 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     public void showErrorWithStatus(String msg) {
 
     }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
