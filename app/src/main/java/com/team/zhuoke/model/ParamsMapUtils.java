@@ -45,5 +45,16 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         return mapparam;
     }
 
+    /**
+     *    首页--推荐--颜值
+     *      默认  :4条数据
+     * @return
+     */
+    public static Map<String, String> getHomeFaceScoreColumn() {
+        mapparam = getDefaultParams();
+        mapparam.put("limit", "4");
+        return mapparam;
+    }
+
 
 }

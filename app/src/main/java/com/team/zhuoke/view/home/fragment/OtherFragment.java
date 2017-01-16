@@ -132,6 +132,7 @@ public  class OtherFragment extends RxFragment  implements ViewPager.OnPageChang
                 }
                 @Override
                 protected void onError(ResponeThrowable ex) {
+
                 }
             });
         }

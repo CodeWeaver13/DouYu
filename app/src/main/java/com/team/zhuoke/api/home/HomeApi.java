@@ -3,6 +3,9 @@ package com.team.zhuoke.api.home;
 import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
 import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.model.logic.home.bean.HomeCateList;
+import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
+import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
+import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.net.response.HttpResponse;
 
 import java.util.List;
@@ -15,6 +18,9 @@ import rx.Observable;
 import static com.team.zhuoke.api.NetWorkApi.getCarousel;
 import static com.team.zhuoke.api.NetWorkApi.getHomeCate;
 import static com.team.zhuoke.api.NetWorkApi.getHomeCateList;
+import static com.team.zhuoke.api.NetWorkApi.getHomeFaceScoreColumn;
+import static com.team.zhuoke.api.NetWorkApi.getHomeHotColumn;
+import static com.team.zhuoke.api.NetWorkApi.getHomeRecommendHotCate;
 
 /**
  *  作者：gaoyin
@@ -47,5 +53,26 @@ public interface HomeApi {
      */
     @GET(getCarousel)
     Observable<HttpResponse<List<HomeCarousel>>> getCarousel(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---最热
+     * @return
+     */
+    @GET(getHomeHotColumn)
+    Observable<HttpResponse<List<HomeHotColumn>>> getHotColumn(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---颜值
+     * @return
+     */
+    @GET(getHomeFaceScoreColumn)
+    Observable<HttpResponse<List<HomeFaceScoreColumn>>> getFaceScoreColumn(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---热门 种类
+     * @return
+     */
+    @GET(getHomeRecommendHotCate)
+    Observable<HttpResponse<List<HomeRecommendHotCate>>> getHotCate(@QueryMap Map<String,String> params);
 
 }

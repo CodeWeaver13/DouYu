@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/wh5.0dimens5.0dp"
+    android:layout_height="wrap_content">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_item_gridview"
+        android:layout_width="@dimen/wh200.0dimens200.0dp"
+        android:layout_height="@dimen/wh100.0dimens100.0dp"
+        fresco:placeholderImage="@mipmap/image_error_5_3"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImageScaleType="centerCrop"
+        android:src="@mipmap/image_loading_5_3"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/wh10.0dimens10.0dp"
+       fresco:roundedCornerRadius="6dip"
+        android:layout_alignParentStart="true" />
+     <TextView
+         android:id="@+id/tv_column_item_nickname"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/img_item_gridview"
+         android:textSize="12sp"
+         android:textColor="#373737"
+         android:text="超人不哭"
+         android:includeFontPadding="false"
+         android:shadowDx="0"
+         android:shadowDy="-2"
+         android:shadowRadius="0.1"
+         android:singleLine="true"
+         android:ellipsize="end"
+         android:textStyle="bold"
+         android:width="@dimen/wh200.0dimens200.0dp"
+         />
+</RelativeLayout>
