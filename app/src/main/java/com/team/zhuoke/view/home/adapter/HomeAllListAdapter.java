@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.team.zhuoke.model.logic.home.bean.HomeCateList;
-import com.team.zhuoke.view.home.fragment.OtherFragment;
+import com.team.zhuoke.view.home.fragment.OtherHomeFragment;
 import com.team.zhuoke.view.home.fragment.RecommendHomeFragment;
 
 import java.util.List;
@@ -47,7 +47,7 @@ public class HomeAllListAdapter extends FragmentStatePagerAdapter {
         {
             return RecommendHomeFragment.getInstance();
         }
-        OtherFragment otherHomeFragment= OtherFragment.getInstance(mHomeCateLists.get(position-1));
+        OtherHomeFragment otherHomeFragment= OtherHomeFragment.getInstance(mHomeCateLists.get(position-1),position);
         return otherHomeFragment;
     }
 //    @Override

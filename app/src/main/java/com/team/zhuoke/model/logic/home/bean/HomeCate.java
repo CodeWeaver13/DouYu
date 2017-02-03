@@ -14,13 +14,13 @@ import java.util.List;
 public class HomeCate {
 
     /**
-     * room_list : [{"room_id":"1164160","room_src":"https://rpic.douyucdn.cn/a1612/12/15/1164160_161212154200.jpg","vertical_src":"https://rpic.douyucdn.cn/a1612/12/15/1164160_161212154200.jpg","isVertical":0,"cate_id":"240","room_name":"斗技碰瓷三兄弟！问你怕不怕？","show_status":"1","subject":"","show_time":"1481505967","owner_uid":"72902130","nickname":"云中欧凰","online":89596,"game_name":"阴阳师","child_id":"348","avatar_mid":"https://apic.douyucdn.cn/upload/avanew/face/201610/27/09/e578679684dac5e07b58432a181446fa_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avanew/face/201610/27/09/e578679684dac5e07b58432a181446fa_small.jpg","jumpUrl":""},{"room_id":"134000","room_src":"https://rpic.douyucdn.cn/a1612/12/15/134000_161212154924.jpg","vertical_src":"https://rpic.douyucdn.cn/a1612/12/15/134000_161212154924.jpg","isVertical":0,"cate_id":"181","room_name":"Q神：王者荣耀第一全能王！","show_status":"1","subject":"","show_time":"1481525995","owner_uid":"5842120","nickname":"小QIMBA","online":36927,"game_name":"王者荣耀","child_id":"224","avatar_mid":"https://apic.douyucdn.cn/upload/avatar/default/13_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/default/13_small.jpg","jumpUrl":""},{"room_id":"187503","room_src":"https://rpic.douyucdn.cn/a1612/12/15/187503_161212154049.jpg","vertical_src":"https://rpic.douyucdn.cn/a1612/12/15/187503_161212154049.jpg","isVertical":0,"cate_id":"196","room_name":"FJ：火影，角度和花火谁强？","show_status":"1","subject":"","show_time":"1481524630","owner_uid":"8766782","nickname":"从不空大的FJ","online":18103,"game_name":"火影忍者","child_id":"19","avatar_mid":"https://apic.douyucdn.cn/upload/avatar/008/76/67/82_avatar_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/008/76/67/82_avatar_small.jpg","jumpUrl":""},{"room_id":"573449","room_src":"https://rpic.douyucdn.cn/a1612/12/15/573449_161212154003.jpg","vertical_src":"https://rpic.douyucdn.cn/a1612/12/15/573449_161212154003.jpg","isVertical":0,"cate_id":"181","room_name":"梦幻第六人！","show_status":"1","subject":"","show_time":"1481528079","owner_uid":"8930628","nickname":"小小青蛙笑","online":11187,"game_name":"王者荣耀","child_id":"224","avatar_mid":"https://apic.douyucdn.cn/upload/avatar/face/201603/d6d0a88653f417a33e6182c514639ebb_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/face/201603/d6d0a88653f417a33e6182c514639ebb_small.jpg","jumpUrl":""}]
+     * room_list : [{"room_id":"134000","room_src":"https://rpic.douyucdn.cn/a1702/03/17/134000_170203170229.jpg","vertical_src":"https://rpic.douyucdn.cn/a1702/03/17/134000_170203170229.jpg","isVertical":0,"cate_id":181,"room_name":"Q神：单排上个王者！！！","show_status":"1","subject":"","show_time":"1486111356","owner_uid":"5842120","nickname":"小QIMBA","online":149041,"game_name":"王者荣耀","child_id":224,"avatar_mid":"https://apic.douyucdn.cn/upload/avatar/default/13_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/default/13_small.jpg","jumpUrl":""},{"room_id":"228686","room_src":"https://rpic.douyucdn.cn/a1702/03/16/228686_170203165347.jpg","vertical_src":"https://rpic.douyucdn.cn/a1702/03/16/228686_170203165347.jpg","isVertical":0,"cate_id":190,"room_name":"亚鹰：憋说话，让我怼过去","show_status":"1","subject":"","show_time":"1486111946","owner_uid":"6471965","nickname":"大唐亚洲之鹰","online":33021,"game_name":"皇室战争","child_id":31,"avatar_mid":"https://apic.douyucdn.cn/upload/avatar/face/201607/27/366efed66508e86ec1c751766db328f9_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/face/201607/27/366efed66508e86ec1c751766db328f9_small.jpg","jumpUrl":""},{"room_id":"252827","room_src":"https://rpic.douyucdn.cn/a1702/03/17/252827_170203170348.jpg","vertical_src":"https://rpic.douyucdn.cn/a1702/03/17/252827_170203170348.jpg","isVertical":0,"cate_id":240,"room_name":"【温酒】高强度一下，试试能不能刚到晚上","show_status":"1","subject":"","show_time":"1486098115","owner_uid":"8697252","nickname":"温酒Sama","online":11296,"game_name":"阴阳师","child_id":349,"avatar_mid":"https://apic.douyucdn.cn/upload/avanew/face/201701/23/18/2c9106d8cba77ba5ce0ffb64edaca032_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avanew/face/201701/23/18/2c9106d8cba77ba5ce0ffb64edaca032_small.jpg","jumpUrl":""},{"room_id":"1662686","room_src":"https://rpic.douyucdn.cn/a1702/03/17/1662686_170203170218.jpg","vertical_src":"https://rpic.douyucdn.cn/a1702/03/17/1662686_170203170218.jpg","isVertical":0,"cate_id":192,"room_name":"中路杀神玩爆全场","show_status":"1","subject":"","show_time":"1486112110","owner_uid":"63669544","nickname":"浪妓5555","online":10150,"game_name":"球球大作战","child_id":366,"avatar_mid":"https://apic.douyucdn.cn/upload/avatar/face/201608/13/a6e461c6165813c0f9d6775e692e4648_middle.jpg","avatar_small":"https://apic.douyucdn.cn/upload/avatar/face/201608/13/a6e461c6165813c0f9d6775e692e4648_small.jpg","jumpUrl":""}]
      * tag_name : 最热
      * tag_id : 9
      * icon_url :
      * small_icon_url :
-     * count : 469
-     * count_ios : 245
+     * count : 719
+     * count_ios : 366
      * push_vertical_screen : 0
      */
 
@@ -28,26 +28,26 @@ public class HomeCate {
     private String tag_id;
     private String icon_url;
     private String small_icon_url;
-    private int count;
-    private int count_ios;
+    private String count;
+    private String count_ios;
     private int push_vertical_screen;
     /**
-     * room_id : 1164160
-     * room_src : https://rpic.douyucdn.cn/a1612/12/15/1164160_161212154200.jpg
-     * vertical_src : https://rpic.douyucdn.cn/a1612/12/15/1164160_161212154200.jpg
+     * room_id : 134000
+     * room_src : https://rpic.douyucdn.cn/a1702/03/17/134000_170203170229.jpg
+     * vertical_src : https://rpic.douyucdn.cn/a1702/03/17/134000_170203170229.jpg
      * isVertical : 0
-     * cate_id : 240
-     * room_name : 斗技碰瓷三兄弟！问你怕不怕？
+     * cate_id : 181
+     * room_name : Q神：单排上个王者！！！
      * show_status : 1
      * subject :
-     * show_time : 1481505967
-     * owner_uid : 72902130
-     * nickname : 云中欧凰
-     * online : 89596
-     * game_name : 阴阳师
-     * child_id : 348
-     * avatar_mid : https://apic.douyucdn.cn/upload/avanew/face/201610/27/09/e578679684dac5e07b58432a181446fa_middle.jpg
-     * avatar_small : https://apic.douyucdn.cn/upload/avanew/face/201610/27/09/e578679684dac5e07b58432a181446fa_small.jpg
+     * show_time : 1486111356
+     * owner_uid : 5842120
+     * nickname : 小QIMBA
+     * online : 149041
+     * game_name : 王者荣耀
+     * child_id : 224
+     * avatar_mid : https://apic.douyucdn.cn/upload/avatar/default/13_middle.jpg
+     * avatar_small : https://apic.douyucdn.cn/upload/avatar/default/13_small.jpg
      * jumpUrl :
      */
 
@@ -85,19 +85,19 @@ public class HomeCate {
         this.small_icon_url = small_icon_url;
     }
 
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 
-    public int getCount_ios() {
+    public String getCount_ios() {
         return count_ios;
     }
 
-    public void setCount_ios(int count_ios) {
+    public void setCount_ios(String count_ios) {
         this.count_ios = count_ios;
     }
 
@@ -122,7 +122,7 @@ public class HomeCate {
         private String room_src;
         private String vertical_src;
         private int isVertical;
-        private String cate_id;
+        private int cate_id;
         private String room_name;
         private String show_status;
         private String subject;
@@ -131,7 +131,7 @@ public class HomeCate {
         private String nickname;
         private int online;
         private String game_name;
-        private String child_id;
+        private int child_id;
         private String avatar_mid;
         private String avatar_small;
         private String jumpUrl;
@@ -168,11 +168,11 @@ public class HomeCate {
             this.isVertical = isVertical;
         }
 
-        public String getCate_id() {
+        public int getCate_id() {
             return cate_id;
         }
 
-        public void setCate_id(String cate_id) {
+        public void setCate_id(int cate_id) {
             this.cate_id = cate_id;
         }
 
@@ -240,11 +240,11 @@ public class HomeCate {
             this.game_name = game_name;
         }
 
-        public String getChild_id() {
+        public int getChild_id() {
             return child_id;
         }
 
-        public void setChild_id(String child_id) {
+        public void setChild_id(int child_id) {
             this.child_id = child_id;
         }
 
@@ -271,7 +271,6 @@ public class HomeCate {
         public void setJumpUrl(String jumpUrl) {
             this.jumpUrl = jumpUrl;
         }
-
         @Override
         public String toString() {
             return "{" +
@@ -279,7 +278,7 @@ public class HomeCate {
                     ", room_src:'" + room_src + '\'' +
                     ", vertical_src:'" + vertical_src + '\'' +
                     ", isVertical:" + isVertical +
-                    ", cate_id:'" + cate_id + '\'' +
+                    ", cate_id:" + cate_id +
                     ", room_name:'" + room_name + '\'' +
                     ", show_status:'" + show_status + '\'' +
                     ", subject:'" + subject + '\'' +
@@ -288,7 +287,7 @@ public class HomeCate {
                     ", nickname:'" + nickname + '\'' +
                     ", online:" + online +
                     ", game_name:'" + game_name + '\'' +
-                    ", child_id:'" + child_id + '\'' +
+                    ", child_id:" + child_id +
                     ", avatar_mid:'" + avatar_mid + '\'' +
                     ", avatar_small:'" + avatar_small + '\'' +
                     ", jumpUrl:'" + jumpUrl + '\'' +
@@ -303,8 +302,8 @@ public class HomeCate {
                 ", tag_id:'" + tag_id + '\'' +
                 ", icon_url:'" + icon_url + '\'' +
                 ", small_icon_url:'" + small_icon_url + '\'' +
-                ", count:" + count +
-                ", count_ios:" + count_ios +
+                ", count:'" + count + '\'' +
+                ", count_ios:'" + count_ios + '\'' +
                 ", push_vertical_screen:" + push_vertical_screen +
                 ", room_list:" + room_list +
                 '}';

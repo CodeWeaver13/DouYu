@@ -17,7 +17,10 @@ import java.util.List;
  *  修改时间：2016/12/12 下午4:21
  **/
 public class HomeCatePresenterImp extends HomeCateContract.Presenter {
-
+    /**
+     *  导航栏
+     * @param identification
+     */
     @Override
     public void getHomeCate(String identification) {
              addSubscribe(mModel.getHomeCate(mContext,identification).subscribe(new RxSubscriber<List<HomeCate>>() {

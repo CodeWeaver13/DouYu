@@ -12,7 +12,7 @@ import com.orhanobut.logger.Settings;
 
 public class L {
 
-    private static final String DEFAULT_TAG = "masterhelper";
+    private static final String DEFAULT_TAG = "DouYu";
 
     //no instance
     private L() {

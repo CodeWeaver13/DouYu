@@ -66,11 +66,11 @@ public class HomeRecommendModelLogic implements HomeRecommendContract.Model {
      * @return
      */
     @Override
-    public Observable<List<HomeFaceScoreColumn>> getModelFaceScoreColumn(Context context) {
+    public Observable<List<HomeFaceScoreColumn>> getModelFaceScoreColumn(Context context,int offset,int limit  ) {
         return HttpUtils.getInstance(context)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
-                .getFaceScoreColumn(ParamsMapUtils.getHomeFaceScoreColumn())
+                .getFaceScoreColumn(ParamsMapUtils.getHomeFaceScoreColumn(offset,limit))
 //               进行预处理
                 .compose(new DefaultTransformer<List<HomeFaceScoreColumn>>());
     }

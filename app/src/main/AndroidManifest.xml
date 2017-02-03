@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.team.zhuoke"
-          android:installLocation="auto"
-          xmlns:android="http://schemas.android.com/apk/res/android">
-    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.team.zhuoke"
+    android:installLocation="auto">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
 
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,44 +25,45 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name=".application.DYApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".application.DYApplication"
-        android:supportsRtl="true"
         android:largeHeap="true"
-        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar.AppBaseTheme">
         <activity
             android:name=".view.common.activity.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
-            android:launchMode="singleTask"
-            >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
+            ></activity>
 
         <!-- 适配规格 -->
         <meta-data
             android:name="design_width"
-            android:value="1080">
-        </meta-data>
+            android:value="1080"></meta-data>
         <meta-data
             android:name="design_height"
-            android:value="1920">
-        </meta-data>
+            android:value="1920"></meta-data>
 
         <activity
             android:name=".view.common.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".view.common.activity.GuideActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <!--全部颜值-->
+        <activity
+            android:name=".view.home.activity.HomeRecommendFaceScoreActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

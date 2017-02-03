@@ -30,14 +30,12 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
             public void onSuccess(List<HomeCarousel> mHomeCarousel) {
                 mView.getViewCarousel(mHomeCarousel);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
                 mView.showErrorWithStatus(ex.message);
             }
         }));
     }
-
     /**
      * 最热栏目
      */
@@ -48,33 +46,28 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
             public void onSuccess(List<HomeHotColumn> mHomeHotColumn) {
                 mView.getViewHotColumn(mHomeHotColumn);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
                 mView.showErrorWithStatus(ex.message);
             }
         }));
     }
-
     /**
      * 颜值 栏目
      */
     @Override
-    public void getPresenterFaceScoreColumn() {
-        addSubscribe(mModel.getModelFaceScoreColumn(mContext).subscribe(new RxSubscriber<List<HomeFaceScoreColumn>>() {
+    public void getPresenterFaceScoreColumn(int offset,int limit  ) {
+        addSubscribe(mModel.getModelFaceScoreColumn(mContext,offset,limit).subscribe(new RxSubscriber<List<HomeFaceScoreColumn>>() {
             @Override
             public void onSuccess(List<HomeFaceScoreColumn> homeFaceScoreColumns) {
                 mView.getViewFaceScoreColumn(homeFaceScoreColumns);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
-
                 mView.showErrorWithStatus(ex.message);
             }
         }));
     }
-
     /**
      * 热门栏目
      */
@@ -85,7 +78,6 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
             public void onSuccess(List<HomeRecommendHotCate> homeRecommendHotCates) {
                 mView.getViewHotCate(homeRecommendHotCates);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
                 mView.showErrorWithStatus(ex.message);

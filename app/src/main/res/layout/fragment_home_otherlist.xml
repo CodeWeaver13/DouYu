@@ -5,42 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
   >
-
-<RelativeLayout
-    android:id="@+id/rl_ngbar"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/wh185.0dimens185.0dp"
-    android:background="#ffffff"
-    >
-  <android.support.v4.view.ViewPager
-   android:id="@+id/ngbar_viewpager"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-   ></android.support.v4.view.ViewPager>
-   <LinearLayout
-       android:id="@+id/points"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       android:layout_marginBottom="@dimen/wh10.0dimens10.0dp"
-       android:gravity="center"
-       android:orientation="horizontal"
-       >
-   </LinearLayout>
-
-</RelativeLayout>
     <com.team.zhuoke.ui.refreshview.XRefreshView
-        android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
-        android:layout_below="@id/rl_ngbar"
         android:id="@+id/rtefresh_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <RelativeLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/other_content_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            >
-            </RelativeLayout>
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
     </com.team.zhuoke.ui.refreshview.XRefreshView>
 </RelativeLayout>

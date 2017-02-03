@@ -64,7 +64,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
         mRecommedBannerAdapter=new HomeCarouselAdapter();
         adapter = new HomeRecommendAdapter(getContext());
         pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
-        recommed_recyclerview.setHasFixedSize(true);
         recommed_recyclerview.setRecycledViewPool(pool);
         recommed_recyclerview.setAdapter(adapter);
 
@@ -85,7 +84,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
      *  配置XRefreshView
      */
     protected  void setXrefeshViewConfig(){
-
         rtefreshContent.setPinnedTime(2000);
         rtefreshContent.setPullLoadEnable(false);
         rtefreshContent.setPullRefreshEnable(true);
@@ -113,8 +111,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
         return this;
     }
 
-
-
     /**
      * 轮播图
      *
@@ -137,25 +133,24 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
             recommed_banner.setData(R.layout.item_image_carousel, pic_url, null);
         }
         adapter.notifyDataSetChanged();
-//       adapter.getHomeCarousel(mHomeCarousel);
     }
 
 //最热
     @Override
     public void getViewHotColumn(List<HomeHotColumn> mHomeHotColumn) {
         adapter.getHomeHotColumn(mHomeHotColumn);
-
     }
 //颜值
     @Override
     public void getViewFaceScoreColumn(List<HomeFaceScoreColumn> homeFaceScoreColumns) {
-
-
+         adapter.getFaceScoreColmun(homeFaceScoreColumns);
     }
 //热门
     @Override
     public void getViewHotCate(List<HomeRecommendHotCate> homeRecommendHotCates) {
-
+//        去掉颜值栏目
+          homeRecommendHotCates.remove(1);
+        adapter.getAllColumn(homeRecommendHotCates);
     }
 
     /**
@@ -166,7 +161,7 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
 //        轮播图
         mPresenter.getPresenterCarousel();
         mPresenter.getPresenterHotColumn();
-        mPresenter.getPresenterFaceScoreColumn();
+        mPresenter.getPresenterFaceScoreColumn(0,4);
         mPresenter.getPresenterHotCate();
     }
     @Override

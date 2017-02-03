@@ -25,6 +25,7 @@ public class BaseParamsMapUtil {
         Map<String, String> paramsmap = new LinkedHashMap<>();
         paramsmap.put("client_sys", "android");
         paramsmap.put("aid", "android1");
+        paramsmap.put("time",System.currentTimeMillis()+"");
         return paramsmap;
     }
 

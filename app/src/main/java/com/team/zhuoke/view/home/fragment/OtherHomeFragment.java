@@ -1,7 +1,10 @@
 package com.team.zhuoke.view.home.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +20,10 @@ import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.presenter.home.impl.HomeCatePresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
-import com.team.zhuoke.utils.L;
+import com.team.zhuoke.ui.refreshview.XRefreshView;
 import com.team.zhuoke.view.home.adapter.HomeNgBarAdapter;
 import com.team.zhuoke.view.home.adapter.HomeNgBarViewPagerAdapter;
+import com.team.zhuoke.view.home.adapter.HomeRecommendAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,11 +56,21 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     private  List<View> mViewPageList;
 //    当前页
     private int mCurrentPage;
-
-    @BindView(R.id.ngbar_viewpager)
+//添加HaderView
+    private View haderView;
+//    导航栏
     ViewPager ngbarViewpager;
-    @BindView(R.id.points)
+//     小圆点
     ViewGroup mPoints;
+    private   HomeCateList mHomeCate;
+
+    @BindView(R.id.other_content_recyclerview)
+    RecyclerView other_content_recyclerview;
+    @BindView(R.id.rtefresh_content)
+    XRefreshView rtefreshContent;
+
+    private HomeRecommendAdapter adapter;
+
     private  static List<OtherHomeFragment> mOtherHomeFraments=new ArrayList<OtherHomeFragment>();
 
     private  HomeNgBarViewPagerAdapter homeNgBarViewPagerAdapter;
@@ -73,50 +87,73 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
         return mInstance;
     }
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home_otherlist;
     }
     @Override
     protected void onInitView(Bundle bundle) {
+        refresh();
+        setXrefeshViewConfig();
+        adapter = new HomeRecommendAdapter(getContext());
+        other_content_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
+        other_content_recyclerview.setRecycledViewPool(pool);
+        other_content_recyclerview.setAdapter(adapter);
+
+    }
+    @Override
+    protected void onEvent() {
+        rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener()
+        {
+            @Override
+            public void onRefresh() {
+//                延迟500毫秒, 原因 用户体验好 !!!
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh();
+                    }
+                }, 500);
+            }
+        });
+
+    }
+    private void refresh() {
         Bundle arguments = getArguments();
-        HomeCateList mHomeCate = (HomeCateList) arguments.getSerializable("homecatelist");
+        mHomeCate = (HomeCateList) arguments.getSerializable("homecatelist");
         String  show_order=arguments.getString("type");
         if(show_order.equals(mHomeCate.getShow_order()))
         {
             mPresenter.getHomeCate(mHomeCate.getIdentification());
         }
     }
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        // TODO: inflate a fragment view
-//
-//        if (rootView != null) {
-//            ViewGroup parent = (ViewGroup) rootView.getParent();
-//            if (parent != null) {
-//                parent.removeView(rootView);
-//            }
-//            return rootView;
-//        }
-//        if (getLayoutId() != 0) {
-//            rootView = inflater.inflate(getLayoutId(),container, false);
-//        } else {
-//            rootView = super.onCreateView(inflater, container, savedInstanceState);
-//        }
-//        unbinder= ButterKnife.bind(this, rootView);
-//        onInitView(savedInstanceState);
-//        return rootView;
-//    }
-    @Override
-    protected void onEvent() {
-     ngbarViewpager.addOnPageChangeListener(this);
-    }
 
     @Override
     protected BaseView getViewImp() {
         Bundle arguments = getArguments();
         return mOtherHomeFraments.get(arguments.getInt("position"));
+    }
+    final RecyclerView.RecycledViewPool pool = new RecyclerView.RecycledViewPool() {
+        @Override
+        public void putRecycledView(RecyclerView.ViewHolder scrap) {
+            super.putRecycledView(scrap);
+        }
+        @Override
+        public RecyclerView.ViewHolder getRecycledView(int viewType) {
+            final RecyclerView.ViewHolder recycledView = super.getRecycledView(viewType);
+            return recycledView;
+        }
+    };
+    /**
+     *  配置XRefreshView
+     */
+    protected  void setXrefeshViewConfig(){
+        rtefreshContent.setPinnedTime(2000);
+        rtefreshContent.setPullLoadEnable(false);
+        rtefreshContent.setPullRefreshEnable(true);
+        rtefreshContent.setMoveForHorizontal(true);
+        rtefreshContent.setPinnedContent(true);
     }
     /**
      * 进行懒加载   只进行加载一次
@@ -135,27 +172,35 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
          */
       getNgBarView(homeCates);
     }
-    public void getNgBarView(List<HomeCate> homeCates)
-    {
-        LayoutInflater inflater=LayoutInflater.from(getActivity());
+    public void getNgBarView(List<HomeCate> homeCates) {
+        if(rtefreshContent!=null) {
+            rtefreshContent.stopRefresh();
+        }
+        haderView=adapter.setHeaderView(R.layout.view_viewpager,other_content_recyclerview);
+        ngbarViewpager=(ViewPager)haderView.findViewById(R.id.ngbar_viewpager);
+        Bundle arguments = getArguments();
+        ngbarViewpager.addOnPageChangeListener(mOtherHomeFraments.get(arguments.getInt("position")));
+        mPoints=(ViewGroup)haderView.findViewById(R.id.points);
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
 //        显示总的页数  Math.ceil 先上取整
-        mTotalPage=(int)Math.ceil(homeCates.size()*1.0/mPageSize);
-        mViewPageList= new ArrayList<>();
+        mTotalPage = (int) Math.ceil(homeCates.size() * 1.0 / mPageSize);
+        mViewPageList = new ArrayList<>();
 //        移除最热栏目
         homeCates.remove(0);
         /**
          *  创建 多个GredView
          */
-        for(int i=0;i<mTotalPage;i++)
-        {
-            GridView gridView=(GridView)inflater.inflate(R.layout.view_layout_gridview,null);
-            homeNgBarAdapter=new HomeNgBarAdapter(getContext(),homeCates,i,mPageSize);
-            gridView.setAdapter(homeNgBarAdapter);
-            homeNgBarAdapter.notifyDataSetChanged();
+        for (int i = 0; i < mTotalPage; i++) {
+            if(i<=1) {
+                GridView gridView = (GridView) inflater.inflate(R.layout.view_layout_gridview, null);
+                homeNgBarAdapter = new HomeNgBarAdapter(getContext(), homeCates, i, mPageSize);
+                gridView.setAdapter(homeNgBarAdapter);
+                homeNgBarAdapter.notifyDataSetChanged();
 //            每一个GridView 作为一个View 对象添加到ViewPage集合中
-            mViewPageList.add(gridView);
+                mViewPageList.add(gridView);
+            }
         }
-        homeNgBarViewPagerAdapter=new HomeNgBarViewPagerAdapter(mViewPageList);
+        homeNgBarViewPagerAdapter = new HomeNgBarViewPagerAdapter(mViewPageList);
         ngbarViewpager.setAdapter(homeNgBarViewPagerAdapter);
         homeNgBarViewPagerAdapter.notifyDataSetChanged();
 
@@ -163,37 +208,37 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
          *  处理小圆点 指示器
          */
 //        创建小圆点
-        mIvpoints=new ImageView[mTotalPage];
-        for(int i=0;i<mIvpoints.length;i++)
-        {
-            ImageView imgView=new ImageView(getActivity());
+        mIvpoints=null;
+        mIvpoints = new ImageView[2];
+        for (int i = 0; i < mIvpoints.length; i++) {
+            if(i<=1) {
+                ImageView imgView = new ImageView(getActivity());
 //            设置小圆点宽和高
-            imgView.setLayoutParams(new ViewGroup.LayoutParams(5,5));
+                imgView.setLayoutParams(new ViewGroup.LayoutParams(5, 5));
 //            默认设置
-            if(i==0)
-            {
-                imgView.setBackgroundResource(R.mipmap.page__selected_indicator);
-            }
-            else
-            {
-                imgView.setBackgroundResource(R.mipmap.page__normal_indicator);
-            }
-            mIvpoints[i]=imgView;
+                if (i == 0) {
+                    imgView.setBackgroundResource(R.mipmap.page__selected_indicator);
+                } else {
+                    imgView.setBackgroundResource(R.mipmap.page__normal_indicator);
+                }
+                mIvpoints[i] = imgView;
 //            设置边距
-            LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT
-                    , ViewGroup.LayoutParams.WRAP_CONTENT));
-            layoutParams.leftMargin=10;
-            layoutParams.rightMargin=10;
-            mPoints.addView(imgView,layoutParams);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT
+                        , ViewGroup.LayoutParams.WRAP_CONTENT));
+                layoutParams.leftMargin = 10;
+                layoutParams.rightMargin = 10;
+                mPoints.addView(imgView, layoutParams);
+            }
         }
-
+        if(mTotalPage==1)
+        {
+            mPoints.setVisibility(View.GONE);
+        }
     }
-
     @Override
     public void showErrorWithStatus(String msg) {
 
     }
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

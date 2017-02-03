@@ -117,7 +117,14 @@ public class ContractProxy {
         if (!m_objects.containsKey(clzz)) {
             initInstance(clzz);
         }
-        BasePresenter presenter = ((BasePresenter) m_objects.get(clzz));
+        BasePresenter presenter = null;
+        try {
+            presenter = ((BasePresenter) clzz.newInstance());
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         return (T) presenter;
     }
     /**
@@ -163,7 +170,14 @@ public class ContractProxy {
         if (!m_objects.containsKey(clzz)) {
 //            init(clzz);
         }
-        BasePresenter presenter = ((BasePresenter) m_objects.get(clzz));
+        BasePresenter presenter = null;
+        try {
+            presenter = ((BasePresenter)clzz.newInstance());
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         if (var1 != presenter.getView()) {
             if (presenter.getView() != null) {
                 presenter.detachView();
@@ -178,7 +192,14 @@ public class ContractProxy {
         if (!m_objects.containsKey(clzz)) {
             initInstance(clzz);
         }
-        BaseModel model = ((BaseModel) m_objects.get(clzz));
+        BaseModel model = null;
+        try {
+            model = ((BaseModel) clzz.newInstance());
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         if (model != presenter.getModel()) {
             if (presenter.getModel() != null) {
                 presenter.detachModel();
@@ -191,7 +212,14 @@ public class ContractProxy {
     // 解除绑定 移除map
     public void unbindPresenter(Class clzz, BaseView var1) {
         if (m_objects.containsKey(clzz)) {
-            BasePresenter presenter = ((BasePresenter) m_objects.get(clzz));
+            BasePresenter presenter = null;
+            try {
+                presenter = ((BasePresenter) clzz.newInstance());
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (var1 != presenter.getView()) {
                 if (presenter.getView() != null)
                     presenter.detachView();
@@ -211,7 +239,14 @@ public class ContractProxy {
     // 解除绑定 移除map
     public void unbindModel(Class clzz, BasePresenter presenter) {
         if (m_objects.containsKey(clzz)) {
-            BaseModel model = ((BaseModel) m_objects.get(clzz));
+            BaseModel model = null;
+            try {
+                model = ((BaseModel) clzz.newInstance());
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (model != presenter.getModel()) {
                 if (presenter.getModel() != null)
                     presenter.detachModel();

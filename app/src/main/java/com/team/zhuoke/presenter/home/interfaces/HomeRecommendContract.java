@@ -44,7 +44,7 @@ public interface HomeRecommendContract {
 
         Observable<List<HomeHotColumn>> getModelHotColumn(Context context);
 
-        Observable<List<HomeFaceScoreColumn>> getModelFaceScoreColumn(Context context);
+        Observable<List<HomeFaceScoreColumn>> getModelFaceScoreColumn(Context context,int offset,int limit  );
 
         Observable<List<HomeRecommendHotCate>> getModelHotCate(Context context);
     }
@@ -56,7 +56,7 @@ public interface HomeRecommendContract {
         //        最热栏目
         public abstract void getPresenterHotColumn();
 
-        public abstract void getPresenterFaceScoreColumn();
+        public abstract void getPresenterFaceScoreColumn(int offset,int limit );
 
         public abstract void getPresenterHotCate();
 
