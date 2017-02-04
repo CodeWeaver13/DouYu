@@ -1,7 +1,6 @@
 package com.team.zhuoke.api.home;
 
 import com.team.zhuoke.model.logic.home.bean.HomeCarousel;
-import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.model.logic.home.bean.HomeCateList;
 import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
@@ -45,7 +44,7 @@ public interface HomeApi {
      * @return
      */
     @GET(getHomeCate)
-    Observable<HttpResponse<List<HomeCate>>> getHomeCate(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<HomeRecommendHotCate>>> getHomeCate(@QueryMap Map<String,String> params);
 
     /**
      *   首页   推荐轮播图

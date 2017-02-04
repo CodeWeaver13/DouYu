@@ -11,7 +11,7 @@ package com.team.zhuoke.api;
  **/
 public class NetWorkApi {
 //    Base地址
-     public static String baseUrl="http://capi.douyucdn.cn";
+     public static String baseUrl="https://capi.douyucdn.cn";
     /**
      *   ************************* 首页接口*******************************
      */

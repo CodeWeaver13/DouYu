@@ -1,6 +1,6 @@
 package com.team.zhuoke.presenter.home.impl;
 
-import com.team.zhuoke.model.logic.home.bean.HomeCate;
+import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.net.callback.RxSubscriber;
 import com.team.zhuoke.net.exception.ResponeThrowable;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
@@ -23,9 +23,9 @@ public class HomeCatePresenterImp extends HomeCateContract.Presenter {
      */
     @Override
     public void getHomeCate(String identification) {
-             addSubscribe(mModel.getHomeCate(mContext,identification).subscribe(new RxSubscriber<List<HomeCate>>() {
+             addSubscribe(mModel.getHomeCate(mContext,identification).subscribe(new RxSubscriber<List<HomeRecommendHotCate>>() {
                  @Override
-                 public void onSuccess(List<HomeCate> homeCates) {
+                 public void onSuccess(List<HomeRecommendHotCate> homeCates) {
                      mView.getOtherList(homeCates);
                  }
                  @Override

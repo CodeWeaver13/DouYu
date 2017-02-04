@@ -149,7 +149,7 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
     @Override
     public void getViewHotCate(List<HomeRecommendHotCate> homeRecommendHotCates) {
 //        去掉颜值栏目
-          homeRecommendHotCates.remove(1);
+        homeRecommendHotCates.remove(1);
         adapter.getAllColumn(homeRecommendHotCates);
     }
 

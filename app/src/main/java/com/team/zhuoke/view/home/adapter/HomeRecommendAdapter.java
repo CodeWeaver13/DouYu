@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,10 +18,14 @@ import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
+import com.team.zhuoke.utils.L;
 import com.team.zhuoke.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.id.list;
+import static com.team.zhuoke.R.id.rv_column_list;
 
 /**
  * 作者：gaoyin
@@ -45,6 +50,7 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
     //    全部栏目
     private List<HomeRecommendHotCate> mHomeRecommendHotCate;
     private HomeRecommendAllColumnAdapter mAllColumnAdapter;
+
 
     /**
      * 指定 type类型
@@ -115,6 +121,7 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
                 return null;
         }
     }
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, boolean isItem) {
         if (holder instanceof ColumnViewHolder && position == 0) {
@@ -141,9 +148,9 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
         holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context,HomeRecommendFaceScoreActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("title",holder.tv_column_name.getText().toString());
+                Intent intent = new Intent(context, HomeRecommendFaceScoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title", holder.tv_column_name.getText().toString());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -158,24 +165,24 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
      * @param isItem
      */
     private void bindFaceScoreColumnHolder(ColumnViewHolder holder, int position, boolean isItem) {
+
         holder.img_column_icon.setImageResource(R.mipmap.icon_reco_mobile);
         holder.tv_column_name.setText("颜值");
         holder.rv_column_list.setLayoutManager(new FullyGridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
-
         holder.rv_column_list.setAdapter(mFaceScoreColumnAdapter);
-
         holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context,HomeRecommendFaceScoreActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("title",holder.tv_column_name.getText().toString());
+                Intent intent = new Intent(context, HomeRecommendFaceScoreActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title", holder.tv_column_name.getText().toString());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
-    }
 
+
+    }
 
     @Override
     public int getAdapterItemViewType(int position) {
@@ -186,6 +193,7 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
         }
         return TYPE_3;
     }
+
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -208,6 +216,7 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
             });
         }
     }
+
     /**
      * 栏目
      *
@@ -220,11 +229,14 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
         holder.rv_column_list.setLayoutManager(new FullyGridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
         mHotColumnAdapter = new HomeRecommendHotColumnAdapter(holder.rv_column_list.getContext(), mHomeHotColumn);
         holder.rv_column_list.setAdapter(mHotColumnAdapter);
+
     }
+
     @Override
     public int getAdapterItemCount() {
         return mHomeRecommendHotCate.size() + 2;
     }
+
     public class ColumnViewHolder extends RecyclerView.ViewHolder {
         //       栏目 Icon
         public ImageView img_column_icon;
@@ -235,12 +247,15 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
         //        栏目列表
         public RecyclerView rv_column_list;
 
+        public LinearLayout item_home_recommed_girdview;
+
         public ColumnViewHolder(View itemView) {
             super(itemView);
             img_column_icon = (ImageView) itemView.findViewById(R.id.img_column_icon);
             tv_column_name = (TextView) itemView.findViewById(R.id.tv_column_name);
             rl_column_more = (RelativeLayout) itemView.findViewById(R.id.rl_column_more);
             rv_column_list = (RecyclerView) itemView.findViewById(R.id.rv_column_list);
+            item_home_recommed_girdview = (LinearLayout) itemView.findViewById(R.id.item_home_recommed_girdview);
         }
     }
 

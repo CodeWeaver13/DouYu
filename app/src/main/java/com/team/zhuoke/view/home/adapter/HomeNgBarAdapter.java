@@ -11,8 +11,7 @@ import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.zhuoke.R;
-import com.team.zhuoke.model.logic.home.bean.HomeCate;
-import com.team.zhuoke.utils.L;
+import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ import java.util.List;
  **/
 public class HomeNgBarAdapter extends BaseAdapter {
 
-    private List<HomeCate>  mHomeCate;
+    private List<HomeRecommendHotCate>  mHomeCate;
     private LayoutInflater  mInflater;
     private Context context;
 //    页数下标
@@ -35,7 +34,7 @@ public class HomeNgBarAdapter extends BaseAdapter {
 //    每页显示多少
     private  int mPagerSize;
 
-    public HomeNgBarAdapter(Context context,List<HomeCate> homeCate,int mIndex,int mPageSize)
+    public HomeNgBarAdapter(Context context, List<HomeRecommendHotCate> homeCate, int mIndex, int mPageSize)
     {
          this.context=context;
         this.mHomeCate=homeCate;

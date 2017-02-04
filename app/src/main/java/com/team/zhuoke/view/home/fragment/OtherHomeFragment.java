@@ -11,18 +11,18 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
 import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.model.logic.home.HomeCateModelLogic;
-import com.team.zhuoke.model.logic.home.bean.HomeCate;
 import com.team.zhuoke.model.logic.home.bean.HomeCateList;
+import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.presenter.home.impl.HomeCatePresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeCateContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
 import com.team.zhuoke.view.home.adapter.HomeNgBarAdapter;
 import com.team.zhuoke.view.home.adapter.HomeNgBarViewPagerAdapter;
+import com.team.zhuoke.view.home.adapter.HomeOtherAdapter;
 import com.team.zhuoke.view.home.adapter.HomeRecommendAdapter;
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     @BindView(R.id.rtefresh_content)
     XRefreshView rtefreshContent;
 
-    private HomeRecommendAdapter adapter;
+    private HomeOtherAdapter adapter;
 
     private  static List<OtherHomeFragment> mOtherHomeFraments=new ArrayList<OtherHomeFragment>();
 
@@ -95,11 +95,7 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     protected void onInitView(Bundle bundle) {
         refresh();
         setXrefeshViewConfig();
-        adapter = new HomeRecommendAdapter(getContext());
-        other_content_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
-        other_content_recyclerview.setRecycledViewPool(pool);
-        other_content_recyclerview.setAdapter(adapter);
+
 
     }
     @Override
@@ -164,18 +160,36 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     }
 
     @Override
-    public void getOtherList(List<HomeCate> homeCates) {
+    public void getOtherList(List<HomeRecommendHotCate> homeCates) {
         /**
-         * 分页 导航栏
+         * 分页 导航栏+栏目列表
          *
          * @param homeCates
          */
       getNgBarView(homeCates);
     }
-    public void getNgBarView(List<HomeCate> homeCates) {
+    public void getNgBarView(List<HomeRecommendHotCate> homeCates) {
         if(rtefreshContent!=null) {
             rtefreshContent.stopRefresh();
         }
+        List<HomeRecommendHotCate>  homeRecommendHotCates=new ArrayList<HomeRecommendHotCate>();
+        homeRecommendHotCates.addAll(homeCates);
+            for(int i=0;i<homeRecommendHotCates.size();i++)
+            {
+                if(homeRecommendHotCates.get(i).getRoom_list().size()<4)
+                {
+                    homeRecommendHotCates.remove(i);
+                }
+        }
+        /**
+         *  栏目 列表
+         */
+        adapter = new HomeOtherAdapter(getContext(),homeRecommendHotCates);
+        other_content_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
+        other_content_recyclerview.setRecycledViewPool(pool);
+        other_content_recyclerview.setAdapter(adapter);
+//        导航栏
         haderView=adapter.setHeaderView(R.layout.view_viewpager,other_content_recyclerview);
         ngbarViewpager=(ViewPager)haderView.findViewById(R.id.ngbar_viewpager);
         Bundle arguments = getArguments();
@@ -253,7 +267,6 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
             }
         }
     }
-
     @Override
     public void onPageScrollStateChanged(int state) {
 
