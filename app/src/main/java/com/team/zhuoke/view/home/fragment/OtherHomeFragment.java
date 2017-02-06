@@ -154,6 +154,7 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
         if(rtefreshContent!=null) {
             rtefreshContent.stopRefresh();
         }
+        getOtherColumnView(homeCates);
         /**
          * 分页 导航栏+栏目列表
          *
@@ -161,16 +162,16 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
          */
       getNgBarView(homeCates);
     }
-    public void getNgBarView(List<HomeRecommendHotCate> homeCates) {
 
+    private void getOtherColumnView(List<HomeRecommendHotCate> homeCates) {
         List<HomeRecommendHotCate>  homeRecommendHotCates=new ArrayList<HomeRecommendHotCate>();
         homeRecommendHotCates.addAll(homeCates);
-            for(int i=0;i<homeRecommendHotCates.size();i++)
+        for(int i=0;i<homeRecommendHotCates.size();i++)
+        {
+            if(homeRecommendHotCates.get(i).getRoom_list().size()<4)
             {
-                if(homeRecommendHotCates.get(i).getRoom_list().size()<4)
-                {
-                    homeRecommendHotCates.remove(i);
-                }
+                homeRecommendHotCates.remove(i);
+            }
         }
         /**
          *  栏目 列表
@@ -180,6 +181,11 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
         pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
         other_content_recyclerview.setRecycledViewPool(pool);
         other_content_recyclerview.setAdapter(adapter);
+    }
+
+    public void getNgBarView(List<HomeRecommendHotCate> homeCates) {
+
+
 
 //    总共多少页
           int mTotalPage;
