@@ -46,22 +46,13 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
      */
 ////    小圆点指示器
 //    protected ViewGroup mPoints;
-//    小圆点图片集合
+    //    小圆点图片集合
     private ImageView[] mIvpoints;
-//    总共多少页
-    private  int mTotalPage;
-//    每页显示的最大数量  默认为8
-    private  int mPageSize=8;
-// GridView 作为一个View对象添加到ViewPager集合中
-    private  List<View> mViewPageList;
-//    当前页
-    private int mCurrentPage;
 //添加HaderView
     private View haderView;
 //    导航栏
     ViewPager ngbarViewpager;
-//     小圆点
-    ViewGroup mPoints;
+
     private   HomeCateList mHomeCate;
 
     @BindView(R.id.other_content_recyclerview)
@@ -95,7 +86,6 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     protected void onInitView(Bundle bundle) {
         refresh();
         setXrefeshViewConfig();
-
 
     }
     @Override
@@ -161,6 +151,9 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
 
     @Override
     public void getOtherList(List<HomeRecommendHotCate> homeCates) {
+        if(rtefreshContent!=null) {
+            rtefreshContent.stopRefresh();
+        }
         /**
          * 分页 导航栏+栏目列表
          *
@@ -169,9 +162,7 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
       getNgBarView(homeCates);
     }
     public void getNgBarView(List<HomeRecommendHotCate> homeCates) {
-        if(rtefreshContent!=null) {
-            rtefreshContent.stopRefresh();
-        }
+
         List<HomeRecommendHotCate>  homeRecommendHotCates=new ArrayList<HomeRecommendHotCate>();
         homeRecommendHotCates.addAll(homeCates);
             for(int i=0;i<homeRecommendHotCates.size();i++)
@@ -189,10 +180,23 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
         pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
         other_content_recyclerview.setRecycledViewPool(pool);
         other_content_recyclerview.setAdapter(adapter);
+
+//    总共多少页
+          int mTotalPage;
+//    每页显示的最大数量  默认为8
+          int mPageSize=8;
+// GridView 作为一个View对象添加到ViewPager集合中
+          List<View> mViewPageList;
+//    当前页
+         int mCurrentPage;
+        //     小圆点
+        ViewGroup mPoints;
+
 //        导航栏
         haderView=adapter.setHeaderView(R.layout.view_viewpager,other_content_recyclerview);
         ngbarViewpager=(ViewPager)haderView.findViewById(R.id.ngbar_viewpager);
         Bundle arguments = getArguments();
+        ngbarViewpager.removeOnPageChangeListener(mOtherHomeFraments.get(arguments.getInt("position")));
         ngbarViewpager.addOnPageChangeListener(mOtherHomeFraments.get(arguments.getInt("position")));
         mPoints=(ViewGroup)haderView.findViewById(R.id.points);
         LayoutInflater inflater = LayoutInflater.from(getActivity());
