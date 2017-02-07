@@ -27,8 +27,8 @@
   <h3 id="5.0.0">五.斗鱼接口文档</h3>
  
   * [首页API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
-  *  [直播API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
-  *  [视频API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
+  *  [直播API文档说明](https://github.com/mykj/DouYu/blob/master/document/LiveApi.md)
+  *  [视频API文档说明](https://github.com/mykj/DouYu/blob/master/document/VideoApi.md)
   *  [关注API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
   *  [个人API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
   
