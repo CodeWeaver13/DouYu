@@ -12,8 +12,14 @@
  * ------------------------[推荐栏目--作者视频列表](#3.0.4)
  * ------------------------[一级栏目分类](#3.0.5)
  * ------------------------[二级栏目分类](#3.0.6)
- 
- <h4 id="3.0.1">1.热门视频</h4>
+ * ------------------------[视频列表页](#3.0.7)
+ * ------------------------[视频详情页](#3.0.8)
+ * ------------------------[视频详情弹幕](#3.0.9)
+ * ------------------------[视频详情页--热门视频](#3.1.0) 
+ * ------------------------[视频详情页--推荐视频](#3.1.1) 
+ * ------------------------[视频详情页--视频源](#3.1.2)  
+
+<h4 id="3.0.1">1.热门视频</h4>
 >
 * 接口描述：热门视频栏目 
 * 请求URL：http://apiv2.douyucdn.cn/video/Video/getHotVideoList1?clicknum=2&token=&client_sys=android
@@ -236,6 +242,350 @@
 }
  ```
  ---
+  <h4 id="3.0.7">7.分类视频列表</h4>
+>
+* 接口描述：分类视频列表
+* 请求URL：http://apiv2.douyucdn.cn/video/Videoroomlist/getRecVideoList?cid1=1&cid2=5&offset=0&limit=20&action=hot&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        cid1：一级栏目分类ID
+*        cid2: 二级栏目分类ID
+*        offset：起始值
+*        limit: 增量大小 
+*        action：hot  固定值
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+    "video_duration": 7201.24,
+    "is_replay": "10155503",
+    "is_vertical": 0,
+    "hash_id": "l0Q8mMY0nBJ749Ad",
+    "up_id": "lOdEy3M5bdnR",
+    "view_num": "11173",
+    "utime": 1486426922,
+    "video_title": "卢本伟White五五开 迟到了道歉! 2017-02-06 21点场",
+    "video_content": "",
+    "video_cover": "https://vodpic1.douyucdn.cn/image/live-138286rAsePM5lv7--20170206212418/cover.jpg",
+    "nickname": "White55开解说"
+}
+ ```
+ ---
  
+ <h4 id="3.0.8">8.视频详情页</h4>
+>
+* 接口描述：视频详情页面 
+* 请求URL：http://apiv2.douyucdn.cn/video/videoinfo/getVidInfo?vid=jXqeO74p0Ze7xywG&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        vid：视频ID
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+    "time_point": [],
+    "cid2": 5,
+    "cid1": 1,
+    "is_re_audit": 0,
+    "video_duration": 4679.56,
+    "is_vertical": 0,
+    "is_replay": "10150224",
+    "hash_id": "jXqeO74p0Ze7xywG",
+    "up_id": "rEdl9v02JANM",
+    "view_num": 2282,
+    "point_id": 226295,
+    "cate1_name": "游戏竞技",
+    "cate2_name": "英雄联盟",
+    "is_anchor": 1,
+    "is_living": 0,
+    "room_id": 846805,
+    "barrage_ip": [
+        {
+            "ip": "119.90.50.16",
+            "port": "40027"
+        },
+        {
+            "ip": "119.90.50.16",
+            "port": "40029"
+        },
+        {
+            "ip": "119.90.50.16",
+            "port": "40026"
+        },
+        {
+            "ip": "119.90.50.16",
+            "port": "40030"
+        },
+        {
+            "ip": "119.90.50.16",
+            "port": "40028"
+        },
+        {
+            "ip": "119.90.50.13",
+            "port": "40015"
+        },
+        {
+            "ip": "119.90.50.14",
+            "port": "40019"
+        },
+        {
+            "ip": "119.90.50.20",
+            "port": "40048"
+        },
+        {
+            "ip": "119.90.50.15",
+            "port": "40025"
+        },
+        {
+            "ip": "119.90.50.12",
+            "port": "40008"
+        },
+        {
+            "ip": "119.90.50.17",
+            "port": "40032"
+        },
+        {
+            "ip": "119.90.50.18",
+            "port": "40036"
+        },
+        {
+            "ip": "119.90.50.12",
+            "port": "40006"
+        },
+        {
+            "ip": "119.90.50.13",
+            "port": "40011"
+        },
+        {
+            "ip": "119.90.50.14",
+            "port": "40020"
+        },
+        {
+            "ip": "119.90.50.19",
+            "port": "40045"
+        },
+        {
+            "ip": "119.90.50.19",
+            "port": "40042"
+        },
+        {
+            "ip": "119.90.50.15",
+            "port": "40021"
+        },
+        {
+            "ip": "119.90.50.15",
+            "port": "40024"
+        },
+        {
+            "ip": "119.90.50.11",
+            "port": "40003"
+        },
+        {
+            "ip": "119.90.50.17",
+            "port": "40035"
+        },
+        {
+            "ip": "119.90.50.13",
+            "port": "40012"
+        },
+        {
+            "ip": "119.90.50.11",
+            "port": "40004"
+        },
+        {
+            "ip": "119.90.50.11",
+            "port": "40001"
+        },
+        {
+            "ip": "119.90.50.14",
+            "port": "40016"
+        },
+        {
+            "ip": "119.90.50.12",
+            "port": "40010"
+        },
+        {
+            "ip": "119.90.50.18",
+            "port": "40037"
+        },
+        {
+            "ip": "119.90.50.17",
+            "port": "40033"
+        },
+        {
+            "ip": "119.90.50.20",
+            "port": "40047"
+        },
+        {
+            "ip": "119.90.50.20",
+            "port": "40049"
+        }
+    ],
+    "owner_avatar": "https://apic.douyucdn.cn/upload/avatar/face/201607/27/7dd14fa4de36dd10104c3e5f92f63e06_middle.jpg?rltime_middle.jpg?rltime",
+    "video_content": "斗鱼视频 - 最6的弹幕视频网站",
+    "video_title": "1夹子秒杀流女警。谁踩洞谁死 2017-02-06 21点场",
+    "video_status": 0,
+    "follow_num": "17613",
+    "submit_num": 174,
+    "utime": 1486425001,
+    "ctime": 1486425001,
+    "video_cover": "https://vodpic1.douyucdn.cn/image/live-846805rdbuXiIgiY--20170206213131/cover.jpg",
+    "nickname": "青铜皇帝赏金术士",
+    "author_id": 60415251,
+    "isVertical": 0,
+    "vertical_src": ""
+}
+ ```
+ ---
  
+  <h4 id="3.0.9">9.视频弹幕</h4>
+>
+* 接口描述：视频弹幕接口
+* 请求URL：http://apiv2.douyucdn.cn/video/videoinfo/getDanMu?vid=jXqeO74p0Ze7xywG&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        vid：视频ID
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+    "result": [
+        {
+            "col": 0,
+            "ctt": "牛逼",
+            "ft": 0,
+            "mid": "8b9c5aed448440fc9b39000000000000",
+            "mtype": 0,
+            "nn": "13571906",
+            "rl": 0,
+            "sts": 1486446860,
+            "tl": 2832851,
+            "uid": 10307375,
+            "v": 1,
+            "vid": "226295"
+        },
+        {
+            "col": 0,
+            "ctt": "v",
+            "ft": 0,
+            "mid": "8b9c5aed448440fc9939000000000000",
+            "mtype": 0,
+            "nn": "你二大爷的爹地",
+            "rl": 0,
+            "sts": 1486443303,
+            "tl": 1928074,
+            "uid": 48566605,
+            "v": 1,
+            "vid": "226295"
+        }
+    ],
+    "barrage_density": [
+        ""
+    ]
+}
+ ```
+ ---
+  <h4 id="3.1.0">10.热门视频</h4>
+>
+* 接口描述：热门推荐视频栏目 
+* 请求URL：http://apiv2.douyucdn.cn/video/VideoRoomList/hotVideo?cid2=5&up_id=rEdl9v02JANM&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        cid2：二级分类ID
+*        up_id: 上传者ID 
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+    "is_vertical": 0,
+    "weight": 0.054380203246188,
+    "ranktype": "20",
+    "contents": "",
+    "status": 0,
+    "rpos": "41",
+    "cid2": 5,
+    "view_num": 2326,
+    "hash_id": "jXqeO74p0Ze7xywG",
+    "cid1": 1,
+    "recomType": 1,
+    "create_time": 1486425001,
+    "is_replay": "10150224",
+    "video_duration": 4679.56,
+    "up_id": "rEdl9v02JANM",
+    "video_cover": "https://vodpic1.douyucdn.cn/image/live-846805rdbuXiIgiY--20170206213131/cover.jpg",
+    "video_title": "1夹子秒杀流女警。谁踩洞谁死 2017-02-06 21点场",
+    "point_id": 226295,
+    "utime": 1486425001,
+    "nickname": "青铜皇帝赏金术士"
+}
+ ```
+ ---
+ <h4 id="3.1.1">11.直播推荐视频</h4>
+>
+* 接口描述：直播推荐视频栏目 
+* 请求URL：http://apiv2.douyucdn.cn/video/VideoRoomList/liveRec?cid2=5&client_sys=android
+* 请求方式：Get
+* 请求参数：
+*        cid2：二级分类ID
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+    "specific_catalog": "luguanfei",
+    "vertical_src": "https://rpic.douyucdn.cn/a1702/07/13/453751_170207135511.jpg",
+    "ranktype": "29",
+    "nickname": "我叫撸管飞",
+    "subject": "",
+    "room_src": "https://rpic.douyucdn.cn/a1702/07/13/453751_170207135511.jpg",
+    "rpos": "42",
+    "cate_id": "1",
+    "specific_status": "1",
+    "game_name": "英雄联盟",
+    "online": 476075,
+    "avatar_small": "https://apic.douyucdn.cn/upload/avatar/027/11/32/13_avatar_small.jpg",
+    "recomType": "0",
+    "avatar_mid": "https://apic.douyucdn.cn/upload/avatar/027/11/32/13_avatar_middle.jpg",
+    "vod_quality": "0",
+    "room_name": "国服第一风暴诺克！光速血怒！",
+    "child_id": "32",
+    "room_id": "453751",
+    "isVertical": 0,
+    "show_time": "1486432242",
+    "show_status": "1"
+}
+ ```
+ ---
+ 
+ <h4 id="3.1.2">12.视频播放源</h4>
+>
+* 接口描述：视频播放源地址
+* 请求URL：http://apiv2.douyucdn.cn/videonc/Stream/getAppPlayer?client_sys=android
+* 请求方式：Post
+* 请求参数：
+*        vid：视频ID
+*        client_sys：设备类型 默认为：Android
+* 返回数据:
+
+ ```
+{
+	"error": 0,
+	"data": {
+		"thumb_video": {
+			"normal": "http:\/\/vodhls1.douyucdn.cn\/live\/normal_live-846805rdbuXiIgiY--20170206213131\/playlist.m3u8?k=aeaee2836240253e977ee789a1857c1a&t=58995d84&d=b71f9694-2309-4443-ab7f-3665b9840ab5&u=0&ct=android&vid=226295",
+			"super": "",
+			"high": ""
+		},
+		"timestamp": 7200
+	}
+}
+ ```
+ ---
+
+ 
+
  
