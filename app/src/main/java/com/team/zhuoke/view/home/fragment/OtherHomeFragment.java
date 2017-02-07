@@ -103,7 +103,6 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
                 }, 500);
             }
         });
-
     }
     private void refresh() {
         Bundle arguments = getArguments();

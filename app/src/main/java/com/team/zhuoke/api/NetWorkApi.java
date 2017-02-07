@@ -10,6 +10,7 @@ package com.team.zhuoke.api;
  *  修改时间：2016/12/15 下午4:12
  **/
 public class NetWorkApi {
+
 //    Base地址
      public static String baseUrl="https://capi.douyucdn.cn";
     /**
@@ -34,4 +35,13 @@ public class NetWorkApi {
     /**
      *   ********************************************************************
      */
+    /**
+     *   ************************* 直播接口*******************************
+     */
+//    直播其他栏目分类
+    public static final String getLiveOtherColumn="/api/v1/getColumnList";
+//    全部直播
+    public static final String getLiveAllList="/api/v1/live";
+
+
 }

@@ -42,7 +42,7 @@
             android:layout_height="@dimen/wh100.0dimens100.0dp">
 
             <RelativeLayout
-                android:layout_width="@dimen/wh45.0dimens45.0dp"
+                android:layout_width="@dimen/wh55.0dimens55.0dp"
                 android:layout_height="@dimen/wh18.0dimens18.0dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/recommend_online_bg"

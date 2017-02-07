@@ -77,14 +77,8 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
             }
             @Override
             public void onLoadMore(boolean isSilence) {
-                //  延迟500毫秒, 原因 用户体验好 !!!
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        offset+=limit;
-                        loadMore(offset, limit);
-                    }
-                }, 10);
+                offset+=limit;
+                loadMore(offset, limit);
             }
         });
     }
@@ -140,6 +134,8 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
 
     @Override
     public void showErrorWithStatus(String msg) {
-
+        if (rtefreshContent != null) {
+            rtefreshContent.stopLoadMore(false);
+        }
     }
 }
