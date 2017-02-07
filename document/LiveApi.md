@@ -13,7 +13,7 @@
  * ------------------------[三级栏目分类](#2.0.5)
  * ------------------------[体育直播栏目](#2.0.6)
  
- <h4 id="2.0.2">2.全部直播</h4>
+ <h4 id="2.0.2">1.全部直播</h4>
 >
 * 接口描述：全部直播 
 * 请求URL：http://capi.douyucdn.cn/api/v1/live?offset=0&limit=20&client_sys=android
@@ -56,7 +56,7 @@
  ```
  ---
 
-<h4 id="2.0.1">1.栏目分类</h4>
+<h4 id="2.0.1">2.栏目分类</h4>
 >
 * 接口描述： 直播一级分类列表
 * 请求URL：http://capi.douyucdn.cn/api/v1/getColumnList?client_sys=android
