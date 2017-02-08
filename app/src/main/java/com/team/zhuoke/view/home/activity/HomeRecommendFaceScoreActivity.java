@@ -82,7 +82,6 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
             }
         });
     }
-
     /**
      * 配置XRefreshView
      */
