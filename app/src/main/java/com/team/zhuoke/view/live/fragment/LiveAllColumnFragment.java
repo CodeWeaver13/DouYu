@@ -57,6 +57,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
 
     @Override
     protected int getLayoutId() {
+
         return R.layout.fragment_live_allcolumn;
     }
 

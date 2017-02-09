@@ -57,9 +57,6 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
     @Override
     protected void onInitView(Bundle bundle) {
 
-        Bundle arguments = getArguments();
-        mLiveOtherColumn = (LiveOtherColumn) arguments.getSerializable("mLiveOtherColumn");
-        mPresenter.getPresenterLiveOtherTwoColumn(mLiveOtherColumn.getShort_name());
     }
     @Override
     protected void onEvent() {
@@ -70,18 +67,17 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
         Bundle arguments = getArguments();
         return mLiveOtherColumnFragment.get(arguments.getInt("position"));
     }
-
     @Override
     protected void lazyFetchData() {
-
-//        Toast.makeText(getActivity(),mLiveOtherColumn.getCate_name(),Toast.LENGTH_LONG).show();
+        Bundle arguments = getArguments();
+        mLiveOtherColumn = (LiveOtherColumn) arguments.getSerializable("mLiveOtherColumn");
+        mPresenter.getPresenterLiveOtherTwoColumn(mLiveOtherColumn.getShort_name());
     }
 
     @Override
     public void showErrorWithStatus(String msg) {
 
     }
-
     /**
      *  获取二级分类 栏目
      * @param mLiveOtherTwoCloumn
@@ -92,7 +88,7 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
         for (int i = 0; i < mLiveOtherTwoCloumn.size(); i++) {
             mTilte[i] = mLiveOtherTwoCloumn.get(i).getTag_name();
         }
-        livetwocolumnViewpager.setOffscreenPageLimit(mTilte.length/3);
+        livetwocolumnViewpager.setOffscreenPageLimit(mTilte.length);
         mLiveOtherTwoColumnAdapter=new LiveOtherTwoCloumnAdapter(getChildFragmentManager(),mLiveOtherTwoCloumn,mTilte);
         livetwocolumnViewpager.setAdapter(mLiveOtherTwoColumnAdapter);
         mLiveOtherTwoColumnAdapter.notifyDataSetChanged();

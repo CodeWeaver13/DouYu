@@ -50,7 +50,7 @@ public class LiveFragment extends BaseFragment<LiveOtherColumnModelLogic, LiveOt
     @Override
     protected void onInitView(Bundle bundle) {
         svProgressHUD = new SVProgressHUD(getActivity());
-        mPresenter.getPresenterLiveOtherColumn();
+
     }
 
     @Override
@@ -68,7 +68,7 @@ public class LiveFragment extends BaseFragment<LiveOtherColumnModelLogic, LiveOt
      */
     @Override
     protected void lazyFetchData() {
-
+        mPresenter.getPresenterLiveOtherColumn();
     }
 
     @Override
@@ -77,7 +77,8 @@ public class LiveFragment extends BaseFragment<LiveOtherColumnModelLogic, LiveOt
     }
 
     /**
-     *  获取全部栏目分类
+     * 获取全部栏目分类
+     *
      * @param mLiveOtherColumns
      */
     @Override
@@ -88,12 +89,12 @@ public class LiveFragment extends BaseFragment<LiveOtherColumnModelLogic, LiveOt
         for (int i = 0; i < mLiveOtherColumns.size(); i++) {
             mTilte[i + 2] = mLiveOtherColumns.get(i).getCate_name();
         }
-        mTilte[mTilte.length-1]="体育直播";
-        liveViewpager.setOffscreenPageLimit(mTilte.length/3);
-        mLiveAllColumnAdapter=new LiveAllCloumnAdapter(getChildFragmentManager(),mLiveOtherColumns,mTilte);
+        mTilte[mTilte.length - 1] = "体育直播";
+        liveViewpager.setOffscreenPageLimit(mTilte.length);
+        mLiveAllColumnAdapter = new LiveAllCloumnAdapter(getChildFragmentManager(), mLiveOtherColumns, mTilte);
         liveViewpager.setAdapter(mLiveAllColumnAdapter);
         mLiveAllColumnAdapter.notifyDataSetChanged();
-        liveSlidingTab.setViewPager(liveViewpager,mTilte);
+        liveSlidingTab.setViewPager(liveViewpager, mTilte);
         liveSlidingTab.setCurrentTab(1);
     }
 

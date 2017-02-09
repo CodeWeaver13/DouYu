@@ -4,6 +4,7 @@ import com.team.zhuoke.model.logic.live.bean.LiveAllList;
 import com.team.zhuoke.model.logic.live.bean.LiveOtherColumn;
 import com.team.zhuoke.model.logic.live.bean.LiveOtherList;
 import com.team.zhuoke.model.logic.live.bean.LiveOtherTwoColumn;
+import com.team.zhuoke.model.logic.live.bean.LiveSportsAllList;
 import com.team.zhuoke.net.response.HttpResponse;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import static com.team.zhuoke.api.NetWorkApi.getLiveAllList;
 import static com.team.zhuoke.api.NetWorkApi.getLiveOtherColumn;
 import static com.team.zhuoke.api.NetWorkApi.getLiveOtherTwoColumn;
 import static com.team.zhuoke.api.NetWorkApi.getLiveOtherTwoList;
+import static com.team.zhuoke.api.NetWorkApi.getLiveSportsAllList;
 
 /**
  *  作者：gaoyin
@@ -55,5 +57,11 @@ public interface LiveApi {
      */
     @GET(getLiveOtherTwoList+"{cate_id}")
     Observable<HttpResponse<List<LiveOtherList>>> getLiveOtherList(@Path("cate_id") String cate_id,@QueryMap Map<String,String> params);
+    /**
+     *  体育直播
+     * @return
+     */
+    @GET(getLiveSportsAllList)
+    Observable<HttpResponse<List<LiveSportsAllList>>> getLiveSportsAllList(@QueryMap Map<String,String> params);
 
 }
