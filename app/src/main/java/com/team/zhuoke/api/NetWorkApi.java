@@ -49,5 +49,18 @@ public class NetWorkApi {
 //    体育直播
     public static final String getLiveSportsAllList="/api/v1/qie";
 
+    /**
+     * *****************************视频接口***************************************
+     */
+    //    视频---推荐  http://apiv2.douyucdn.cn/video/Video/getHotVideoList1?clicknum=2&token=&client_sys=android
+    public static final String getVideoHotColumn="/video/Video/getHotVideoList1";
 
+    //    视频---热门作者栏目  http://apiv2.douyucdn.cn/video/Home/getHotAuthors?client_sys=android
+    public static final String getVideoHotAutherColumn="/video/Home/getHotAuthors";
+
+    //    其他热门 种类  http://apiv2.douyucdn.cn/video/Video/getCateHotVideoList1?token=&client_sys=android
+    public static final String getVideoRecommendHotCate="/video/Video/getCateHotVideoList1";
+
+    //  视频---全部分类(一级分类)  http://apiv2.douyucdn.cn/video/Cate/getVideoHomeCate1?client_sys=android
+    public static final String getVideoCateList="/video/Cate/getVideoHomeCate1";
 }

@@ -47,7 +47,7 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
     RecyclerView recommed_recyclerview;
     private HomeRecommendAdapter adapter;
     private HomeCarouselAdapter mRecommedBannerAdapter;
-      private View haderView;
+             private View haderView;
     public static RecommendHomeFragment getInstance() {
         RecommendHomeFragment rf = new RecommendHomeFragment();
         return rf;

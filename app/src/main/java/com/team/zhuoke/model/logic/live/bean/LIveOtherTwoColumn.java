@@ -11,7 +11,7 @@ import java.io.Serializable;
  *  备注消息：
  *  修改时间：2017/2/8 下午5:02
  **/
-public class LiveOtherTwoColumn  implements Serializable{
+public class LiveOtherTwoColumn implements Serializable{
 
     /**
      * tag_id : 1
