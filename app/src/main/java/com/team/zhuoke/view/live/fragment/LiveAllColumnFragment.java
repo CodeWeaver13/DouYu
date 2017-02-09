@@ -135,12 +135,12 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
              rtefreshContent.stopLoadMore();
         }
         mLiveAllListAdapter.getLiveAllListLoadMore(mLiveAllList);
-
     }
     @Override
     public void showErrorWithStatus(String msg) {
-//        if (rtefreshContent != null) {
-//            rtefreshContent.stopLoadMore(false);
-//        }
+        if (rtefreshContent != null) {
+            rtefreshContent.stopRefresh(false);
+            rtefreshContent.stopLoadMore(false);
+        }
     }
 }

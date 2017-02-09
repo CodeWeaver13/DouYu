@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
 import com.team.zhuoke.base.BaseView;
@@ -23,7 +24,6 @@ import com.team.zhuoke.ui.refreshview.XRefreshView;
 import com.team.zhuoke.view.home.adapter.HomeNgBarAdapter;
 import com.team.zhuoke.view.home.adapter.HomeNgBarViewPagerAdapter;
 import com.team.zhuoke.view.home.adapter.HomeOtherAdapter;
-import com.team.zhuoke.view.home.adapter.HomeRecommendAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +77,6 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
         mOtherHomeFraments.add(position-1,mInstance);
         return mInstance;
     }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home_otherlist;

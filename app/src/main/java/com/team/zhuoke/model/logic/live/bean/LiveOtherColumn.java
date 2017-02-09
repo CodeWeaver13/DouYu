@@ -1,5 +1,7 @@
 package com.team.zhuoke.model.logic.live.bean;
 
+import java.io.Serializable;
+
 /**
  *  作者：gaoyin
  *  电话：18810474975
@@ -9,7 +11,7 @@ package com.team.zhuoke.model.logic.live.bean;
  *  备注消息：
  *  修改时间：2017/2/7 下午3:49
  **/
-public class LiveOtherColumn {
+public class LiveOtherColumn  implements Serializable{
 
     /**
      * cate_id : 1

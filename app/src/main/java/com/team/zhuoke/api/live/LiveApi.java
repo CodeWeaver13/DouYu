@@ -2,17 +2,22 @@ package com.team.zhuoke.api.live;
 
 import com.team.zhuoke.model.logic.live.bean.LiveAllList;
 import com.team.zhuoke.model.logic.live.bean.LiveOtherColumn;
+import com.team.zhuoke.model.logic.live.bean.LiveOtherList;
+import com.team.zhuoke.model.logic.live.bean.LiveOtherTwoColumn;
 import com.team.zhuoke.net.response.HttpResponse;
 
 import java.util.List;
 import java.util.Map;
 
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
 import static com.team.zhuoke.api.NetWorkApi.getLiveAllList;
 import static com.team.zhuoke.api.NetWorkApi.getLiveOtherColumn;
+import static com.team.zhuoke.api.NetWorkApi.getLiveOtherTwoColumn;
+import static com.team.zhuoke.api.NetWorkApi.getLiveOtherTwoList;
 
 /**
  *  作者：gaoyin
@@ -32,10 +37,23 @@ public interface LiveApi {
     Observable<HttpResponse<List<LiveOtherColumn>>> getLiveOtherColumn(@QueryMap Map<String,String> params);
 
     /**
-     *  直播其他栏目分类
+     *  全部直播
      * @return
      */
     @GET(getLiveAllList)
     Observable<HttpResponse<List<LiveAllList>>> getLiveAllList(@QueryMap Map<String,String> params);
+
+    /**
+     *  直播其他栏目二级分类
+     * @return
+     */
+    @GET(getLiveOtherTwoColumn)
+    Observable<HttpResponse<List<LiveOtherTwoColumn>>> getLiveOtherTwoColumn(@QueryMap Map<String,String> params);
+    /**
+     *  直播其他列表页
+     * @return
+     */
+    @GET(getLiveOtherTwoList+"{cate_id}")
+    Observable<HttpResponse<List<LiveOtherList>>> getLiveOtherList(@Path("cate_id") String cate_id,@QueryMap Map<String,String> params);
 
 }

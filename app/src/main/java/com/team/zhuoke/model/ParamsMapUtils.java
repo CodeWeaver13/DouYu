@@ -56,5 +56,16 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         return mapparam;
     }
 
+    /**
+     *    其他栏目二级分类
+     * @param ColumnName
+     * @return
+     */
+    public static Map<String, String> getLiveOtherTwoColumn(String ColumnName) {
+        mapparam = getDefaultParams();
+        mapparam.put("shortName",ColumnName);
+        return mapparam;
+    }
+
 
 }

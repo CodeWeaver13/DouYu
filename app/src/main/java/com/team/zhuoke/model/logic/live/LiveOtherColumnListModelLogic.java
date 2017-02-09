@@ -2,18 +2,19 @@ package com.team.zhuoke.model.logic.live;
 
 import android.content.Context;
 
-import com.team.zhuoke.api.home.HomeApi;
 import com.team.zhuoke.api.live.LiveApi;
 import com.team.zhuoke.model.ParamsMapUtils;
-import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.model.logic.live.bean.LiveAllList;
+import com.team.zhuoke.model.logic.live.bean.LiveOtherList;
 import com.team.zhuoke.net.http.HttpUtils;
 import com.team.zhuoke.net.transformer.DefaultTransformer;
-import com.team.zhuoke.presenter.live.interfaces.LiveAllListContract;
+import com.team.zhuoke.presenter.live.interfaces.LiveOtherColumnListContract;
 
 import java.util.List;
 
 import rx.Observable;
+
+import static android.R.attr.offset;
 
 /**
  *  作者：gaoyin
@@ -24,7 +25,7 @@ import rx.Observable;
  *  备注消息：
  *  修改时间：2017/2/7 下午5:35
  **/
-public class LiveAllListModelLogic implements LiveAllListContract.Model {
+public class LiveOtherColumnListModelLogic implements LiveOtherColumnListContract.Model {
 
     /**
      *   获取全部视频
@@ -34,13 +35,13 @@ public class LiveAllListModelLogic implements LiveAllListContract.Model {
      * @return
      */
     @Override
-    public Observable<List<LiveAllList>> getModelLiveAllList(Context context, int offset, int limit) {
+    public Observable<List<LiveOtherList>> getModelLiveOtherColumnList(Context context,String cate_id,int offset, int limit) {
         return HttpUtils.getInstance(context)
                 .setLoadDiskCache(true)
                 .getRetofitClinet()
                 .builder(LiveApi.class)
-                .getLiveAllList(ParamsMapUtils.getHomeFaceScoreColumn(offset,limit))
+                .getLiveOtherList(cate_id,ParamsMapUtils.getHomeFaceScoreColumn(offset,limit))
 //               进行预处理
-                .compose(new DefaultTransformer<List<LiveAllList>>());
+                .compose(new DefaultTransformer<List<LiveOtherList>>());
     }
 }

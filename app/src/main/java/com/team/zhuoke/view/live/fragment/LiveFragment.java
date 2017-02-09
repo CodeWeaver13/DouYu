@@ -89,7 +89,7 @@ public class LiveFragment extends BaseFragment<LiveOtherColumnModelLogic, LiveOt
             mTilte[i + 2] = mLiveOtherColumns.get(i).getCate_name();
         }
         mTilte[mTilte.length-1]="体育直播";
-        liveViewpager.setOffscreenPageLimit(mTilte.length/2);
+        liveViewpager.setOffscreenPageLimit(mTilte.length/3);
         mLiveAllColumnAdapter=new LiveAllCloumnAdapter(getChildFragmentManager(),mLiveOtherColumns,mTilte);
         liveViewpager.setAdapter(mLiveAllColumnAdapter);
         mLiveAllColumnAdapter.notifyDataSetChanged();

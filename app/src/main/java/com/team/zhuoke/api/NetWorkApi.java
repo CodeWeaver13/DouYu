@@ -42,6 +42,10 @@ public class NetWorkApi {
     public static final String getLiveOtherColumn="/api/v1/getColumnList";
 //    全部直播
     public static final String getLiveAllList="/api/v1/live";
+//    其他二级栏目分类
+    public static final String getLiveOtherTwoColumn="/api/v1/getColumnDetail";
+
+    public static final String  getLiveOtherTwoList="/api/v1/live/";
 
 
 }

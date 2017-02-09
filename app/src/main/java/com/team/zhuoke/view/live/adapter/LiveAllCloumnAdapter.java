@@ -3,6 +3,7 @@ package com.team.zhuoke.view.live.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
 import com.team.zhuoke.model.logic.live.bean.LiveOtherColumn;
 import com.team.zhuoke.view.live.fragment.LiveAllColumnFragment;
 import com.team.zhuoke.view.live.fragment.LiveCommonColumnFragment;
@@ -52,13 +53,14 @@ public class LiveAllCloumnAdapter extends FragmentStatePagerAdapter {
         {
              return LiveAllColumnFragment.getInstance();
         }
-        else if(position==mTiltle.length)
+        else if(position==mTiltle.length-1)
         {
             return LiveSportsColumnFragment.getInstance();
         }
         else
         {
-             return LiveOtherColumnFragment.getInstance();
+//            其他一级栏目分类
+             return LiveOtherColumnFragment.getInstance(mliveOtherColumns.get(position-2),position-2);
         }
     }
 }
