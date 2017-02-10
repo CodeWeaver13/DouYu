@@ -45,4 +45,38 @@ public class LiveOtherColumnListPresenterImp extends LiveOtherColumnListContract
             }
         }));
     }
+    /**
+     *  颜值 列表
+     */
+
+    @Override
+    public void getPresenterLiveFaceScoreColumnList(String cate_id, int offset, int limit) {
+        addSubscribe(mModel.getModelLiveOtherColumnList(mContext,cate_id,offset,limit).subscribe(new RxSubscriber<List<LiveOtherList>>() {
+            @Override
+            public void onSuccess(List<LiveOtherList> mLiveAllList) {
+                mView.getViewLiveFaceScoreColumnList(mLiveAllList);
+            }
+            @Override
+            protected void onError(ResponeThrowable ex) {
+                mView.showErrorWithStatus(ex.message);
+            }
+        }));
+    }
+
+    @Override
+    public void getPresenterLiveFaceScoreColumnListLoadMore(String cate_id, int offset, int limit) {
+        addSubscribe(mModel.getModelLiveOtherColumnList(mContext,cate_id,offset,limit).subscribe(new RxSubscriber<List<LiveOtherList>>() {
+            @Override
+            public void onSuccess(List<LiveOtherList> mLiveAllList) {
+                mView.getViewLiveFaceScoreColumnListLoadMore(mLiveAllList);
+            }
+            @Override
+            protected void onError(ResponeThrowable ex) {
+                mView.showErrorWithStatus(ex.message);
+            }
+        }));
+    }
+
+
+
 }
