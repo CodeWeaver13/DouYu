@@ -28,6 +28,8 @@ import java.util.List;
 import butterknife.BindView;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
+import static com.team.zhuoke.R.id.recyclerView;
+
 
 /**
  * 作者：gaoyin
@@ -66,7 +68,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
         pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
         recommed_recyclerview.setRecycledViewPool(pool);
         recommed_recyclerview.setAdapter(adapter);
-
         setXrefeshViewConfig();
     }
              final RecyclerView.RecycledViewPool pool = new RecyclerView.RecycledViewPool() {

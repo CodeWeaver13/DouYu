@@ -28,6 +28,9 @@ public interface LiveOtherColumnListContract {
       interface View extends BaseView {
           void getViewLiveOtherColumnList(List<LiveOtherList> mLiveAllList);
           void getViewLiveOtherColumnListLoadMore(List<LiveOtherList> mLiveAllList);
+
+          void getViewLiveFaceScoreColumnList(List<LiveOtherList> mLiveAllList);
+          void getViewLiveFaceScoreColumnListLoadMore(List<LiveOtherList> mLiveAllList);
       }
       interface Model extends BaseModel {
             Observable<List<LiveOtherList>> getModelLiveOtherColumnList(Context context,String cate_id,int offset, int limit);
@@ -37,6 +40,10 @@ public interface LiveOtherColumnListContract {
           public abstract void getPresenterLiveOtherColumnList(String cate_id,int offset,int limit );
           //          加载更多
           public abstract  void  getPresenterLiveOtherColumnListLoadMore(String cate_id,int offset,int limit);
+
+//          颜值列表
+          public abstract  void getPresenterLiveFaceScoreColumnList(String cate_id,int offset,int limit);
+          public abstract  void getPresenterLiveFaceScoreColumnListLoadMore(String cate_id,int offset,int limit);
 
       }
 

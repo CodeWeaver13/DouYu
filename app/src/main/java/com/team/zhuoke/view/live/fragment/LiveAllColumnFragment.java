@@ -4,10 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
@@ -18,23 +14,20 @@ import com.team.zhuoke.presenter.live.impl.LiveAllListPresenterImp;
 import com.team.zhuoke.presenter.live.interfaces.LiveAllListContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
 import com.team.zhuoke.view.home.adapter.FullyGridLayoutManager;
-import com.team.zhuoke.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
 import com.team.zhuoke.view.live.adapter.LiveAllListAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
- * 作者：${User}
- * 电话：18810474975
- * 邮箱：18810474975@163.com
- * 版本号：
- * 类描述：
- * 修改时间：${DATA}1634
- */
-
+ *  作者：gaoyin
+ *  电话：18810474975
+ *  邮箱：18810474975@163.com
+ *  版本号：1.0
+ *  类描述：
+ *  备注消息：
+ *  修改时间：2017/2/9 下午12:49
+ **/
 public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, LiveAllListPresenterImp> implements LiveAllListContract.View {
 
     /**
@@ -63,7 +56,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
 
     @Override
     protected void onInitView(Bundle bundle) {
-        refresh();
+
         setXrefeshViewConfig();
         livealllistContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         mLiveAllListAdapter=new LiveAllListAdapter(getActivity());
@@ -121,7 +114,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
 
     @Override
     protected void lazyFetchData() {
-
+        refresh();
     }
     @Override
     public void getViewLiveAllListColumn(List<LiveAllList> mLiveAllList) {

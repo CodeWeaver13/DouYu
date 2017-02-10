@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.zhuoke.R;
 import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
@@ -76,7 +74,7 @@ public class HomeRecommendFaceScoreColumnAdapter extends BaseRecyclerAdapter<Rec
         return mHomeFaceScoreColumn.size();
     }
 
-    public class FaceScoreColumnHolder extends BaseViewHolder {
+    public class FaceScoreColumnHolder extends RecyclerView.ViewHolder {
         public SimpleDraweeView img_item_gridview;
         public TextView tv_column_item_nickname;
         public TextView tv_online_num;

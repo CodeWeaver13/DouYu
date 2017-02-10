@@ -64,8 +64,8 @@ public  final class NetWorkConfiguration {
         this.maxDiskCacheSize=30*1024*1024;
         this.context=content.getApplicationContext();
         this.diskCache=new Cache(new File(this.context.getCacheDir(),"network"),maxDiskCacheSize);
-        this.connectTimeout=5000;
-        this.connectionPool=new ConnectionPool(10,30, TimeUnit.SECONDS);
+        this.connectTimeout=10000;
+        this.connectionPool=new ConnectionPool(50,60, TimeUnit.SECONDS);
         certificates=null;
         baseUrl=null;
     }

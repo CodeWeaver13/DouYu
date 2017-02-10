@@ -40,12 +40,17 @@ public class LiveAllListAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHol
     }
 
     public void getLiveAllList(List<LiveAllList> mLiveList) {
+
+//         notifyItemRangeChanged(this.mLiveList.size(),this.mLiveList.size());
         this.mLiveList.clear();
         this.mLiveList.addAll(mLiveList);
+//        notifyItemRangeInserted(this.mLiveList.size(),this.mLiveList.size());
+//        notifyItemInserted(this.mLiveList.size());
         notifyDataSetChanged();
     }
 
     public void getLiveAllListLoadMore(List<LiveAllList> mLiveList) {
+//        notifyItemRangeChanged(this.mLiveList.size(),this.mLiveList.size());
         this.mLiveList.addAll(mLiveList);
         notifyDataSetChanged();
     }
