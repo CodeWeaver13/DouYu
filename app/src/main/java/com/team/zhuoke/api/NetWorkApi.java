@@ -63,4 +63,11 @@ public class NetWorkApi {
 
     //  视频---全部分类(一级分类)  http://apiv2.douyucdn.cn/video/Cate/getVideoHomeCate1?client_sys=android
     public static final String getVideoCateList="/video/Cate/getVideoHomeCate1";
+
+    //  视频---全部分类(二级分类)  http://apiv2.douyucdn.cn/video/Cate/getVideoCate2?cid1=3&client_sys=android
+    public static final String getVideoReCateList="/video/Cate/getVideoCate2";
+    // 视频---视频列表 http://apiv2.douyucdn.cn/video/Videoroomlist/getRecVideoList?cid1=1&cid2=5&offset=0&limit=20&action=hot&client_sys=android
+    public static final String getVideoOtherList="/video/Videoroomlist/getRecVideoList";
+
+
 }

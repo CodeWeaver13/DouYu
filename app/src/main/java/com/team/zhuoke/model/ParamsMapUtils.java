@@ -66,6 +66,25 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         mapparam.put("shortName",ColumnName);
         return mapparam;
     }
+/**
+ * *******************************视频模块****************************************
+ */
 
+    public static Map<String, String> getVideoOtherTwoColumn(String ColumnName) {
+        mapparam = getDefaultParams();
+        mapparam.put("cid1",ColumnName);
+        return mapparam;
+    }
 
+//    cid1=1&cid2=5&offset=0&limit=20&action=hot
+
+    public static Map<String, String> getVideoOtherList(String cid1,String cid2 ,int offset,int limit,String action) {
+        mapparam = getDefaultParams();
+        mapparam.put("cid1",cid1);
+        mapparam.put("cid2",cid2);
+        mapparam.put("offset",offset+"");
+        mapparam.put("limit",limit+"");
+        mapparam.put("action",action);
+        return mapparam;
+    }
 }

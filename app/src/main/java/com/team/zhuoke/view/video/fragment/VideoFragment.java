@@ -2,9 +2,6 @@ package com.team.zhuoke.view.video.fragment;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.flyco.tablayout.SlidingTabLayout;
@@ -12,7 +9,7 @@ import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseFragment;
 import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.model.logic.video.bean.VideoCateList;
-import com.team.zhuoke.model.logic.video.bean.VideoCateListLogic;
+import com.team.zhuoke.model.logic.video.VideoCateListLogic;
 import com.team.zhuoke.presenter.video.impl.VideoCateListPresenterImpl;
 import com.team.zhuoke.presenter.video.interfaces.VideoAllCateListContract;
 import com.team.zhuoke.view.video.adapter.VideoAllListAdapter;
@@ -20,9 +17,6 @@ import com.team.zhuoke.view.video.adapter.VideoAllListAdapter;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static com.team.zhuoke.R.id.viewpager;
 
 /**
  * 作者：gaoyin

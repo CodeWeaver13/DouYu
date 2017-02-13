@@ -4,9 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.team.zhuoke.model.logic.video.bean.VideoCateList;
-import com.team.zhuoke.view.video.fragment.OtherVideoFragment;
-import com.team.zhuoke.view.video.fragment.RecommendVideoFragment;
+import com.team.zhuoke.model.logic.video.bean.VideoReClassify;
+import com.team.zhuoke.view.video.fragment.VideoOtherTwoColumnFragment;
 
 import java.util.List;
 
@@ -19,17 +18,17 @@ import java.util.List;
  *  备注消息：
  *  修改时间：2016/12/19 下午1:53
  **/
-public class VideoAllListAdapter extends FragmentStatePagerAdapter {
+public class VideoReClassifyListAdapter extends FragmentStatePagerAdapter {
 
-    private  List<VideoCateList> mVideoCateLists;
+    private  List<VideoReClassify> mHomeCateLists;
     private  String[] mTiltle;
     private FragmentManager mFragmentManager;
 
-    public VideoAllListAdapter(FragmentManager fm, List<VideoCateList> videoCateLists, String[] title)
+    public VideoReClassifyListAdapter(FragmentManager fm, List<VideoReClassify> homeCateLists, String[] title)
     {
         super(fm);
         this.mFragmentManager=fm;
-        this.mVideoCateLists=videoCateLists;
+        this.mHomeCateLists=homeCateLists;
         this.mTiltle=title;
     }
     @Override
@@ -40,13 +39,11 @@ public class VideoAllListAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTiltle[position];
     }
+
     @Override
     public Fragment getItem(int position) {
-        if(position==0)
-        {
-            return RecommendVideoFragment.getInstance();
-        }
-        return OtherVideoFragment.getInstance(mVideoCateLists.get(position-1),position-1);
+
+            return VideoOtherTwoColumnFragment.getInstance(mHomeCateLists.get(position),position);
     }
 //    @Override
 //    public void destroyItem(ViewGroup container, int position, Object object) {

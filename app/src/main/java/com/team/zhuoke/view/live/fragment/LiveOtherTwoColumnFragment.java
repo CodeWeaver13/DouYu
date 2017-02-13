@@ -48,6 +48,10 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
     private LiveOtherColumnListAdapter mLiveOtherColumnListAdapter;
     private LiveOtherTwoColumn mLiveOtherTwoColumn;
     private LiveFaceScoreColumnListAdapter mLiveFaceScoreColumnListAdapter;
+    public static LiveOtherTwoColumnFragment getInstance() {
+        LiveOtherTwoColumnFragment rf = new LiveOtherTwoColumnFragment();
+        return rf;
+    }
 
     public static LiveOtherTwoColumnFragment getInstance(LiveOtherTwoColumn mLiveOtherTwoColumn, int position) {
         LiveOtherTwoColumnFragment rf = new LiveOtherTwoColumnFragment();

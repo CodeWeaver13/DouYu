@@ -3,6 +3,8 @@ package com.team.zhuoke.api.video;
 import com.team.zhuoke.model.logic.video.bean.VideoCateList;
 import com.team.zhuoke.model.logic.video.bean.VideoHotAuthorColumn;
 import com.team.zhuoke.model.logic.video.bean.VideoHotColumn;
+import com.team.zhuoke.model.logic.video.bean.VideoOtherColumnList;
+import com.team.zhuoke.model.logic.video.bean.VideoReClassify;
 import com.team.zhuoke.model.logic.video.bean.VideoRecommendHotCate;
 import com.team.zhuoke.net.response.HttpResponse;
 
@@ -13,9 +15,12 @@ import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 import static com.team.zhuoke.api.NetWorkApi.getVideoCateList;
 import static com.team.zhuoke.api.NetWorkApi.getVideoHotAutherColumn;
 import static com.team.zhuoke.api.NetWorkApi.getVideoHotColumn;
+import static com.team.zhuoke.api.NetWorkApi.getVideoOtherList;
+import static com.team.zhuoke.api.NetWorkApi.getVideoReCateList;
 import static com.team.zhuoke.api.NetWorkApi.getVideoRecommendHotCate;
 
 //import static com.team.zhuoke.api.NetWorkApi.getVideoHotAutherColumn;
@@ -58,4 +63,18 @@ public interface VideoApi {
      */
     @GET(getVideoCateList)
     Observable<HttpResponse<List<VideoCateList>>> getVideoCateList(@QueryMap Map<String,String> params);
+
+    /**
+     *    视频---二级分类
+     * @return
+     */
+    @GET(getVideoReCateList)
+    Observable<HttpResponse<List<VideoReClassify>>> getVideoReCateList(@QueryMap Map<String,String> params);
+
+    /**
+     *    视频---二级列表
+     * @return
+    */
+    @GET(getVideoOtherList)
+    Observable<HttpResponse<List<VideoOtherColumnList>>> getVideoOtherColumnList(@QueryMap Map<String,String> params);
 }

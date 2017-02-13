@@ -15,7 +15,7 @@ import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.model.logic.video.bean.VideoHotAuthorColumn;
 import com.team.zhuoke.model.logic.video.bean.VideoHotColumn;
 import com.team.zhuoke.model.logic.video.bean.VideoRecommendHotCate;
-import com.team.zhuoke.model.logic.video.bean.VideoRecommendModelLogic;
+import com.team.zhuoke.model.logic.video.VideoRecommendModelLogic;
 import com.team.zhuoke.presenter.video.impl.VideoRecommendPresenterImp;
 import com.team.zhuoke.presenter.video.interfaces.VideoRerecommendContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;

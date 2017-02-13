@@ -1,9 +1,10 @@
-package com.team.zhuoke.model.logic.video.bean;
+package com.team.zhuoke.model.logic.video;
 
 import android.content.Context;
 
 import com.team.zhuoke.api.video.VideoApi;
 import com.team.zhuoke.model.ParamsMapUtils;
+import com.team.zhuoke.model.logic.video.bean.VideoCateList;
 import com.team.zhuoke.net.http.HttpUtils;
 import com.team.zhuoke.net.transformer.DefaultTransformer;
 import com.team.zhuoke.presenter.video.interfaces.VideoAllCateListContract;
