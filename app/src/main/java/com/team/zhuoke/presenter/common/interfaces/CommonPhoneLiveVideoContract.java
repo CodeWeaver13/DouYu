@@ -1,9 +1,17 @@
 package com.team.zhuoke.presenter.common.interfaces;
 
 
+import android.content.Context;
+
 import com.team.zhuoke.base.BaseModel;
 import com.team.zhuoke.base.BasePresenter;
 import com.team.zhuoke.base.BaseView;
+import com.team.zhuoke.model.logic.common.bean.LiveVideoInfo;
+import com.team.zhuoke.net.response.HttpResponse;
+
+import okhttp3.Request;
+import retrofit2.Call;
+import rx.Observable;
 
 /**
  *  作者：gaoyin
@@ -14,17 +22,16 @@ import com.team.zhuoke.base.BaseView;
  *  备注消息：
  *  修改时间：2016/11/14 下午3:29
  **/
-
 public interface CommonPhoneLiveVideoContract {
 
       interface View extends BaseView {
-
+           void getViewPhoneLiveVideoInfo(LiveVideoInfo mLiveVideoInfo);
       }
     interface  Model extends BaseModel{
-
+        Request getModelPhoneLiveVideoInfo(Context context, String room_id);
     }
     abstract class Presenter extends BasePresenter<View,Model> {
-              public abstract  void getPresenterPhoneLiveVideoInfo();
+              public abstract  void getPresenterPhoneLiveVideoInfo(String room_id);
       }
 
 }

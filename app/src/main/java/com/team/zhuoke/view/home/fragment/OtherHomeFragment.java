@@ -115,8 +115,9 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
 
     @Override
     protected BaseView getViewImp() {
-        Bundle arguments = getArguments();
-        return mOtherHomeFraments.get(arguments.getInt("position"));
+//        Bundle arguments = getArguments();
+//        return mOtherHomeFraments.get(arguments.getInt("position"));
+        return this;
     }
     final RecyclerView.RecycledViewPool pool = new RecyclerView.RecycledViewPool() {
         @Override

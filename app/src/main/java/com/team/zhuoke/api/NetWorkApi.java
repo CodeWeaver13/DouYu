@@ -12,7 +12,8 @@ package com.team.zhuoke.api;
 public class NetWorkApi {
 
 //    Base地址
-     public static String baseUrl="https://capi.douyucdn.cn";
+     public static String baseUrl="http://capi.douyucdn.cn";
+
     /**
      *   ************************* 首页接口*******************************
      */
@@ -69,5 +70,21 @@ public class NetWorkApi {
     // 视频---视频列表 http://apiv2.douyucdn.cn/video/Videoroomlist/getRecVideoList?cid1=1&cid2=5&offset=0&limit=20&action=hot&client_sys=android
     public static final String getVideoOtherList="/video/Videoroomlist/getRecVideoList";
 
+    /**
+     *   ************************* 直播视频 *******************************
+     */
+    /**
+     *    因为视频新接口加密,暂时无法破解,暂时先用老接口 访问
+     */
+    //    暂时使用  Base地址
+    public static String getOldBaseUrl="http://www.douyu.com";
+
+    //     直播详情页   ---- 老接口    目前暂时使用
+     public static final String getLiveVideoInfo="/lapi/live/getPlay/";
+
+    /**
+     *   ********************************************************************
+     */
+    public  static final  String getLiveVideo="/api/v1/room/";
 
 }

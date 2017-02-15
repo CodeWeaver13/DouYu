@@ -1,8 +1,11 @@
 package com.team.zhuoke.model;
 
 import com.team.zhuoke.utils.BaseParamsMapUtil;
+import com.team.zhuoke.utils.MD5Util;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 作者：gaoyin
@@ -66,6 +69,29 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         mapparam.put("shortName",ColumnName);
         return mapparam;
     }
+
+    /**
+     *    房间信息
+     * @param room_id
+     * @return
+     */
+    public static Map<String, String> getLiveVideoInfo(String  room_id) {
+        mapparam =new HashMap<String,String>();
+        long time = System.currentTimeMillis()/(1000*60);
+        String did = UUID.randomUUID().toString().toUpperCase();
+        did = did.replace("-", "");
+        String str = room_id + did + "A12Svb&%1UUmf@hC" + time;
+        String sign = MD5Util.getToMd5Low32(str);
+        mapparam.put("client_sys", "android");
+        mapparam.put("aid", "android1");
+        mapparam.put("cdn", "ws");
+        mapparam.put("rate", "0");
+        mapparam.put("tt", String.valueOf(time));
+        mapparam.put("did", did);
+        mapparam.put("sign", sign);
+        return mapparam;
+    }
+
 /**
  * *******************************视频模块****************************************
  */

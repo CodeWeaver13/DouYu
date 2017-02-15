@@ -13,7 +13,6 @@ import com.team.zhuoke.model.logic.live.bean.LiveAllList;
 import com.team.zhuoke.presenter.live.impl.LiveAllListPresenterImp;
 import com.team.zhuoke.presenter.live.interfaces.LiveAllListContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
-import com.team.zhuoke.view.home.adapter.FullyGridLayoutManager;
 import com.team.zhuoke.view.live.adapter.LiveAllListAdapter;
 
 import java.util.List;
@@ -58,7 +57,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
     protected void onInitView(Bundle bundle) {
 
         setXrefeshViewConfig();
-        livealllistContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        livealllistContentRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         mLiveAllListAdapter=new LiveAllListAdapter(getActivity());
         livealllistContentRecyclerview.setAdapter(mLiveAllListAdapter);
         rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {

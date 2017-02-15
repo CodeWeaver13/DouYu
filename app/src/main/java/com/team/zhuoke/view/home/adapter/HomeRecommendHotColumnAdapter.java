@@ -2,7 +2,9 @@ package com.team.zhuoke.view.home.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.zhuoke.R;
 import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
 import com.team.zhuoke.utils.CalculationUtils;
+import com.team.zhuoke.view.common.activity.PcLiveVideoActivity;
+import com.team.zhuoke.view.common.activity.PhoneLiveVideoActivity;
 
 import java.util.List;
 
@@ -47,6 +51,16 @@ public class HomeRecommendHotColumnAdapter extends RecyclerView.Adapter<Recycler
          holder.tv_column_item_nickname.setText(mHomeHotColumn.get(position).getRoom_name());
          holder.tv_nickname.setText(mHomeHotColumn.get(position).getNickname());
         holder.tv_online_num.setText(CalculationUtils.getOnLine(mHomeHotColumn.get(position).getOnline()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PcLiveVideoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("Room_id",mHomeHotColumn.get(position).getRoom_id());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

@@ -14,7 +14,6 @@ import com.team.zhuoke.model.logic.live.bean.LiveOtherTwoColumn;
 import com.team.zhuoke.presenter.live.impl.LiveOtherColumnListPresenterImp;
 import com.team.zhuoke.presenter.live.interfaces.LiveOtherColumnListContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
-import com.team.zhuoke.view.home.adapter.FullyGridLayoutManager;
 import com.team.zhuoke.view.live.adapter.LiveFaceScoreColumnListAdapter;
 import com.team.zhuoke.view.live.adapter.LiveOtherColumnListAdapter;
 
@@ -71,7 +70,7 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
     @Override
     protected void onInitView(Bundle bundle) {
         setXrefeshViewConfig();
-        othercolumnContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        othercolumnContentRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         Bundle arguments = getArguments();
         mLiveOtherTwoColumn = (LiveOtherTwoColumn) arguments.getSerializable("mLiveOtherTwoColumn");
         if (mLiveOtherTwoColumn.getTag_id().equals("201")) {

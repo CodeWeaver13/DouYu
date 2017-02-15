@@ -1,5 +1,6 @@
 package com.team.zhuoke.model.logic.home.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -100,7 +101,7 @@ public class HomeRecommendHotCate {
         this.room_list = room_list;
     }
 
-    public static class RoomListEntity {
+    public static class RoomListEntity implements Serializable {
         private String specific_catalog;
         private String vertical_src;
         private String ranktype;

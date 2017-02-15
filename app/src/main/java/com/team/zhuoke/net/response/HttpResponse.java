@@ -14,16 +14,16 @@ import static android.R.id.message;
 public class HttpResponse<T> {
 
 
-     private String error ;
+     private int error ;
 
     private T data;
 
 
-    public String getError() {
+    public int getError() {
         return error;
     }
 
-    public void setError(String error) {
+    public void setError(int error) {
         this.error = error;
     }
 

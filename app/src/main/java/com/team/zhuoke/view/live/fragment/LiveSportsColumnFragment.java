@@ -13,7 +13,6 @@ import com.team.zhuoke.model.logic.live.bean.LiveSportsAllList;
 import com.team.zhuoke.presenter.live.impl.LiveSportsColumnAllListPresenterImp;
 import com.team.zhuoke.presenter.live.interfaces.LiveSportsColumnAllListContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
-import com.team.zhuoke.view.home.adapter.FullyGridLayoutManager;
 import com.team.zhuoke.view.live.adapter.LiveSportsColumnListAdapter;
 
 import java.util.List;
@@ -57,7 +56,7 @@ public class LiveSportsColumnFragment extends BaseFragment<LiveSportsColumnAllLi
     @Override
     protected void onInitView(Bundle bundle) {
         setXrefeshViewConfig();
-        livesportsContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        livesportsContentRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         mLiveSportsColumnListAdapter=new LiveSportsColumnListAdapter(getActivity());
         livesportsContentRecyclerview.setAdapter(mLiveSportsColumnListAdapter);
         rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {

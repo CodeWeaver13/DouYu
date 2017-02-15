@@ -42,11 +42,12 @@ public class ExGsonResponseBodyConverter<T> implements Converter<ResponseBody,T>
     @Override
     public T convert(ResponseBody responseBody) throws IOException {
         String value=responseBody.string();
+
         HttpResponse httpResponse=new HttpResponse();
         try {
             JSONObject response=new JSONObject(value);
-            String error=response.getString("error");
-            if(!error.equals("0"))
+            int error=response.getInt("error");
+            if(error!=0)
             {
                 httpResponse.setError(error);
                 httpResponse.setData(response.getString("data"));

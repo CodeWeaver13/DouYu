@@ -18,14 +18,10 @@ import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
-import com.team.zhuoke.utils.L;
 import com.team.zhuoke.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.id.list;
-import static com.team.zhuoke.R.id.rv_column_list;
 
 /**
  * 作者：gaoyin

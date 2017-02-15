@@ -15,7 +15,6 @@ import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.presenter.home.impl.HomeFaceScorePresenterImp;
 import com.team.zhuoke.presenter.home.interfaces.HomeFaceScoreContract;
 import com.team.zhuoke.ui.refreshview.XRefreshView;
-import com.team.zhuoke.view.home.adapter.FullyGridLayoutManager;
 import com.team.zhuoke.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
 
 import java.util.List;
@@ -60,7 +59,7 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         tvTitle.setText(getIntent().getExtras().getString("title"));
         refresh();
         setXrefeshViewConfig();
-        facescoreContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
+        facescoreContentRecyclerview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
         mFaceScoreColumnAdapter = new HomeRecommendFaceScoreColumnAdapter(this);
 //        mFaceScoreColumnAdapter.setCustomLoadMoreView(new XRefreshViewFooter(this));
         facescoreContentRecyclerview.setAdapter(mFaceScoreColumnAdapter);

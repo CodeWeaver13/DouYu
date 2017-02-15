@@ -1,7 +1,12 @@
 package com.team.zhuoke.view.common.activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -17,6 +22,8 @@ import com.team.zhuoke.view.user.fragment.UserFragment;
 import com.team.zhuoke.view.video.fragment.VideoFragment;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  *  作者：gaoyin
@@ -27,27 +34,26 @@ import butterknife.BindView;
  *  备注消息：
  *  修改时间：2016/11/30 上午9:56
  **/
-public class MainActivity extends BaseActivity implements  BaseView{
+public class MainActivity extends  AppCompatActivity implements BaseView{
     private static final String TAG_PAGE_HOME = "首页";
     private static final String TAG_PAGE_LIVE= "直播";
     private static final String TAG_PAGE_VIDEO = "视频";
     private static final String TAG_PAGE_FOLLOW = "关注";
     private static final String TAG_PAGE_USER = "我的";
+    protected Unbinder unbinder;
     //    退出时间
     private long exitTime = 0;
 
     @BindView(R.id.mainTabBar)
     NavigateTabBar mNavigateTabBar;
     NavigateTabBar.ViewHolder mHolder;
-    @Override
-    protected int getLayoutId() {
 
-        return R.layout.activity_main;
-    }
     @Override
-    protected void onInitView(Bundle bundle) {
-        mNavigateTabBar.onRestoreInstanceState(bundle);
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        unbinder = ButterKnife.bind(this);
+        mNavigateTabBar.onRestoreInstanceState(savedInstanceState);
         mNavigateTabBar.addTab(HomeFragment.class, new NavigateTabBar.TabParam(R.mipmap.home_pressed, R.mipmap
                 .home_selected, TAG_PAGE_HOME));
         mNavigateTabBar.addTab(LiveFragment.class, new NavigateTabBar.TabParam(R.mipmap.live_pressed, R.mipmap
@@ -87,26 +93,24 @@ public class MainActivity extends BaseActivity implements  BaseView{
                 }
             }
         });
-    }
-    @Override
-    protected void onEvent() {
-        // 获取所有权限
-        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
-            @Override
-            public void onRequestPermissionSuccess() {
-
-            }
-
-            @Override
-            public void onRequestPermissionFailed() {
-
-            }
-        }, new RxPermissions(MainActivity.this), this);
+//        // 获取所有权限
+//        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
+//            @Override
+//            public void onRequestPermissionSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onRequestPermissionFailed() {
+//
+//            }
+//        }, new RxPermissions(MainActivity.this),this);
     }
 
     @Override
-    protected BaseView getView() {
-        return this;
+    protected void onRestart() {
+
+        super.onRestart();
     }
 
     /**
@@ -133,6 +137,14 @@ public class MainActivity extends BaseActivity implements  BaseView{
         } else {
             finish();
             System.exit(0);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
         }
     }
 

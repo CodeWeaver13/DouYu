@@ -2,7 +2,9 @@ package com.team.zhuoke.view.home.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import com.team.zhuoke.R;
 import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.team.zhuoke.utils.CalculationUtils;
+import com.team.zhuoke.view.common.activity.PcLiveVideoActivity;
+import com.team.zhuoke.view.common.activity.PhoneLiveVideoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +71,17 @@ public class HomeRecommendFaceScoreColumnAdapter extends BaseRecyclerAdapter<Rec
         holder.tv_column_item_nickname.setText(mHomeFaceScoreColumn.get(position).getNickname());
         holder.tv_online_num.setText(CalculationUtils.getOnLine(mHomeFaceScoreColumn.get(position).getOnline()));
         holder.tv_facescore_city.setText(mHomeFaceScoreColumn.get(position).getAnchor_city());
+        holder.img_item_gridview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PhoneLiveVideoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("Room_id",mHomeFaceScoreColumn.get(position).getRoom_id());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

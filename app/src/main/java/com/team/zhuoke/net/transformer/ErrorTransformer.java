@@ -4,6 +4,7 @@ package com.team.zhuoke.net.transformer;
 import com.team.zhuoke.net.exception.ExceptionHandle;
 import com.team.zhuoke.net.exception.ServerException;
 import com.team.zhuoke.net.response.HttpResponse;
+import com.team.zhuoke.utils.L;
 
 import rx.Observable;
 import rx.functions.Func1;
@@ -25,9 +26,10 @@ public class ErrorTransformer<T> implements Observable.Transformer<HttpResponse<
         return httpResponseObservable.map(new Func1<HttpResponse<T>, T>() {
             @Override
             public T call(HttpResponse<T> tHttpResponse) {
-                if (!tHttpResponse.getError().equals( "0")) {
+                if (tHttpResponse.getError()!=0) {
+                    L.e("cc",tHttpResponse.toString());
                     //如果服务器端有错误信息返回，那么抛出异常，让下面的方法去捕获异常做统一处理
-                    throw  new ServerException(String.valueOf(tHttpResponse.getData()),Integer.parseInt(tHttpResponse.getError()));
+                    throw  new ServerException(String.valueOf(tHttpResponse.getData()),tHttpResponse.getError());
                 }
 //                //服务器请求数据成功，返回里面的数据实体
                 return tHttpResponse.getData();

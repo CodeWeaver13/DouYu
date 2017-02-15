@@ -94,9 +94,8 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.1'
 //    eventbus
     compile 'org.greenrobot:eventbus:3.0.0'
-//      视频播放器
-    compile files('libs/pldroid-player-1.4.1.jar')
-    compile 'com.qiniu.pili:pili-android-qos:0.8.+'
+//    视频播放器
+    compile project(path: ':InitActivity')
 ////    adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.7'
 
