@@ -21,8 +21,11 @@
   <h3 id="2.0.0">二.功能介绍 </h3>
   
   <h3 id="3.0.0">三.应用截图</h3>
-   ![首页--推荐](https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png =100*100)
-    ![首页--娱乐](https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png)
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="50%" height="50%" />
+  1.推荐页
+</center>
+  ![首页--娱乐](https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png)
     ![直播--游戏](https://github.com/mykj/DouYu/blob/master/upload_image/97901F29A1B07C41B574829D8EAD29A1.png)
     ![直播--天地](https://github.com/mykj/DouYu/blob/master/upload_image/DFC42CEC41072AF3F06FB110CAC385CC.png)
    ![颜值](https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png)
