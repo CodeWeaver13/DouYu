@@ -14,13 +14,13 @@
 * ------------------------[项目中使用到的三方库说明](#6.0.0)
 * ------------------------[项目反馈](#7.0.0)
 * ------------------------[关于我们](#8.0.0)
-* ------------------------[打赏支持](#9.0.0)
 
-  <h3 id="1.0.0"> 一.项目描述 </h3>
+
+<h3 id="1.0.0"> 一.项目描述 </h3>
   
-  <h3 id="2.0.0">二.功能介绍 </h3>
+<h3 id="2.0.0">二.功能介绍 </h3>
   
-  <h3 id="3.0.0">三.应用截图</h3>
+<h3 id="3.0.0">三.应用截图</h3>
   <center>
 <img src="https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="50%" height="50%" />
    <p>
@@ -81,7 +81,7 @@
 </center>
 <div></div>
   
-  <h3 id="4.0.0">四.下载地址</h3>
+<h3 id="4.0.0">四.下载地址</h3>
    
    下载方式
    ---
@@ -94,7 +94,7 @@
      
    ---
   
-  <h3 id="5.0.0">五.斗鱼接口文档</h3>
+<h3 id="5.0.0">五.斗鱼接口文档</h3>
  
   * [首页API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
   *  [直播API文档说明](https://github.com/mykj/DouYu/blob/master/document/LiveApi.md)
@@ -102,7 +102,77 @@
   *  [关注API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
   *  [个人API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
   
-   <h3 id="6.0.0">六.三方库说明</h3>
-   <h3 id="7.0.0">七.项目反馈</h3>
-   <h3 id="8.0.0">八.关于我们</h3>
-   <h3 id="9.0.0">九.打赏支持</h3>       
+  ---
+  
+<h3 id="6.0.0">六.三方库说明</h3>
+   
+   ```
+   //     适配
+    compile 'com.zhy:autolayout:1.4.5'
+    //黄油刀
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    //提示框，消息框等
+    compile 'com.github.GaoYin2016:Android-SVProgressHUD:1.0'
+    //    侧滑返回
+    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+    //RxJava and RxAndroid
+    compile 'io.reactivex:rxjava:1.1.8'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    // permissions
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.0@aar'
+    //RxLifecycle 内存泄露
+    compile 'com.trello:rxlifecycle:0.6.1'
+    compile 'com.trello:rxlifecycle-components:0.6.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    //    网络依赖库日志打印
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    //Retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    // log管理
+    compile 'com.orhanobut:logger:1.15'
+    compile files('libs/tbs_sdk_thirdapp_v2.5.0.1031_36880_sharewithdownload_obfs_20161107_154437.jar')
+    //-------图片框架------
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.facebook.fresco:imagepipeline-okhttp3:0.12.0'
+    // 在 API < 14 上的机器支持 WebP 时，需要添加
+    compile 'com.facebook.fresco:animated-base-support:0.12.0'
+
+    // 支持 GIF 动图，需要添加
+    compile 'com.facebook.fresco:animated-gif:0.12.0'
+    // 支持 WebP （静态图+动图），需要添加
+    compile 'com.facebook.fresco:animated-webp:0.12.0'
+    compile 'com.facebook.fresco:webpsupport:0.12.0'
+    // 仅支持 WebP 静态图，需要添加
+    compile 'com.facebook.fresco:webpsupport:0.12.0'
+    compile files('libs/tbs_sdk_thirdapp_v2.5.0.1037_36880_minsize_obfs_20161110_102536.jar')
+    //TabLayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+//    轮播图
+    compile 'cn.bingoogolapple:bga-banner:2.1.5@aar'
+    compile 'com.android.support:support-v4:25.0.1'
+//    eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+//    视频播放器
+    compile project(path: ':InitActivity')
+////    adapter
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.7'
+//    弹幕
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.6.4'
+    compile 'com.github.ctiao:ndkbitmap-armv7a:0.6.4'
+    compile 'com.github.ctiao:ndkbitmap-x86:0.6.4'
+
+   ```
+  
+  ---
+  
+<h3 id="7.0.0">七.项目反馈</h3>
+   
+| 联系人  | QQ        | 电话   |
+|:------ |:---------:| -----:     |
+| 高印    | 377413612 |18810474975 |
+
+<h3 id="8.0.0">八.关于我们</h3>
