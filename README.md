@@ -23,15 +23,71 @@
   <h3 id="3.0.0">三.应用截图</h3>
   <center>
 <img src="https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="50%" height="50%" />
-  1.推荐页
+   <p>
+  <h5>3.1.1图</h5>
+  </p>
 </center>
-  ![首页--娱乐](https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png)
-    ![直播--游戏](https://github.com/mykj/DouYu/blob/master/upload_image/97901F29A1B07C41B574829D8EAD29A1.png)
-    ![直播--天地](https://github.com/mykj/DouYu/blob/master/upload_image/DFC42CEC41072AF3F06FB110CAC385CC.png)
-   ![颜值](https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png)
-   ![热门游戏](https://github.com/mykj/DouYu/blob/master/upload_image/7540E9A56688E00078BBD79554B000E1.png)
-  ![手机直播](https://github.com/mykj/DouYu/blob/master/upload_image/3C42F496B3D447D3009DC543D1477186.png)
-![PC直播](https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png)
+<div></div>
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.2图</h5>
+  </p>
+</center>
+<div></div>
+
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/97901F29A1B07C41B574829D8EAD29A1.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.3图</h5>
+  </p>
+</center>
+<div></div>
+
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/DFC42CEC41072AF3F06FB110CAC385CC.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.4图</h5>
+  </p>
+</center>
+<div></div>
+
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.5图</h5>
+  </p>
+</center>
+<div></div>
+
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.6图</h5>
+  </p>
+</center>
+<div></div>
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/7540E9A56688E00078BBD79554B000E1.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.7图</h5>
+  </p>
+</center>
+<div></div>
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/3C42F496B3D447D3009DC543D1477186.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.8图</h5>
+  </p>
+</center>
+<div></div>
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png" width="50%" height="50%" />
+   <p>
+  <h5>3.1.9图</h5>
+  </p>
+</center>
+<div></div>
   
   
   <h3 id="4.0.0">四.下载地址</h3>
