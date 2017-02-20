@@ -24,7 +24,12 @@
   
   <h3 id="4.0.0">四.下载地址</h3>
    
-   下载方式：
+   下载方式
+   ---s
+     * 1.扫码二维码
+       ![app下载](https://github.com/mykj/DouYu/blob/master/upload_image/536FAFE7-C0BA-4E28-8875-D6BB134880A3.png)
+       
+     * 2.下载地址:[点击这里](https://www.pgyer.com/DouYuTv)
    
   
   <h3 id="5.0.0">五.斗鱼接口文档</h3>
