@@ -21,8 +21,7 @@
   <h3 id="2.0.0">二.功能介绍 </h3>
   
   <h3 id="3.0.0">三.应用截图</h3>
-  
-  ![首页--推荐](https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png)
+   ![首页--推荐](https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png =100*100)
     ![首页--娱乐](https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png)
     ![直播--游戏](https://github.com/mykj/DouYu/blob/master/upload_image/97901F29A1B07C41B574829D8EAD29A1.png)
     ![直播--天地](https://github.com/mykj/DouYu/blob/master/upload_image/DFC42CEC41072AF3F06FB110CAC385CC.png)
@@ -37,9 +36,8 @@
    下载方式
    ---
      * 1.扫码二维码
- ----
-
-       ![app下载](https://github.com/mykj/DouYu/blob/master/upload_image/536FAFE7-C0BA-4E28-8875-D6BB134880A3.png)
+ 
+  ![app下载](https://github.com/mykj/DouYu/blob/master/upload_image/536FAFE7-C0BA-4E28-8875-D6BB134880A3.png)
        
        
      * 2.下载地址:[点击这里](https://www.pgyer.com/DouYuTv)
