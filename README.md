@@ -22,15 +22,29 @@
   
   <h3 id="3.0.0">三.应用截图</h3>
   
+  ![首页--推荐](https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png)
+    ![首页--娱乐](https://github.com/mykj/DouYu/blob/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png)
+    ![直播--游戏](https://github.com/mykj/DouYu/blob/master/upload_image/97901F29A1B07C41B574829D8EAD29A1.png)
+    ![直播--天地](https://github.com/mykj/DouYu/blob/master/upload_image/DFC42CEC41072AF3F06FB110CAC385CC.png)
+   ![颜值](https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png)
+   ![热门游戏](https://github.com/mykj/DouYu/blob/master/upload_image/7540E9A56688E00078BBD79554B000E1.png)
+  ![手机直播](https://github.com/mykj/DouYu/blob/master/upload_image/3C42F496B3D447D3009DC543D1477186.png)
+![PC直播](https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png)
+  
+  
   <h3 id="4.0.0">四.下载地址</h3>
    
    下载方式
-   ---s
+   ---
      * 1.扫码二维码
+ ----
+
        ![app下载](https://github.com/mykj/DouYu/blob/master/upload_image/536FAFE7-C0BA-4E28-8875-D6BB134880A3.png)
        
+       
      * 2.下载地址:[点击这里](https://www.pgyer.com/DouYuTv)
-   
+     
+   ---
   
   <h3 id="5.0.0">五.斗鱼接口文档</h3>
  
