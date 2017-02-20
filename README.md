@@ -59,36 +59,27 @@
   </p>
 </center>
 <div></div>
-
   <center>
-<img src="https://github.com/mykj/DouYu/blob/master/upload_image/04A99D0900B1418A37943CCE169E2C3D.png" width="50%" height="50%" />
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/7540E9A56688E00078BBD79554B000E1.png" width="50%" height="50%" />
    <p>
   <h5>3.1.6图</h5>
   </p>
 </center>
 <div></div>
   <center>
-<img src="https://github.com/mykj/DouYu/blob/master/upload_image/7540E9A56688E00078BBD79554B000E1.png" width="50%" height="50%" />
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/3C42F496B3D447D3009DC543D1477186.png" width="50%" height="50%" />
    <p>
   <h5>3.1.7图</h5>
   </p>
 </center>
 <div></div>
   <center>
-<img src="https://github.com/mykj/DouYu/blob/master/upload_image/3C42F496B3D447D3009DC543D1477186.png" width="50%" height="50%" />
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png" width="50%" height="50%" />
    <p>
   <h5>3.1.8图</h5>
   </p>
 </center>
 <div></div>
-  <center>
-<img src="https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png" width="50%" height="50%" />
-   <p>
-  <h5>3.1.9图</h5>
-  </p>
-</center>
-<div></div>
-  
   
   <h3 id="4.0.0">四.下载地址</h3>
    
