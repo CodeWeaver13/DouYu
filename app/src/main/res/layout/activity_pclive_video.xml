@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.common.activity.PhoneLiveVideoActivity"
-    >
+    tools:context=".view.common.activity.PhoneLiveVideoActivity">
+
     <io.vov.vitamio.widget.VideoView
         android:id="@+id/vm_videoview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content" />
+    <!--弹幕-->
+    <master.flame.danmaku.ui.widget.DanmakuView
+        android:id="@+id/danmakuView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--loading-->
+    <FrameLayout
+        android:id="@+id/fl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e0000000"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/wh100.0dimens100.0dp">
+
+                <ImageView
+                    android:id="@+id/im_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/image_about_backage"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/im_logo"
+                    android:layout_marginTop="@dimen/wh10.0dimens10.0dp"
+                    android:layout_marginLeft="@dimen/wh35.0dimens35.0dp"
+                    >
+
+                    <com.team.zhuoke.ui.loadplay.LoadingView
+                        android:id="@+id/lv_playloading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:innerTriangleColor="@color/colorPrimary"
+                        app:innerTriangleRadius="8dp"
+                        app:isNeedBackground="false"
+                        app:outerCircleColor="@color/colorPrimary"
+                        app:outerCircleRadius="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/wh10.0dimens10.0dp"
+                        android:layout_marginTop="@dimen/wh13.0dimens13.0dp"
+                        android:layout_toRightOf="@id/lv_playloading"
+                        android:text="直播视频连接中..."
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
 </com.zhy.autolayout.AutoRelativeLayout>

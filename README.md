@@ -13,7 +13,7 @@
 * ------------------------[接口文档说明](#5.0.0)
 * ------------------------[项目中使用到的三方库说明](#6.0.0)
 * ------------------------[项目反馈](#7.0.0)
-* ------------------------[关于我们](#8.0.0)
+* ------------------------[参考资料](#8.0.0)
 
 
 <h3 id="1.0.0"> 一.开发环境 </h3>
@@ -24,6 +24,16 @@
   
   
 <h3 id="2.0.0">二.更新日志 </h3>
+
+###2017-2-23
+---
+
+
+* 1.添加视频弹幕功能
+	
+* 2.绘制播放Loading动画
+	
+---
 
 ###2017-2-20
 ---
@@ -37,7 +47,7 @@
 	
 * 4.针对申请Android6.0权限问题进行处理
 	
-* 5.接口抓取（首页，直播，视频模块接口完成度80%）
+* 5.接口抓取（首页，直播，视频模块接口完成度60%）
  
 * 6.加入Android适配方案（百分比适配与Dimens适配）
 	
@@ -191,10 +201,8 @@
 ////    adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.7'
 //    弹幕
-    compile 'com.github.ctiao:DanmakuFlameMaster:0.6.4'
-    compile 'com.github.ctiao:ndkbitmap-armv7a:0.6.4'
-    compile 'com.github.ctiao:ndkbitmap-x86:0.6.4'
-
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.4.6'
+   
    ```
   
   ---
@@ -205,4 +213,19 @@
 |:------ |:---------:| :-----:     |
 | 高印    | 377413612 |gaoyin_vip@126.com |
 
-<h3 id="8.0.0">八.关于我们</h3>
+<h3 id="8.0.0">八.参考资料</h3>
+
+* 弹幕三方库：[DanMu](https://github.com/Bilibili/DanmakuFlameMaster)
+
+* 轮播图：[BGABanner](https://github.com/bingoogolapple/BGABanner-Android)
+
+* 刷新加载控件[XRefreshView](https://github.com/huxq17/XRefreshView)
+
+* 导航栏控件 [FlyCoTabLayout](https://github.com/H07000223/FlycoTabLayout)
+
+* 弹幕与房间加密参考项目：[斗鱼项目](https://github.com/littleMeng/video-live)
+
+* 直播视频播放器 ：[vitamio播放器](https://github.com/yixia/VitamioBundle) (备注:直播视频格式：HLS,RTMP）
+
+
+ 

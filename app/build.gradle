@@ -19,7 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -95,9 +94,7 @@ dependencies {
 ////    adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.7'
 //    弹幕
-    compile 'com.github.ctiao:DanmakuFlameMaster:0.6.4'
-    compile 'com.github.ctiao:ndkbitmap-armv7a:0.6.4'
-    compile 'com.github.ctiao:ndkbitmap-x86:0.6.4'
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.4.6'
 
 
 }

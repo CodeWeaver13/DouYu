@@ -72,9 +72,8 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
 
     @Override
     protected BaseView getViewImp() {
-//        Bundle arguments = getArguments();
-//        return mLiveOtherColumnFragment.get(arguments.getInt("position"));
-        return this;
+        Bundle arguments = getArguments();
+        return mLiveOtherColumnFragment.get(arguments.getInt("position"));
     }
 
     @Override

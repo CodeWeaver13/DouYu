@@ -73,18 +73,10 @@ public class NetWorkApi {
     /**
      *   ************************* 直播视频 *******************************
      */
-    /**
-     *    因为视频新接口加密,暂时无法破解,暂时先用老接口 访问
-     */
-    //    暂时使用  Base地址
-    public static String getOldBaseUrl="http://www.douyu.com";
-
-    //     直播详情页   ---- 老接口    目前暂时使用
-     public static final String getLiveVideoInfo="/lapi/live/getPlay/";
-
+    public  static final  String getLiveVideo="/api/v1/room/";
     /**
      *   ********************************************************************
      */
-    public  static final  String getLiveVideo="/api/v1/room/";
+
 
 }
