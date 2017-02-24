@@ -97,7 +97,13 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        refresh();
+                        Bundle arguments = getArguments();
+                        mHomeCate = (HomeCateList) arguments.getSerializable("homecatelist");
+                        String  show_order=arguments.getString("type");
+                        if(show_order.equals(mHomeCate.getShow_order()))
+                        {
+                            mPresenter.getHomeCateRefresh(mHomeCate.getIdentification());
+                        }
                     }
                 }, 500);
             }
@@ -161,6 +167,13 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
          */
       getNgBarView(homeCates);
     }
+    @Override
+    public void getOtherListRefresh(List<HomeRecommendHotCate> homeCates) {
+        if(rtefreshContent!=null) {
+            rtefreshContent.stopRefresh();
+        }
+        getOtherColumnView(homeCates);
+    }
 
     private void getOtherColumnView(List<HomeRecommendHotCate> homeCates) {
         List<HomeRecommendHotCate>  homeRecommendHotCates=new ArrayList<HomeRecommendHotCate>();
@@ -183,8 +196,6 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic, HomeCate
     }
 
     public void getNgBarView(List<HomeRecommendHotCate> homeCates) {
-
-
 
 //    总共多少页
           int mTotalPage;
