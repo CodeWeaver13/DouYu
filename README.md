@@ -112,9 +112,16 @@
 </center>
 <div></div>
   <center>
-<img src="https://github.com/mykj/DouYu/blob/master/upload_image/34B00D0668EDA965CB735FC4403558AE.png" width="50%" height="50%" />
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/35692D640637F2A6D2FCF09F9E8B4C48.jpg" width="50%" height="50%" />
    <p>
   <h5>3.1.8图</h5>
+  </p>
+</center>
+<div></div>
+  <center>
+<img src="https://github.com/mykj/DouYu/blob/master/upload_image/5FC86F4A3DAE79B29DF275C69B7B75A7.jpg" width="50%" height="50%" />
+   <p>
+  <h5>3.1.9图</h5>
   </p>
 </center>
 <div></div>
