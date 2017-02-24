@@ -1,5 +1,6 @@
 package com.team.zhuoke.presenter.common.impl;
 
+
 import com.google.gson.Gson;
 import com.team.zhuoke.model.logic.common.bean.LiveVideoInfo;
 import com.team.zhuoke.presenter.common.interfaces.CommonPhoneLiveVideoContract;
@@ -8,16 +9,15 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-
 /**
- * 作者：${User}
- * 电话：18810474975
- * 邮箱：18810474975@163.com
- * 版本号：
- * 类描述：
- * 修改时间：${DATA}2010
- */
-
+ *  作者：gaoyin
+ *  电话：18810474975
+ *  邮箱：18810474975@163.com
+ *  版本号：1.0
+ *  类描述：
+ *  备注消息：
+ *  修改时间：2017/2/24 下午3:27
+ **/
 public class CommonPhoneLiveVideoPresenterImp extends CommonPhoneLiveVideoContract.Presenter {
     @Override
     public void getPresenterPhoneLiveVideoInfo(String room_id) {
