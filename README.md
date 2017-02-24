@@ -237,5 +237,14 @@
 
 * 直播视频播放器 ：[vitamio播放器](https://github.com/yixia/VitamioBundle) (备注:直播视频格式：HLS,RTMP）
 
+---
+
+<h3 id="9.0.0">九.Lssuse</h3>
+
+<h6><p>Copyright 2017 GaoYin</p></h6>
+   
+---
+
+   <div>&nbsp;&nbsp;&nbsp;&nbsp;本项目所有的API利用Charles抓取，项目只适合分享，学习，交流！不得用于商业用途，觉得项目不错的小伙伴，可以在右上角Star一下，后期项目会不断优化，在这过程中遇到什么问题与BUG ，欢迎大家[Lssuse Me](https://github.com/mykj/DouYu/issues)</div>
 
  
