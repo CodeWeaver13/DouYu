@@ -6,6 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
@@ -20,6 +21,7 @@ import butterknife.BindView;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.VideoView;
+
 /**
  * 作者：gaoyin
  * 电话：18810474975
@@ -36,7 +38,7 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLog
     private HomeRecommendHotCate.RoomListEntity mRoomEntity;
     private LiveVideoInfo videoInfo;
     private String Room_id;
-    private String URL = "http://hls3a.douyucdn.cn/live/1684399rIdD73fQa/playlist.m3u8?wsSecret=5114d9cac8f7ad3a331c3b98271361d0&wsTime=1487038830&did=AD1F596290CC4D3BB5653870D97463FB&ct=web-douyu";
+    private SVProgressHUD svProgressHUD;
 
     @Override
     protected int getLayoutId() {
@@ -52,7 +54,9 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLog
         Room_id = getIntent().getExtras().getString("Room_id");
         vmVideoview.setKeepScreenOn(true);
         mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
+        svProgressHUD = new SVProgressHUD(this);
     }
+
     @Override
     protected void onEvent() {
         vmVideoview.setOnInfoListener(this);
@@ -74,57 +78,70 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLog
             }
         });
     }
+
     private void getViewInfo(LiveVideoInfo mLiveVideoInfo) {
-        String url=mLiveVideoInfo.getData().getRtmp_url()+"/"+mLiveVideoInfo.getData().getRtmp_live();
-        Uri uri = Uri.parse(url);
-        vmVideoview.setVideoURI(uri);
-        vmVideoview.setBufferSize(1024*1024*20);
-        vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
-        vmVideoview.requestFocus();
-        vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        if (mLiveVideoInfo.getData() != null) {
+            String url = mLiveVideoInfo.getData().getRtmp_url() + "/" + mLiveVideoInfo.getData().getRtmp_live();
+            Uri uri = Uri.parse(url);
+            vmVideoview.setVideoURI(uri);
+            vmVideoview.setBufferSize(1024 * 1024 * 20);
+            vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
+            vmVideoview.requestFocus();
+            vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    // optional need Vitamio 4.0
+                    mediaPlayer.setPlaybackSpeed(1.0f);
+                }
+            });
+        }
+    }
+    @Override
+    public void showErrorWithStatus(String msg) {
+        runOnUiThread(new Runnable() {
             @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                // optional need Vitamio 4.0
-                mediaPlayer.setPlaybackSpeed(1.0f);
+            public void run() {
+                svProgressHUD.showErrorWithStatus("获取数据失败!");
             }
         });
     }
 
     @Override
-    public void showErrorWithStatus(String msg) {
-        Toast.makeText(this, "请求失败!", Toast.LENGTH_LONG).show();
-    }
-    @Override
     public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
 
     }
+
     @Override
     protected void onRestart() {
         super.onRestart();
-        if(vmVideoview!=null) {
+        if (vmVideoview != null) {
             vmVideoview.start();
         }
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        if(vmVideoview!=null) {
+        if (vmVideoview != null) {
             vmVideoview.pause();
         }
     }
+
     @Override
     protected void onDestroy() {
-        if(vmVideoview!=null) {
+        if (vmVideoview != null) {
             //        释放资源
             vmVideoview.stopPlayback();
         }
         super.onDestroy();
     }
+
     @Override
     public boolean onInfo(MediaPlayer mp, int what, int extra) {
         switch (what) {

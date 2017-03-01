@@ -13,6 +13,9 @@ import java.util.List;
  **/
 public class LiveVideoInfo {
 
+    private int error ;
+
+    private String msg;
     /**
      * use_p2p : 0
      * show_details : 聊天群541549601 房管群584932973

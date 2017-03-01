@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
@@ -39,6 +40,7 @@ import io.vov.vitamio.utils.ScreenResolution;
 import io.vov.vitamio.widget.VideoView;
 import master.flame.danmaku.ui.widget.DanmakuView;
 
+import static android.widget.Toast.LENGTH_LONG;
 import static com.team.zhuoke.R.id.iv_control_img;
 
 /**
@@ -104,6 +106,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     private AudioManager mAudioManager;
     private GestureDetector mGestureDetector;
     private GestureDetector.SimpleOnGestureListener mSimpleOnGestureListener;
+    private SVProgressHUD svProgressHUD;
     /**
      * 声音
      */
@@ -138,7 +141,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
                  *  隐藏center控件
                  */
                 case SHOW_CENTER_CONTROL:
-                    if(controlCenter!=null) {
+                    if (controlCenter != null) {
                         controlCenter.setVisibility(View.GONE);
                     }
                     break;
@@ -184,6 +187,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
         Room_id = getIntent().getExtras().getString("Room_id");
         vmVideoview.setKeepScreenOn(true);
         mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
+        svProgressHUD = new SVProgressHUD(this);
         //获取屏幕宽度
         Pair<Integer, Integer> screenPair = ScreenResolution.getResolution(this);
         mScreenWidth = screenPair.first;
@@ -387,7 +391,13 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
 
     @Override
     public void showErrorWithStatus(String msg) {
-        Toast.makeText(this, "请求失败!", Toast.LENGTH_LONG).show();
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                svProgressHUD.showErrorWithStatus("获取数据失败!");
+            }
+        });
     }
 
     /**
