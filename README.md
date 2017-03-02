@@ -14,7 +14,7 @@
 * ------------------------[项目中使用到的三方库说明](#6.0.0)
 * ------------------------[项目反馈](#7.0.0)
 * ------------------------[参考资料](#8.0.0)
-* ------------------------[Lssuse Me](#9.0.0)
+* ------------------------[Issuse Me](#9.0.0)
 
 <h3 id="1.0.0"> 一.开发环境 </h3>
 
@@ -241,10 +241,10 @@
 
 ---
 
-<h3 id="9.0.0">九.Lssuse</h3>
+<h3 id="9.0.0">九.Issuse</h3>
 
 
-   <div>&nbsp;&nbsp;&nbsp;&nbsp;本项目所有的API利用Charles抓取，项目只适合分享，学习，交流！不得用于商业用途，觉得项目不错的小伙伴，可以在右上角Star一下，后期项目会不断优化，在这过程中遇到什么问题与BUG ，欢迎大家[Lssuse Me](https://github.com/mykj/DouYu/issues)</div>
+   <div>&nbsp;&nbsp;&nbsp;&nbsp;本项目所有的API利用Charles抓取，项目只适合分享，学习，交流！不得用于商业用途，觉得项目不错的小伙伴，可以在右上角Star一下，后期项目会不断优化，在这过程中遇到什么问题与BUG ，欢迎大家[Issuse Me](https://github.com/mykj/DouYu/issues)</div>
    
  &nbsp;<h6><center>Copyright 2017 GaoYin</center></h6>
 
