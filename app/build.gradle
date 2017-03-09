@@ -38,7 +38,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-//     适配
+    //     适配
     compile 'com.zhy:autolayout:1.4.5'
     //黄油刀
     compile 'com.jakewharton:butterknife:8.1.0'
@@ -56,7 +56,6 @@ dependencies {
     compile 'com.trello:rxlifecycle-components:0.6.1'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:recyclerview-v7:25.0.1'
-
     //    网络依赖库日志打印
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     //Retrofit2
@@ -65,15 +64,12 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     // log
     compile 'com.orhanobut:logger:1.15'
-
     compile files('libs/tbs_sdk_thirdapp_v2.5.0.1031_36880_sharewithdownload_obfs_20161107_154437.jar')
-
     //-------图片框架------
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:imagepipeline-okhttp3:0.12.0'
     // 在 API < 14 上的机器支持 WebP 时，需要添加
     compile 'com.facebook.fresco:animated-base-support:0.12.0'
-
     // 支持 GIF 动图，需要添加
     compile 'com.facebook.fresco:animated-gif:0.12.0'
     // 支持 WebP （静态图+动图），需要添加
@@ -84,17 +80,15 @@ dependencies {
     compile files('libs/tbs_sdk_thirdapp_v2.5.0.1037_36880_minsize_obfs_20161110_102536.jar')
     //TabLayout
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
-//    轮播图
+    //    轮播图
     compile 'cn.bingoogolapple:bga-banner:2.1.5@aar'
     compile 'com.android.support:support-v4:25.0.1'
-//    eventbus
+    //    eventbus
     compile 'org.greenrobot:eventbus:3.0.0'
-//    视频播放器
+    //    视频播放器
     compile project(path: ':InitActivity')
-////    adapter
+    ////    adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.7'
-//    弹幕
+    //    弹幕
     compile 'com.github.ctiao:DanmakuFlameMaster:0.4.6'
-
-
 }

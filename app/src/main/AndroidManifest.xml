@@ -45,7 +45,6 @@
         <meta-data
             android:name="design_height"
             android:value="1920"></meta-data>
-
         <activity
             android:name=".view.common.activity.SplashActivity"
             android:screenOrientation="portrait">
@@ -66,9 +65,9 @@
             android:name=".view.common.activity.PhoneLiveVideoActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
-            android:windowSoftInputMode="stateAlwaysHidden"
           ></activity>
         <!--PC直播-->
         <activity

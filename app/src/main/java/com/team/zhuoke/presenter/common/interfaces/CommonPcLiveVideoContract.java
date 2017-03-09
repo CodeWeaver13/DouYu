@@ -19,16 +19,16 @@ import okhttp3.Request;
  *  备注消息：
  *  修改时间：2016/11/14 下午3:29
  **/
-public interface CommonPhoneLiveVideoContract {
+public interface CommonPcLiveVideoContract {
 
       interface View extends BaseView {
-           void getViewPhoneLiveVideoInfo(OldLiveVideoInfo mLiveVideoInfo);
+           void getViewPcLiveVideoInfo(OldLiveVideoInfo mLiveVideoInfo);
       }
     interface  Model extends BaseModel{
-        Request getModelPhoneLiveVideoInfo(Context context, String room_id);
+        Request getModelPcLiveVideoInfo(Context context, String room_id);
     }
     abstract class Presenter extends BasePresenter<View,Model> {
-              public abstract  void getPresenterPhoneLiveVideoInfo(String room_id);
+              public abstract  void getPresenterPcLiveVideoInfo(String room_id);
       }
 
 }

@@ -23,9 +23,6 @@ import static com.team.zhuoke.api.NetWorkApi.getVideoOtherList;
 import static com.team.zhuoke.api.NetWorkApi.getVideoReCateList;
 import static com.team.zhuoke.api.NetWorkApi.getVideoRecommendHotCate;
 
-//import static com.team.zhuoke.api.NetWorkApi.getVideoHotAutherColumn;
-//import static com.team.zhuoke.api.NetWorkApi.getVideoHotColumn;
-//import static com.team.zhuoke.api.NetWorkApi.getVideoRecommendHotCate;
 
 /**
  * Created by Administrator on 2017/2/7 0007.

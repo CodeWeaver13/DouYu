@@ -17,18 +17,17 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.danmu.utils.DanmuProcess;
-import com.team.zhuoke.model.logic.common.CommonLiveVideoModelLogic;
-import com.team.zhuoke.model.logic.common.bean.LiveVideoInfo;
+import com.team.zhuoke.model.logic.common.CommonPcLiveVideoModelLogic;
+import com.team.zhuoke.model.logic.common.bean.OldLiveVideoInfo;
 import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
-import com.team.zhuoke.presenter.common.impl.CommonPhoneLiveVideoPresenterImp;
-import com.team.zhuoke.presenter.common.interfaces.CommonPhoneLiveVideoContract;
+import com.team.zhuoke.presenter.common.impl.CommonPcLiveVideoPresenterImp;
+import com.team.zhuoke.presenter.common.interfaces.CommonPcLiveVideoContract;
 import com.team.zhuoke.ui.loadplay.LoadingView;
 
 import butterknife.BindView;
@@ -40,7 +39,6 @@ import io.vov.vitamio.utils.ScreenResolution;
 import io.vov.vitamio.widget.VideoView;
 import master.flame.danmaku.ui.widget.DanmakuView;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static com.team.zhuoke.R.id.iv_control_img;
 
 /**
@@ -52,7 +50,7 @@ import static com.team.zhuoke.R.id.iv_control_img;
  * 备注消息：
  * 修改时间：2017/2/10 上午11:16
  **/
-public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic, CommonPhoneLiveVideoPresenterImp> implements CommonPhoneLiveVideoContract.View, MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener,
+public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogic, CommonPcLiveVideoPresenterImp> implements CommonPcLiveVideoContract.View, MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener,
         MediaPlayer.OnErrorListener {
 
     @BindView(R.id.vm_videoview)
@@ -95,8 +93,10 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     RelativeLayout controlCenter;
     @BindView(R.id.im_danmu_control)
     ImageView imDanmuControl;
+    @BindView(R.id.tv_loading_buffer)
+    TextView tvLoadingBuffer;
     private HomeRecommendHotCate.RoomListEntity mRoomEntity;
-    private LiveVideoInfo videoInfo;
+    private OldLiveVideoInfo videoInfo;
     private String Room_id;
     private int mScreenWidth = 0;//屏幕宽度
     private boolean mIsFullScreen = true;//是否为全屏
@@ -186,7 +186,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     protected void onInitView(Bundle bundle) {
         Room_id = getIntent().getExtras().getString("Room_id");
         vmVideoview.setKeepScreenOn(true);
-        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
+        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
         svProgressHUD = new SVProgressHUD(this);
         //获取屏幕宽度
         Pair<Integer, Integer> screenPair = ScreenResolution.getResolution(this);
@@ -194,6 +194,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
         initDanMu(Room_id);
         initVolumeWithLight();
         addTouchListener();
+        vmVideoview.setVideoLayout(VideoView.VIDEO_LAYOUT_STRETCH, 0);
     }
 
     private void initDanMu(String room_id) {
@@ -214,7 +215,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     }
 
     @Override
-    public void getViewPhoneLiveVideoInfo(LiveVideoInfo mLiveVideoInfo) {
+    public void getViewPcLiveVideoInfo(OldLiveVideoInfo mLiveVideoInfo) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -348,10 +349,10 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
      *
      * @param mLiveVideoInfo
      */
-    private void getViewInfo(LiveVideoInfo mLiveVideoInfo) {
-        String url = mLiveVideoInfo.getData().getRtmp_url() + "/" + mLiveVideoInfo.getData().getRtmp_live();
+    private void getViewInfo(OldLiveVideoInfo mLiveVideoInfo) {
+        String url = mLiveVideoInfo.getData().getLive_url();
         Uri uri = Uri.parse(url);
-        tvLiveNickname.setText(mLiveVideoInfo.getData().getNickname());
+        tvLiveNickname.setText(mLiveVideoInfo.getData().getRoom_name());
         vmVideoview.setVideoURI(uri);
         vmVideoview.setBufferSize(1024 * 1024 * 2);
         vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
@@ -395,7 +396,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                svProgressHUD.showErrorWithStatus("获取数据失败!");
+                svProgressHUD.showErrorWithStatus("主播还在赶来的路上~~");
             }
         });
     }
@@ -411,6 +412,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
         flLoading.setVisibility(View.VISIBLE);
         if (vmVideoview.isPlaying())
             vmVideoview.pause();
+        tvLoadingBuffer.setText("直播已缓冲"+percent+"%...");
     }
 
     @Override
@@ -421,7 +423,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     @Override
     protected void onRestart() {
         super.onRestart();
-        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
+        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
         if (vmVideoview != null) {
             vmVideoview.start();
         }
@@ -491,7 +493,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
-            Toast.makeText(this, "该视频无法播放！", Toast.LENGTH_SHORT).show();
+            svProgressHUD.showErrorWithStatus("主播还在赶来的路上~~");
         }
         return true;
     }
@@ -547,7 +549,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic,
      */
     @OnClick(R.id.iv_live_refresh)
     public void ivLiveRefresh() {
-        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
+        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
     }
 
     @Override

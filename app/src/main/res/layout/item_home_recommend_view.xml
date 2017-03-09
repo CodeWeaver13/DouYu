@@ -35,12 +35,20 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/wh100.0dimens100.0dp">
-
+            <RelativeLayout
+                android:id="@+id/rl_live_icon"
+                android:layout_width="@dimen/wh60.0dimens60.0dp"
+                android:layout_height="@dimen/wh18.0dimens18.0dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/search_header_live_type_pc"
+                android:gravity="center">
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="@dimen/wh55.0dimens55.0dp"
                 android:layout_height="@dimen/wh18.0dimens18.0dp"

@@ -6,43 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.common.activity.PhoneLiveVideoActivity"
+
     >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <io.vov.vitamio.widget.VideoView
         android:id="@+id/vm_videoview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                >
-        <com.team.zhuoke.ui.loadplay.LoadingView
-            android:id="@+id/lv_playloading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:isNeedBackground="false"
-            app:outerCircleRadius="15dp"
-            app:innerTriangleColor="@color/colorPrimary"
-            app:innerTriangleRadius="8dp"
-            app:outerCircleColor="@color/colorPrimary"
-            />
-                <TextView
-                    android:layout_toRightOf="@id/lv_playloading"
-                    android:layout_marginRight="@dimen/wh10.0dimens10.0dp"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/wh13.0dimens13.0dp"
-                    android:layout_height="wrap_content"
-                    android:text="直播连接中..."
-                    android:textSize="14sp"
-                    android:textColor="@color/colorPrimary"
-                    />
-            </RelativeLayout>
-        </RelativeLayout>
+    <!--控制层-->
+    <include layout="@layout/layout_phonelive_control" />
     </FrameLayout>
 </com.zhy.autolayout.AutoRelativeLayout>

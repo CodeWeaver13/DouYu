@@ -35,6 +35,70 @@ public class MD5Util {
         }
         return builder.toString().toLowerCase();
     }
+//
+//    /**
+//     *   斗鱼加密算法
+//     * @param str
+//     * @return
+//     */
+//    /**
+//     * 执行md5.js文件中的MD5函数
+//     *
+//     * @param code
+//     *            原始字符串
+//     * @return 进行加密操作后的字符串
+//     * */
+//    public static String md5Special(String code) throws Exception {
+//        ScriptEngineManager manager = new ScriptEngineManager();
+//        String newCode = "";
+//        InputStreamReader inputStreamReader = null;
+//        ScriptEngine engine = manager.getEngineByName("javascript");
+//        try {
+//            URL url = new URL("http://211.***.***.193/*****/js/md5.js");
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setRequestProperty("Content-Type", "text/html");
+//            inputStreamReader = getInputContent("GET", null, conn);
+//        } catch (ConnectException ce) {
+//            ce.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        engine.eval(inputStreamReader);
+//        if (engine instanceof Invocable) {
+//            Invocable invoke = (Invocable) engine;
+//            newCode = (String) invoke.invokeFunction("md5", code);// 调用md5方法，并传入1个参数
+//        }
+//        inputStreamReader.close();
+//        return newCode;
+//
+//    }
+//
+//    /**
+//     *
+//     *    通过流获取返回内容
+//     */
+//    private static InputStreamReader getInputContent(String requestMethod,
+//                                                     String outputStr, HttpURLConnection conn) throws ProtocolException,
+//            IOException, UnsupportedEncodingException { // （封装的http请求方法） 需要调用的方法
+//        conn.setDoOutput(true);
+//        conn.setDoInput(true);
+//        conn.setUseCaches(false);
+//        // 设置请求方式（GET/POST）
+//        conn.setRequestMethod(requestMethod);
+//        // 当outputStr不为null时向输出流写数据
+//        if (null != outputStr) {
+//            OutputStream outputStream = conn.getOutputStream();
+//            // 注意编码格式
+//            outputStream.write(outputStr.getBytes("UTF-8"));
+//            outputStream.close();
+//        }
+//        // 从输入流读取返回内容
+//        InputStream inputStream = conn.getInputStream();
+//        InputStreamReader inputStreamReader = new InputStreamReader(
+//                inputStream, "UTF-8");
+//        return inputStreamReader;
+//    }
+
     /**
      * 获得字符串的md5值
      *

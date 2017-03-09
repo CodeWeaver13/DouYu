@@ -93,6 +93,15 @@
             android:layout_toLeftOf="@id/tv_online_num"
             android:src="@mipmap/home_reco_online_num_icon" />
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/wh60.0dimens60.0dp"
+            android:layout_height="@dimen/wh18.0dimens18.0dp"
+            android:background="@drawable/search_header_live_type_mobile"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            >
+        </RelativeLayout>
+
     </RelativeLayout>
 </FrameLayout>
 </RelativeLayout>

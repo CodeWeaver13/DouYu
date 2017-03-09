@@ -6,7 +6,7 @@ import com.team.zhuoke.net.response.HttpResponse;
 import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 
@@ -26,7 +26,7 @@ public interface CommonApi {
      *  直播播放页
      * @return
      */
-    @POST(getLiveVideo+"{room_id}")
+    @GET(getLiveVideo+"{room_id}")
     Call<HttpResponse<LiveVideoInfo>> getLiveVideoInfo(@Path("room_id") String room_id, @QueryMap Map<String,String> params);
 
 }

@@ -211,21 +211,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:innerTriangleColor="@color/colorPrimary"
-                        app:innerTriangleRadius="8dp"
+                        app:innerTriangleRadius="6dp"
                         app:isNeedBackground="false"
                         app:outerCircleColor="@color/colorPrimary"
-                        app:outerCircleRadius="15dp" />
-
+                        app:outerCircleRadius="10dp" />
                     <TextView
+                        android:id="@+id/tv_loading_buffer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/wh10.0dimens10.0dp"
+                        android:layout_marginRight="@dimen/wh35.0dimens35.0dp"
                         android:layout_marginTop="@dimen/wh13.0dimens13.0dp"
                         android:layout_toRightOf="@id/lv_playloading"
                         android:text="直播视频连接中..."
                         android:textColor="#ffffff"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        />
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>

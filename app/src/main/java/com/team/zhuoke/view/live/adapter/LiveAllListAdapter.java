@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -81,14 +82,28 @@ public class LiveAllListAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHol
         holder.tv_column_item_nickname.setText(mLiveList.get(position).getRoom_name());
         holder.tv_nickname.setText(mLiveList.get(position).getNickname());
         holder.tv_online_num.setText(CalculationUtils.getOnLine(mLiveList.get(position).getOnline()));
+        if(mLiveList.get(position).getCate_id()==201)
+        {
+            holder.rl_live_icon.setBackgroundResource(R.drawable.search_header_live_type_mobile);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, PcLiveVideoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("Room_id",mLiveList.get(position).getRoom_id());
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                //  颜值栏目 竖屏播放
+                if(mLiveList.get(position).getCate_id()==201)
+                {
+                    Intent intent = new Intent(context, PhoneLiveVideoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Room_id",mLiveList.get(position).getRoom_id());
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                }else {
+                    Intent intent = new Intent(context, PcLiveVideoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Room_id", mLiveList.get(position).getRoom_id());
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                }
             }
         });
     }
@@ -105,6 +120,8 @@ public class LiveAllListAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHol
         public TextView tv_online_num;
         //        昵称
         public TextView tv_nickname;
+        //        Icon
+        public RelativeLayout rl_live_icon;
 
         public LiveAllListHolder(View view) {
             super(view);
@@ -112,6 +129,7 @@ public class LiveAllListAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHol
             tv_column_item_nickname = (TextView) view.findViewById(R.id.tv_column_item_nickname);
             tv_online_num = (TextView) view.findViewById(R.id.tv_online_num);
             tv_nickname = (TextView) view.findViewById(R.id.tv_nickname);
+            rl_live_icon=(RelativeLayout)view.findViewById(R.id.rl_live_icon);
         }
     }
 }
