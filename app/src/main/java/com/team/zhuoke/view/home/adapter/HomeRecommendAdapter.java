@@ -18,6 +18,7 @@ import com.team.zhuoke.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeHotColumn;
 import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
+import com.team.zhuoke.view.home.activity.HomeColumnMoreListActivity;
 import com.team.zhuoke.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.ArrayList;
@@ -144,15 +145,15 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
         holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, HomeRecommendFaceScoreActivity.class);
+                Intent intent = new Intent(context, HomeColumnMoreListActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("title", holder.tv_column_name.getText().toString());
+                bundle.putString("cate_id", mHomeRecommendHotCate.get(position - 2).getTag_id());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
     }
-
     /**
      * 颜值 栏目
      *
@@ -176,8 +177,6 @@ public class HomeRecommendAdapter extends BaseRecyclerAdapter<RecyclerView.ViewH
                 context.startActivity(intent);
             }
         });
-
-
     }
 
     @Override

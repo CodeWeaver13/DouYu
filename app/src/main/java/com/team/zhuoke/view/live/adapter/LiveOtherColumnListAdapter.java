@@ -19,7 +19,6 @@ import com.team.zhuoke.ui.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.team.zhuoke.utils.CalculationUtils;
 import com.team.zhuoke.view.common.activity.PcLiveVideoActivity;
 import com.team.zhuoke.view.common.activity.PhoneLiveVideoActivity;
-import com.team.zhuoke.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +75,7 @@ public class LiveOtherColumnListAdapter extends BaseRecyclerAdapter<RecyclerView
         holder.tv_column_item_nickname.setText(mLiveList.get(position).getRoom_name());
         holder.tv_nickname.setText(mLiveList.get(position).getNickname());
         holder.tv_online_num.setText(CalculationUtils.getOnLine(mLiveList.get(position).getOnline()));
+        holder.rl_live_icon.setBackgroundResource(R.drawable.search_header_live_type_pc);
         if(mLiveList.get(position).getCate_id()==201)
         {
             holder.rl_live_icon.setBackgroundResource(R.drawable.search_header_live_type_mobile);

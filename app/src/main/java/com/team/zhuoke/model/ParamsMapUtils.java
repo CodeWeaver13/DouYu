@@ -71,6 +71,17 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
     }
 
     /**
+     *   栏目 更多 二级分类列表
+     * @param cate_id
+     * @return
+     */
+    public static Map<String, String> getColumnMoreCate(String cate_id) {
+        mapparam = getDefaultParams();
+        mapparam.put("tag_id",cate_id);
+        return mapparam;
+    }
+
+    /**
      *    房间信息
      * @param room_id
      * @return
@@ -89,6 +100,19 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         mapparam.put("tt", String.valueOf(time));
         mapparam.put("did", did);
         mapparam.put("sign", sign);
+        return mapparam;
+    }
+
+    /**
+     *    首页--推荐--颜值
+     *      默认  :4条数据
+     * @return
+     */
+    public static Map<String, String> getHomeColumnMoreOtherList(String cate_id,int offset,int limit) {
+        mapparam = getDefaultParams();
+        mapparam.put("cate_id",cate_id);
+        mapparam.put("offset",offset+"");
+        mapparam.put("limit", limit+"");
         return mapparam;
     }
 

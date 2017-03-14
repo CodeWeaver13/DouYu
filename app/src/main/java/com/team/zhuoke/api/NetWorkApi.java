@@ -31,12 +31,20 @@ public class NetWorkApi {
     public static final String getHomeFaceScoreColumn="/api/v1/getVerticalRoom";
 //    其他热门 种类
      public static final String getHomeRecommendHotCate="/api/v1/getHotCate";
+//    栏目更多 --- 二级分类列表
+    public static final String getHomeColumnMoreCate="/api/v1/getThreeCate";
+//    栏目更多 --- 全部列表
+    public static final String getHomeColumnMoreAllList="/api/v1/live/";
+//    栏目更多----其他列表
+    public static final String getHomeColumnMoreOtherList="/api/v1/getThreeList";
 
 //****************************其他***************************************
 //     首页列表
   public static final String getHomeCateList="/api/homeCate/getCateList";
     //     列表详情
     public static final String getHomeCate="/api/homeCate/getHotRoom";
+
+
     /**
      *   ********************************************************************
      */

@@ -16,6 +16,7 @@
         android:id="@+id/rl_bar"
         >
       <ImageView
+          android:id="@+id/img_popup_live"
           android:layout_centerInParent="true"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -23,6 +24,7 @@
           />
     </RelativeLayout>
     <com.flyco.tablayout.SlidingTabLayout
+        android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@id/rl_bar"
         android:id="@+id/twocolumn_tablayout"
         android:layout_width="wrap_content"
@@ -30,6 +32,8 @@
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         tl:tl_iconVisible="false"
+        tl:tl_divider_color="#ff7800"
+        tl:tl_divider_width="1px"
         tl:tl_indicator_color="#ff7800"
         tl:tl_textSelectColor="#ffffff"
         tl:tl_textUnselectColor="#bababa"

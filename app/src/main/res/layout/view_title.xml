@@ -20,6 +20,7 @@
         android:textColor="#ffffff"
         android:ellipsize="end"
         android:singleLine="true"
+        android:maxEms="6"
         android:layout_centerInParent="true"
         />
 

@@ -2,9 +2,8 @@ package com.team.zhuoke.view.live.fragment;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
@@ -16,13 +15,15 @@ import com.team.zhuoke.model.logic.live.bean.LiveOtherColumn;
 import com.team.zhuoke.model.logic.live.bean.LiveOtherTwoColumn;
 import com.team.zhuoke.presenter.live.impl.LiveOtherTwoColumnPresenterImp;
 import com.team.zhuoke.presenter.live.interfaces.LiveOtherTwoColumnContract;
+import com.team.zhuoke.ui.popup.PopupLiveList;
 import com.team.zhuoke.view.live.adapter.LiveOtherTwoCloumnAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
+import static com.team.zhuoke.R.id.img_popup_live;
 
 /**
  * 作者：gaoyin
@@ -41,9 +42,15 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
     ViewPager livetwocolumnViewpager;
     @BindView(R.id.rl_twocolumn_bar)
     RelativeLayout rlTwocolumnBar;
+    @BindView(img_popup_live)
+    ImageView imgPopupLive;
     private LiveOtherColumn mLiveOtherColumn;
     private LiveOtherTwoCloumnAdapter mLiveOtherTwoColumnAdapter;
     private String[] mTilte;
+
+    private PopupLiveList mPopupLiveList;
+
+    private List<LiveOtherTwoColumn> mLiveOtherTwoColumn;
 
     public static LiveOtherColumnFragment getInstance(LiveOtherColumn mLiveOtherColumn, int position) {
         LiveOtherColumnFragment rf = new LiveOtherColumnFragment();
@@ -62,13 +69,51 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
 
     @Override
     protected void onInitView(Bundle bundle) {
-
+        mLiveOtherTwoColumn = new ArrayList<LiveOtherTwoColumn>();
+//        imgPopupLive.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mLiveOtherTwoColumn != null) {
+//                    Toast.makeText(getContext(), "直播", Toast.LENGTH_LONG).show();
+//                    PopupLiveList liveList = new PopupLiveList(getActivity());
+//                    liveList.showPopupWindow();
+////            PopupLiveList.Builder builder = new PopupLiveList.Builder(getActivity());
+////            builder.addList(mLiveOtherTwoColumn);
+////            mPopupLiveList = builder.build();
+////            mPopupLiveList.showPopupWindow();
+////            mPopupLiveList.setOnListPopupItemClickListener(what -> {
+////
+////
+//            });
+//                }
+//            }
+//        });
     }
 
     @Override
     protected void onEvent() {
 
     }
+//
+//    /**
+//     * 弹框 筛选列表
+//     */
+//    @OnClick(img_popup_live)
+//    public void popupLiveList() {
+//        if (mLiveOtherTwoColumn != null) {
+//            Toast.makeText(getContext(), "直播", Toast.LENGTH_LONG).show();
+//            PopupLiveList liveList = new PopupLiveList(getActivity());
+//            liveList.showPopupWindow();
+////            PopupLiveList.Builder builder = new PopupLiveList.Builder(getActivity());
+////            builder.addList(mLiveOtherTwoColumn);
+////            mPopupLiveList = builder.build();
+////            mPopupLiveList.showPopupWindow();
+////            mPopupLiveList.setOnListPopupItemClickListener(what -> {
+////
+////
+////            });
+//        }
+//    }
 
     @Override
     protected BaseView getViewImp() {
@@ -81,6 +126,7 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
         Bundle arguments = getArguments();
         mLiveOtherColumn = (LiveOtherColumn) arguments.getSerializable("mLiveOtherColumn");
         mPresenter.getPresenterLiveOtherTwoColumn(mLiveOtherColumn.getShort_name());
+
     }
 
     @Override
@@ -99,10 +145,12 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
         for (int i = 0; i < mLiveOtherTwoCloumn.size(); i++) {
             mTilte[i] = mLiveOtherTwoCloumn.get(i).getTag_name();
         }
-        if(mTilte.length<=1)
-        {
+        if (mTilte.length <= 1) {
             rlTwocolumnBar.setVisibility(View.GONE);
         }
+        this.mLiveOtherTwoColumn.clear();
+        this.mLiveOtherTwoColumn.addAll(mLiveOtherTwoCloumn);
+
         livetwocolumnViewpager.setOffscreenPageLimit(mTilte.length);
         mLiveOtherTwoColumnAdapter = new LiveOtherTwoCloumnAdapter(getChildFragmentManager(), mLiveOtherTwoCloumn, mTilte);
         livetwocolumnViewpager.setAdapter(mLiveOtherTwoColumnAdapter);

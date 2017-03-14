@@ -21,6 +21,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:name=".application.DYApplication"
@@ -78,6 +80,18 @@
             android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
             android:windowSoftInputMode="stateAlwaysHidden"
             ></activity>
+        <meta-data
+            android:name="QBSDKAppKey"
+            android:value="TRDhb+Ojol3bP7w+JTGTSnXN" />
+        <activity android:name=".view.live.activity.WebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            >
+        </activity>
+        <!--栏目 更多 -->
+        <activity android:name=".view.home.activity.HomeColumnMoreListActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
