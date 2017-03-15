@@ -4,7 +4,6 @@
 #斗鱼Tv项目
 
 ####版权说明：该项目纯属练手项目，不作为商用项目！有涉及到侵权请告知删除，涉及商用侵权与本人无关！
-
 ##目录结构
 * ------------------------[开发环境](#1.0.0)
 * ------------------------[更新日志](#2.0.0)
@@ -145,11 +144,11 @@
   
 <h3 id="5.0.0">五.斗鱼接口文档</h3>
  
-  * [首页API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
-  *  [直播API文档说明](https://github.com/mykj/DouYu/blob/master/document/LiveApi.md)
-  *  [视频API文档说明](https://github.com/mykj/DouYu/blob/master/document/VideoApi.md)
-  *  [关注API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
-  *  [个人API文档说明](https://github.com/mykj/DouYu/blob/master/document/HomeApi.md)
+  * [首页API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/HomeApi.md)
+  *  [直播API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/LiveApi.md)
+  *  [视频API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/VideoApi.md)
+  *  [关注API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/HomeApi.md)
+  *  [个人API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/HomeApi.md)
   
   ---
   
