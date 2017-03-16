@@ -13,6 +13,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.zhuoke.R;
 import com.team.zhuoke.model.logic.video.bean.VideoHotColumn;
+import com.team.zhuoke.utils.CalculationUtils;
 
 import java.util.List;
 
@@ -45,8 +46,8 @@ public class VideoRecommendHotColumnAdapter extends RecyclerView.Adapter<Recycle
          holder.img_item_gridview.setImageURI(Uri.parse(mVideoHotColumn.get(position).getVideo_cover()));
          holder.tv_column_item_nickname.setText(mVideoHotColumn.get(position).getVideo_title());
          holder.tv_nickname.setText(mVideoHotColumn.get(position).getNickname());
-//        holder.tv_video_time.setText(mVideoHotColumn.get(position).getCtime());
-        holder.tv_watchnum.setText(Integer.toString(mVideoHotColumn.get(position).getView_num()));
+       holder.tv_video_time.setText(mVideoHotColumn.get(position).getCtime());
+        holder.tv_watchnum.setText(CalculationUtils.getOnLine(mVideoHotColumn.get(position).getView_num()));
     }
     @Override
     public int getItemCount() {
@@ -58,7 +59,7 @@ public class VideoRecommendHotColumnAdapter extends RecyclerView.Adapter<Recycle
         public  SimpleDraweeView  img_item_gridview;
 //        房间名称
         public TextView tv_column_item_nickname;
-//        在线人数
+
         public TextView tv_video_time;
 //        昵称
         public TextView tv_nickname;

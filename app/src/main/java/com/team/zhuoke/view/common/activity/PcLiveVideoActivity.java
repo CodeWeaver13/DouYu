@@ -352,22 +352,26 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     private void getViewInfo(OldLiveVideoInfo mLiveVideoInfo) {
         String url = mLiveVideoInfo.getData().getLive_url();
         Uri uri = Uri.parse(url);
-        tvLiveNickname.setText(mLiveVideoInfo.getData().getRoom_name());
-        vmVideoview.setVideoURI(uri);
-        vmVideoview.setBufferSize(1024 * 1024 * 2);
-        vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
-        vmVideoview.requestFocus();
-        vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                // optional need Vitamio 4.0
-                mediaPlayer.setPlaybackSpeed(1.0f);
-                flLoading.setVisibility(View.GONE);
-                ivLivePlay.setImageResource(R.drawable.img_live_videopause);
-                mHandler.sendEmptyMessageDelayed(HIDE_CONTROL_BAR, HIDE_TIME);
+        if(tvLiveNickname!=null) {
+            tvLiveNickname.setText(mLiveVideoInfo.getData().getRoom_name());
+        }
+        if(vmVideoview!=null) {
+            vmVideoview.setVideoURI(uri);
+            vmVideoview.setBufferSize(1024 * 1024 * 2);
+            vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
+            vmVideoview.requestFocus();
+            vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    // optional need Vitamio 4.0
+                    mediaPlayer.setPlaybackSpeed(1.0f);
+                    flLoading.setVisibility(View.GONE);
+                    ivLivePlay.setImageResource(R.drawable.img_live_videopause);
+                    mHandler.sendEmptyMessageDelayed(HIDE_CONTROL_BAR, HIDE_TIME);
 
-            }
-        });
+                }
+            });
+        }
     }
 
     /**

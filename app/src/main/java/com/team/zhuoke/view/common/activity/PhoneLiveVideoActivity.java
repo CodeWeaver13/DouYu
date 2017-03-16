@@ -208,24 +208,26 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
         if (mLiveVideoInfo.getData() != null) {
             String url = mLiveVideoInfo.getData().getLive_url();
             Uri uri = Uri.parse(url);
-            vmVideoview.setVideoURI(uri);
-            vmVideoview.setBufferSize(1024 * 1024 * 20);
-            /**
-             * 设置视频质量。参数quality参见MediaPlayer的常量：
-             * VIDEOQUALITY_LOW（流畅）、VIDEOQUALITY_MEDIUM（普通）、VIDEOQUALITY_HIGH（高质）。
-             */
-            vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
-            vmVideoview.requestFocus();
-            vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    // optional need Vitamio 4.0
-                    mediaPlayer.setPlaybackSpeed(1.0f);
-                    flLoading.setVisibility(View.GONE);
+            if(vmVideoview!=null) {
+                vmVideoview.setVideoURI(uri);
+                vmVideoview.setBufferSize(1024 * 1024 * 20);
+                /**
+                 * 设置视频质量。参数quality参见MediaPlayer的常量：
+                 * VIDEOQUALITY_LOW（流畅）、VIDEOQUALITY_MEDIUM（普通）、VIDEOQUALITY_HIGH（高质）。
+                 */
+                vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
+                vmVideoview.requestFocus();
+                vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mediaPlayer) {
+                        // optional need Vitamio 4.0
+                        mediaPlayer.setPlaybackSpeed(1.0f);
+                        flLoading.setVisibility(View.GONE);
 //                    vmVideoview.setBackgroundResource(0);
-                    mHandler.sendEmptyMessageDelayed(HIDE_CONTROL_BAR, HIDE_TIME);
-                }
-            });
+                        mHandler.sendEmptyMessageDelayed(HIDE_CONTROL_BAR, HIDE_TIME);
+                    }
+                });
+            }
         }
     }
 

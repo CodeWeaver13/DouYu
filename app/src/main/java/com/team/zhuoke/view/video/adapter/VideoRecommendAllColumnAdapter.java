@@ -14,6 +14,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.zhuoke.R;
 import com.team.zhuoke.model.logic.video.bean.VideoRecommendHotCate;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +49,23 @@ public class VideoRecommendAllColumnAdapter extends RecyclerView.Adapter<Recycle
         holder.img_item_gridview.setImageURI(Uri.parse(mVideoListEntity.get(position).getVideo_cover()));
         holder.tv_column_item_nickname.setText(mVideoListEntity.get(position).getVideo_title());
         holder.tv_nickname.setText(mVideoListEntity.get(position).getNickname());
+
+        String str=String.valueOf(mVideoListEntity.get(position).getCtime());
+//        DateFormat df = new SimpleDateFormat("HH:mm:ss");
+//        Double etDay=0.0;
+//        Double etTime=0.0;
+//        try {
+//            etDay = Double.parseDouble(df.parse(str).getTime()/ (1000 * 60 * 60 * 24) + "");
+//            etTime = df.parse(str).getHours()/24.0 +
+//                    df.parse(str).getMinutes()/(24.0*60)+
+//                    df.parse(str).getSeconds()/(24.0*60*60);
+//        } catch (NumberFormatException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 
         SimpleDateFormat mSimpeDateFormat=new SimpleDateFormat("hh:mm:ss");
         Date date=new Date( mVideoListEntity.get(position).getCtime());
