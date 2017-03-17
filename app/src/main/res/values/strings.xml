@@ -24,4 +24,16 @@
     <string name="picker_cancel">取消</string>
     <string name="picker_save">保存</string>
     <string name="action_settings">设置</string>
+    <string name="usercenter_login">登录</string>
+    <string name="usercenter_register">注册</string>
+    <string name="watch_history">观看历史</string>
+    <string name="letter">站内信</string>
+    <string name="mine_renwu">我的任务</string>
+    <string name="chongzhi">鱼翅充值</string>
+    <string name="anchor_recruit">主播招募</string>
+    <string name="my_video">我的视频</string>
+    <string name="video_collection">视频收藏</string>
+    <string name="my_account">我的账户</string>
+    <string name="game_center">游戏中心</string>
+    <string name="clock">开播提醒</string>
 </resources>

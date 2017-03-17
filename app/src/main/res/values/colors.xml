@@ -27,5 +27,6 @@
     <color name="blue_btn_unpressed">#ffaedef4</color>
     <!--播放器style-->
     <color name="control_bar_bg">#e0222222</color>
+    <color name="base_background">#eeeeee</color>
 
 </resources>
