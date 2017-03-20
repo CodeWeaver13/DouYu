@@ -46,7 +46,7 @@ public class VideoRecommendHotColumnAdapter extends RecyclerView.Adapter<Recycle
          holder.img_item_gridview.setImageURI(Uri.parse(mVideoHotColumn.get(position).getVideo_cover()));
          holder.tv_column_item_nickname.setText(mVideoHotColumn.get(position).getVideo_title());
          holder.tv_nickname.setText(mVideoHotColumn.get(position).getNickname());
-       holder.tv_video_time.setText(mVideoHotColumn.get(position).getCtime());
+//       holder.tv_video_time.setText(mVideoHotColumn.get(position).getCtime());
         holder.tv_watchnum.setText(CalculationUtils.getOnLine(mVideoHotColumn.get(position).getView_num()));
     }
     @Override
