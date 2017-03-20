@@ -26,7 +26,7 @@ import butterknife.BindView;
  * Created by Administrator on 2017/2/10 0010.
  */
 
-public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnModelLogic,VideoOtherTwoColumnPresenterImp> implements VideoOtherTwoColumnContract.View {
+public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnModelLogic, VideoOtherTwoColumnPresenterImp> implements VideoOtherTwoColumnContract.View {
     /**
      * 分页加载
      */
@@ -39,7 +39,7 @@ public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnMode
     RecyclerView othercolumnContentRecyclerview;
     @BindView(R.id.rtefresh_content)
     XRefreshView rtefreshContent;
-//    private LiveOtherColumnListAdapter mLiveOtherColumnListAdapter;
+    //    private LiveOtherColumnListAdapter mLiveOtherColumnListAdapter;
     private VideoReClassify mLiveOtherTwoColumn;
     private VideoOtherColumnListAdapter mVideoOtherColumnListAdapter;
 
@@ -81,8 +81,8 @@ public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnMode
                     @Override
                     public void run() {
 
-                            refresh(mLiveOtherTwoColumn.getCid1(),mLiveOtherTwoColumn.getCid2(),offset,limit,"hot");
-                        }
+                        refresh(mLiveOtherTwoColumn.getCid1(), mLiveOtherTwoColumn.getCid2(), offset, limit, "hot");
+                    }
 
                 }, 500);
             }
@@ -91,22 +91,23 @@ public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnMode
             public void onLoadMore(boolean isSilence) {
                 offset += limit;
 
-                    loadMore(mLiveOtherTwoColumn.getCid1(),mLiveOtherTwoColumn.getCid2(),offset,limit,"hot");
-                }
+                loadMore(mLiveOtherTwoColumn.getCid1(), mLiveOtherTwoColumn.getCid2(), offset, limit, "hot");
+            }
 
         });
     }
 
-    private void loadMore(String  cid1,String cid2,int offset,int limit,String action ) {
-        mPresenter.getPresenterLiveOtherColumnListLoadMore(cid1, cid2,offset, limit,action);
+    private void loadMore(String cid1, String cid2, int offset, int limit, String action) {
+        mPresenter.getPresenterLiveOtherColumnListLoadMore(cid1, cid2, offset, limit, action);
     }
+
     /**
      * 刷新网络数据
      */
-    private void refresh(String  cid1,String cid2,int offset,int limit,String action ) {
+    private void refresh(String cid1, String cid2, int offset, int limit, String action) {
 //       重新开始计算
         offset = 0;
-        mPresenter.getPresenterLiveOtherColumnList(cid1, cid2,offset, limit,action);
+        mPresenter.getPresenterLiveOtherColumnList(cid1, cid2, offset, limit, action);
 
     }
 
@@ -139,7 +140,7 @@ public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnMode
         mLiveOtherTwoColumn = new VideoReClassify();
         Bundle arguments = getArguments();
         mLiveOtherTwoColumn = (VideoReClassify) arguments.getSerializable("mVideoOtherTwoColumn");
-        refresh(mLiveOtherTwoColumn.getCid1(),mLiveOtherTwoColumn.getCid2(),offset,limit,"hot");
+        refresh(mLiveOtherTwoColumn.getCid1(), mLiveOtherTwoColumn.getCid2(), offset, limit, "hot");
 
     }
 
@@ -155,9 +156,9 @@ public class VideoOtherTwoColumnFragment extends BaseFragment<VideoTwoColumnMode
     @Override
     public void getViewVideoOtherColumnListLoadMore(List<VideoOtherColumnList> mVideoOtherColumnList) {
         if (rtefreshContent != null) {
-            rtefreshContent.stopRefresh();
+            rtefreshContent.stopLoadMore();
         }
-        mVideoOtherColumnListAdapter.getLiveOtherColumnList(mVideoOtherColumnList);
+        mVideoOtherColumnListAdapter.getLiveOtherColumnLoadMore(mVideoOtherColumnList);
     }
 
     @Override

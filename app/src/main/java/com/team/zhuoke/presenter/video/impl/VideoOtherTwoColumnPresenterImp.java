@@ -43,13 +43,11 @@ public class VideoOtherTwoColumnPresenterImp extends VideoOtherTwoColumnContract
             public void onSuccess(List<VideoOtherColumnList> videoReClassifies) {
                 mView.getViewOtherTwoColumn(videoReClassifies);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
                 mView.showErrorWithStatus(ex.message);
             }
         }));
-
     }
 
     @Override
@@ -59,7 +57,6 @@ public class VideoOtherTwoColumnPresenterImp extends VideoOtherTwoColumnContract
             public void onSuccess(List<VideoOtherColumnList> videoReClassifies) {
                 mView.getViewOtherTwoColumn(videoReClassifies);
             }
-
             @Override
             protected void onError(ResponeThrowable ex) {
                 mView.showErrorWithStatus(ex.message);
