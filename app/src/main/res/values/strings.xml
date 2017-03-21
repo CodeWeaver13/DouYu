@@ -36,4 +36,9 @@
     <string name="my_account">我的账户</string>
     <string name="game_center">游戏中心</string>
     <string name="clock">开播提醒</string>
+    <string name="choose_login_way">选择登录方式</string>
+    <string name="wx_login">微信登录</string>
+    <string name="dy_login">斗鱼账号登录</string>
+    <string name="wb_login">微博登录</string>
+    <string name="qq_login">QQ登录</string>
 </resources>

@@ -36,32 +36,32 @@ public interface LiveApi {
      * @return
      */
     @GET(getLiveOtherColumn)
-    Observable<HttpResponse<List<LiveOtherColumn>>> getLiveOtherColumn(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<LiveOtherColumn>>> getLiveOtherColumn(@QueryMap Map<String, String> params);
 
     /**
      *  全部直播
      * @return
      */
     @GET(getLiveAllList)
-    Observable<HttpResponse<List<LiveAllList>>> getLiveAllList(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<LiveAllList>>> getLiveAllList(@QueryMap Map<String, String> params);
 
     /**
      *  直播其他栏目二级分类
      * @return
      */
     @GET(getLiveOtherTwoColumn)
-    Observable<HttpResponse<List<LiveOtherTwoColumn>>> getLiveOtherTwoColumn(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<LiveOtherTwoColumn>>> getLiveOtherTwoColumn(@QueryMap Map<String, String> params);
     /**
      *  直播其他列表页
      * @return
      */
     @GET(getLiveOtherTwoList+"{cate_id}")
-    Observable<HttpResponse<List<LiveOtherList>>> getLiveOtherList(@Path("cate_id") String cate_id,@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<LiveOtherList>>> getLiveOtherList(@Path("cate_id") String cate_id, @QueryMap Map<String, String> params);
     /**
      *  体育直播
      * @return
      */
     @GET(getLiveSportsAllList)
-    Observable<HttpResponse<List<LiveSportsAllList>>> getLiveSportsAllList(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<LiveSportsAllList>>> getLiveSportsAllList(@QueryMap Map<String, String> params);
 
 }

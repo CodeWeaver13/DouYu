@@ -32,7 +32,7 @@
             android:layout_toRightOf="@id/iv_avatar"
             android:layout_marginLeft="@dimen/wh10.0dimens10.0dp"
             android:layout_marginTop="@dimen/wh60.0dimens60.0dp"
-            android:visibility="gone"
+            android:visibility="visible"
             >
             <Button
                 android:id="@+id/btn_login"
@@ -62,13 +62,14 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/iv_avatar"
             android:layout_marginLeft="@dimen/wh7.0dimens7.0dp"
+            android:visibility="gone"
 
             >
             <TextView
                 android:id="@+id/tv_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="hljlkgldkjglj"
+                android:text="斗鱼小生"
                 android:textColor="@color/dialog_white"
                 android:textSize="14sp"
                 android:layout_marginTop="@dimen/wh50.0dimens50.0dp"
@@ -133,6 +134,7 @@
                 </LinearLayout>
             </LinearLayout>
         <ImageView
+            android:id="@+id/iv_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -149,6 +151,7 @@
         android:orientation="horizontal"
         android:background="@color/background">
         <RelativeLayout
+            android:id="@+id/rl_history_watch"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -181,6 +184,7 @@
             android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
             android:layout_marginBottom="@dimen/wh15.0dimens15.0dp"/>
         <RelativeLayout
+            android:id="@+id/rl_letters"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -211,6 +215,7 @@
             android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
             android:layout_marginBottom="@dimen/wh15.0dimens15.0dp"/>
         <RelativeLayout
+            android:id="@+id/rl_my_task"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -241,6 +246,7 @@
             android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
             android:layout_marginBottom="@dimen/wh15.0dimens15.0dp"/>
         <RelativeLayout
+            android:id="@+id/rl_chongzhi"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -267,6 +273,7 @@
     </LinearLayout>
     
     <RelativeLayout
+        android:id="@+id/rl_anchor_recruit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:layout_marginTop="@dimen/wh8.0dimens8.0dp"
@@ -300,6 +307,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_my_video"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:layout_marginTop="@dimen/wh8.0dimens8.0dp"
@@ -338,6 +346,7 @@
         android:layout_marginRight="@dimen/wh9.0dimens9.0dp"
         android:layout_marginLeft="@dimen/wh9.0dimens9.0dp"/>
     <RelativeLayout
+        android:id="@+id/rl_video_collection"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:clickable="true"
@@ -370,6 +379,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_my_account"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:layout_marginTop="@dimen/wh8.0dimens8.0dp"
@@ -408,6 +418,7 @@
         android:layout_marginRight="@dimen/wh9.0dimens9.0dp"
         android:layout_marginLeft="@dimen/wh9.0dimens9.0dp"/>
     <RelativeLayout
+        android:id="@+id/rl_game_center"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:clickable="true"
@@ -439,6 +450,7 @@
             android:layout_marginRight="@dimen/wh9.0dimens9.0dp"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_clock"
         android:layout_width="match_parent"
         android:layout_height="@dimen/wh48.0dimens48.0dp"
         android:layout_marginTop="@dimen/wh8.0dimens8.0dp"

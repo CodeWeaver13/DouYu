@@ -66,7 +66,7 @@ public class NetWorkApi {
      * *****************************视频接口***************************************
      */
     //    视频---推荐  http://apiv2.douyucdn.cn/video/Video/getHotVideoList1?clicknum=2&token=&client_sys=android
-    public static final String getVideoHotColumn="/video/Video/getHotVideoList1";
+    public static final String  getVideoHotColumn="/video/Video/getHotVideoList1";
 
     //    视频---热门作者栏目  http://apiv2.douyucdn.cn/video/Home/getHotAuthors?client_sys=android
     public static final String getVideoHotAutherColumn="/video/Home/getHotAuthors";
@@ -95,4 +95,5 @@ public class NetWorkApi {
      */
 
 
+    public static final String getPersonInfo="/api/v1/login";
 }

@@ -27,6 +27,6 @@ public interface CommonApi {
      * @return
      */
     @GET(getLiveVideo+"{room_id}")
-    Call<HttpResponse<LiveVideoInfo>> getLiveVideoInfo(@Path("room_id") String room_id, @QueryMap Map<String,String> params);
+    Call<HttpResponse<LiveVideoInfo>> getLiveVideoInfo(@Path("room_id") String room_id, @QueryMap Map<String, String> params);
 
 }

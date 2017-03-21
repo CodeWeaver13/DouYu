@@ -15,7 +15,6 @@ import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 import static com.team.zhuoke.api.NetWorkApi.getVideoCateList;
 import static com.team.zhuoke.api.NetWorkApi.getVideoHotAutherColumn;
 import static com.team.zhuoke.api.NetWorkApi.getVideoHotColumn;
@@ -45,33 +44,33 @@ public interface VideoApi {
      * @return
      */
     @GET(getVideoHotAutherColumn)
-    Observable<HttpResponse<List<VideoHotAuthorColumn>>> getVideoHotAuther(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<VideoHotAuthorColumn>>> getVideoHotAuther(@QueryMap Map<String, String> params);
 
     /**
      *    推荐---热门 种类
      * @return
      */
     @GET(getVideoRecommendHotCate)
-    Observable<HttpResponse<List<VideoRecommendHotCate>>> getVideoHotCate(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<VideoRecommendHotCate>>> getVideoHotCate(@QueryMap Map<String, String> params);
 
     /**
      *    推荐---全部分类
      * @return
      */
     @GET(getVideoCateList)
-    Observable<HttpResponse<List<VideoCateList>>> getVideoCateList(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<VideoCateList>>> getVideoCateList(@QueryMap Map<String, String> params);
 
     /**
      *    视频---二级分类
      * @return
      */
     @GET(getVideoReCateList)
-    Observable<HttpResponse<List<VideoReClassify>>> getVideoReCateList(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<VideoReClassify>>> getVideoReCateList(@QueryMap Map<String, String> params);
 
     /**
      *    视频---二级列表
      * @return
     */
     @GET(getVideoOtherList)
-    Observable<HttpResponse<List<VideoOtherColumnList>>> getVideoOtherColumnList(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<VideoOtherColumnList>>> getVideoOtherColumnList(@QueryMap Map<String, String> params);
 }

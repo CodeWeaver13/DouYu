@@ -137,4 +137,11 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         mapparam.put("action",action);
         return mapparam;
     }
+
+    public static Map<String,String> getPersonInfo(String userName,String password) {
+        mapparam=getDefaultParams();
+        mapparam.put("username",userName);
+        mapparam.put("password",password);
+        return  mapparam;
+    }
 }

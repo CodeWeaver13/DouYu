@@ -1,20 +1,14 @@
 package com.team.zhuoke.view.common.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.Toast;
 
-import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.zhuoke.R;
-import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
 import com.team.zhuoke.ui.NavigateTabBar;
-import com.team.zhuoke.utils.PermissionUtil;
 import com.team.zhuoke.view.follow.fragment.FollowFragment;
 import com.team.zhuoke.view.home.fragment.HomeFragment;
 import com.team.zhuoke.view.live.fragment.LiveFragment;
@@ -88,6 +82,7 @@ public class MainActivity extends  AppCompatActivity implements BaseView{
                         break;
 //                    我的
                     case TAG_PAGE_USER:
+                        if(mNavigateTabBar!=null)
                         mNavigateTabBar.showFragment(holder);
                         break;
                 }
@@ -122,7 +117,7 @@ public class MainActivity extends  AppCompatActivity implements BaseView{
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == android.view.KeyEvent.KEYCODE_BACK) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             exit();
             return false;
         }
