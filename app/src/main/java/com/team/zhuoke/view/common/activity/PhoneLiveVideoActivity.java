@@ -21,6 +21,7 @@ import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.zhuoke.R;
 import com.team.zhuoke.base.BaseActivity;
 import com.team.zhuoke.base.BaseView;
+import com.team.zhuoke.danmu.utils.DanmuProcess;
 import com.team.zhuoke.model.logic.common.CommonPhoneLiveVideoModelLogic;
 import com.team.zhuoke.model.logic.common.bean.OldLiveVideoInfo;
 import com.team.zhuoke.model.logic.home.bean.HomeRecommendHotCate;
@@ -34,6 +35,7 @@ import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.utils.ScreenResolution;
 import io.vov.vitamio.widget.VideoView;
+import master.flame.danmaku.ui.widget.DanmakuView;
 
 /**
  * 作者：gaoyin
@@ -64,10 +66,17 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
     RelativeLayout controlCenter;
     @BindView(R.id.tv_loading_buffer)
     TextView tvLoadingBuffer;
+    @BindView(R.id.danmakuView)
+    DanmakuView danmakuView;
     private HomeRecommendHotCate.RoomListEntity mRoomEntity;
     private OldLiveVideoInfo videoInfo;
     private String Room_id;
     private SVProgressHUD svProgressHUD;
+
+    /**
+     * 弹幕
+     */
+    private DanmuProcess mDanmuProcess;
     /**
      * 音量   亮度
      *
@@ -137,7 +146,13 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
 //   初始化声音和亮度
         initVolumeWithLight();
         vmVideoview.setVideoLayout(VideoView.VIDEO_LAYOUT_STRETCH, 0);
+        initDanMu(Room_id);
 
+    }
+
+    private void initDanMu(String room_id) {
+        mDanmuProcess = new DanmuProcess(this, danmakuView, Integer.valueOf(room_id));
+        mDanmuProcess.start();
     }
 
     /**
@@ -208,7 +223,7 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
         if (mLiveVideoInfo.getData() != null) {
             String url = mLiveVideoInfo.getData().getLive_url();
             Uri uri = Uri.parse(url);
-            if(vmVideoview!=null) {
+            if (vmVideoview != null) {
                 vmVideoview.setVideoURI(uri);
                 vmVideoview.setBufferSize(1024 * 1024 * 20);
                 /**
@@ -350,7 +365,7 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
         flLoading.setVisibility(View.VISIBLE);
         if (vmVideoview.isPlaying())
             vmVideoview.pause();
-        tvLoadingBuffer.setText("直播已缓冲"+percent+"%...");
+        tvLoadingBuffer.setText("直播已缓冲" + percent + "%...");
     }
 
     @Override
@@ -366,13 +381,19 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
         if (vmVideoview != null) {
             vmVideoview.start();
         }
+        if (danmakuView != null && mDanmuProcess != null) {
+            danmakuView.restart();
+            mDanmuProcess.start();
+        }
     }
-
     @Override
     protected void onPause() {
         super.onPause();
         if (vmVideoview != null) {
             vmVideoview.pause();
+        }
+        if (danmakuView != null) {
+            danmakuView.pause();
         }
     }
 
@@ -382,6 +403,8 @@ public class PhoneLiveVideoActivity extends BaseActivity<CommonPhoneLiveVideoMod
             //        释放资源
             vmVideoview.stopPlayback();
         }
+        mDanmuProcess.finish();
+        danmakuView.release();
         super.onDestroy();
     }
 

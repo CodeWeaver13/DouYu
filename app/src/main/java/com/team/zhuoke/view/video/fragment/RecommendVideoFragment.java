@@ -138,14 +138,6 @@ public class RecommendVideoFragment extends BaseFragment<VideoRecommendModelLogi
         rtefreshContent.stopRefresh(false);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
     /**
      *  刷新网络数据
      */

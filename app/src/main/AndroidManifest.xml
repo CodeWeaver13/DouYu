@@ -37,9 +37,8 @@
             android:name=".view.common.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
-            ></activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <!-- 适配规格 -->
         <meta-data
             android:name="design_width"
@@ -47,9 +46,11 @@
         <meta-data
             android:name="design_height"
             android:value="1920"></meta-data>
+
         <activity
             android:name=".view.common.activity.SplashActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.AppWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -60,38 +61,37 @@
             android:screenOrientation="portrait"></activity>
         <!--全部颜值-->
         <activity
-        android:name=".view.home.activity.HomeRecommendFaceScoreActivity"
-        android:screenOrientation="portrait"></activity>
+            android:name=".view.home.activity.HomeRecommendFaceScoreActivity"
+            android:screenOrientation="portrait"></activity>
         <!--手机直播-->
         <activity
             android:name=".view.common.activity.PhoneLiveVideoActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
-          ></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"></activity>
         <!--PC直播-->
         <activity
             android:name=".view.common.activity.PcLiveVideoActivity"
-            android:screenOrientation="landscape"
-            android:launchMode="singleTop"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar.AppBaseThemeMain"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            ></activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <meta-data
             android:name="QBSDKAppKey"
             android:value="TRDhb+Ojol3bP7w+JTGTSnXN" />
-        <activity android:name=".view.live.activity.WebViewActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:launchMode="singleTask"
+        <activity
+            android:name=".view.live.activity.WebViewActivity"
             android:alwaysRetainTaskState="true"
-            >
-        </activity>
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <!--栏目 更多 -->
-        <activity android:name=".view.home.activity.HomeColumnMoreListActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.home.activity.HomeColumnMoreListActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -32,6 +32,8 @@
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             tl:tl_iconVisible="false"
+            tl:tl_divider_color="#ff7800"
+            tl:tl_divider_width="1px"
             tl:tl_indicator_color="#ff7800"
             tl:tl_textSelectColor="#ffffff"
             tl:tl_textUnselectColor="#bababa"

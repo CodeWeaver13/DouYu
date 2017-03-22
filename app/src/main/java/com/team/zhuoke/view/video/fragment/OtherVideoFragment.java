@@ -104,6 +104,9 @@ public class OtherVideoFragment extends BaseFragment<VideoOtherCateListLogic, Vi
 //             bundle.putSerializable("homecatelist",cateLists.get(i));
 //            mFragments.add(OtherHomeFragment.getInstance(bundle));
         }
+        if (mTitles.length <= 1) {
+            liveSlidingTab.setVisibility(View.GONE);
+        }
 //        不摧毁Fragment
         liveViewpager.setOffscreenPageLimit(mTitles.length);
         mAdapter = new VideoReClassifyListAdapter(getChildFragmentManager(),cateLists,mTitles);

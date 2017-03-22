@@ -67,7 +67,7 @@
         android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
         android:layout_height="@dimen/wh40.0dimens40.0dp"
         android:background="@drawable/login_by_weixi_bg"
-        android:textColor="@color/login_by_wx"
+
         android:textSize="14dp"
         android:paddingLeft="@dimen/wh40.0dimens40.0dp"
         android:gravity="center"
