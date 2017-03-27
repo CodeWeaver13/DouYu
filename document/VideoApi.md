@@ -1,11 +1,12 @@
 ![斗鱼TV](https://staticlive.douyucdn.cn/upload/signs/201610291926483131.png)
-#斗鱼Tv 视频API
+# 斗鱼Tv 视频API
  `android` `java` `移动端开发`
  
-####版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
+#### 版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
 [TOC]
 
-#目录结构
+# 目录结构
+
 >
  * ------------------------[推荐栏目--热门视频](#3.0.1)
  * ------------------------[推荐栏目--分类栏目](#3.0.2)
@@ -21,6 +22,7 @@
  * ------------------------[视频详情页--视频源](#3.1.2)  
 
 <h4 id="3.0.1">1.热门视频</h4>
+
 >
 * 接口描述：热门视频栏目 
 * 请求URL：http://apiv2.douyucdn.cn/video/Video/getHotVideoList1?clicknum=2&token=&client_sys=android
@@ -54,7 +56,8 @@
 }
  ```
  ---
-  <h4 id="3.0.2">2.分类栏目</h4>
+ 
+<h4 id="3.0.2">2.分类栏目</h4>
 >
 * 接口描述： 分类栏目为热门推荐显示按照不同的栏目推荐4个条目 
 * 请求URL：http://apiv2.douyucdn.cn/video/Video/getCateHotVideoList1?token=&client_sys=android
@@ -154,7 +157,8 @@
 }
  ```
  ---
-  <h4 id="3.0.1">3.热门作者</h4>
+  
+<h4 id="3.0.1">3.热门作者</h4>
 >
 * 接口描述：推荐栏目热门作者栏目 
 * 请求URL：http://apiv2.douyucdn.cn/video/Home/getHotAuthors?client_sys=android
@@ -173,7 +177,8 @@
 }
  ```
  ---
-  <h4 id="3.0.4">4.作者视频列表</h4>
+ 
+<h4 id="3.0.4">4.作者视频列表</h4>
 >
 * 接口描述：作者针对上传视频列表页接口
 * 请求URL：http://apiv2.douyucdn.cn/video/VideoRoomList/getAuthorVidList?up_id=y9LA15JV6AqW&offset=0&limit=20&client_sys=android
@@ -207,7 +212,8 @@
 }
  ```
  ---
-  <h4 id="3.0.5">5.一级栏目分类</h4>
+  
+<h4 id="3.0.5">5.一级栏目分类</h4>
 >
 * 接口描述：一级栏目分类栏目
 * 请求URL：http://apiv2.douyucdn.cn/video/Cate/getVideoHomeCate1?client_sys=android
@@ -224,7 +230,8 @@
 }
  ```
  ---
-  <h4 id="3.0.6">6.二级栏目分类</h4>
+ 
+<h4 id="3.0.6">6.二级栏目分类</h4>
 >
 * 接口描述：二级栏目分类
 * 请求URL：http://apiv2.douyucdn.cn/video/Cate/getVideoCate2?cid1=3&client_sys=android
@@ -243,7 +250,8 @@
 }
  ```
  ---
-  <h4 id="3.0.7">7.分类视频列表</h4>
+  
+<h4 id="3.0.7">7.分类视频列表</h4>
 >
 * 接口描述：分类视频列表
 * 请求URL：http://apiv2.douyucdn.cn/video/Videoroomlist/getRecVideoList?cid1=1&cid2=5&offset=0&limit=20&action=hot&client_sys=android
@@ -274,7 +282,7 @@
  ```
  ---
  
- <h4 id="3.0.8">8.视频详情页</h4>
+<h4 id="3.0.8">8.视频详情页</h4>
 >
 * 接口描述：视频详情页面 
 * 请求URL：http://apiv2.douyucdn.cn/video/videoinfo/getVidInfo?vid=jXqeO74p0Ze7xywG&client_sys=android
@@ -441,7 +449,7 @@
  ```
  ---
  
-  <h4 id="3.0.9">9.视频弹幕</h4>
+<h4 id="3.0.9">9.视频弹幕</h4>
 >
 * 接口描述：视频弹幕接口
 * 请求URL：http://apiv2.douyucdn.cn/video/videoinfo/getDanMu?vid=jXqeO74p0Ze7xywG&client_sys=android
@@ -489,7 +497,8 @@
 }
  ```
  ---
-  <h4 id="3.1.0">10.热门视频</h4>
+
+<h4 id="3.1.0">10.热门视频</h4>
 >
 * 接口描述：热门推荐视频栏目 
 * 请求URL：http://apiv2.douyucdn.cn/video/VideoRoomList/hotVideo?cid2=5&up_id=rEdl9v02JANM&client_sys=android
@@ -525,7 +534,8 @@
 }
  ```
  ---
- <h4 id="3.1.1">11.直播推荐视频</h4>
+ 
+<h4 id="3.1.1">11.直播推荐视频</h4>
 >
 * 接口描述：直播推荐视频栏目 
 * 请求URL：http://apiv2.douyucdn.cn/video/VideoRoomList/liveRec?cid2=5&client_sys=android
@@ -562,7 +572,7 @@
  ```
  ---
  
- <h4 id="3.1.2">12.视频播放源</h4>
+<h4 id="3.1.2">12.视频播放源</h4>
 >
 * 接口描述：视频播放源地址
 * 请求URL：http://apiv2.douyucdn.cn/videonc/Stream/getAppPlayer?client_sys=android

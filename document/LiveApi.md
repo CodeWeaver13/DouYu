@@ -1,11 +1,12 @@
 ![斗鱼TV](https://staticlive.douyucdn.cn/upload/signs/201610291926483131.png)
-#斗鱼Tv 直播API
+# 斗鱼Tv 直播API
  `android` `java` `移动端开发`
  
-####版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
+#### 版权说明：该版本为抓取Android手机客户端2.4.1.1版本API接口，该项目纯属练手，不能作为商用项目！违反上述所有，涉及商用侵权与本人无关！
 [TOC]
 
-#目录结构
+# 目录结构
+
 >
  * ------------------------[全部直播](#2.0.2)
  * ------------------------[一级栏目分类](#2.0.1)
@@ -15,7 +16,7 @@
  * ------------------------[体育直播栏目](#2.0.6)
  * ------------------------[体育直播详情](#2.0.7)
  
- <h4 id="2.0.2">1.全部直播</h4>
+<h4 id="2.0.2">1.全部直播</h4>
 >
 * 接口描述：全部直播 
 * 请求URL：http://capi.douyucdn.cn/api/v1/live?offset=0&limit=20&client_sys=android
@@ -79,7 +80,8 @@
 }
  ```
  ---
- <h4 id="2.0.3">3.二级栏目分类</h4>
+ 
+<h4 id="2.0.3">3.二级栏目分类</h4>
 >
 * 接口描述：直播二级分类
 * 请求URL：http://capi.douyucdn.cn/api/v1/getColumnDetail?shortName=&client_sys=android
@@ -124,7 +126,8 @@
 }
  ```
  ---
- <h4 id="2.0.4">4.二级栏目列表</h4>
+ 
+<h4 id="2.0.4">4.二级栏目列表</h4>
 >
 * 接口描述： 直播模块二级分类列表  212指二级分类ID
 * 请求URL：http://capi.douyucdn.cn/api/v1/live/212?offset=0&limit=20&client_sys=android
@@ -166,7 +169,8 @@
 }
  ```
  ---
-  <h4 id="2.0.5">5.三级栏目分类</h4>
+ 
+<h4 id="2.0.5">5.三级栏目分类</h4>
 >
 * 接口描述：直播模块三级栏目分类  注：  tag_id --- 二级栏目分类ID
 * 请求URL：http://capi.douyucdn.cn/api/v1/getThreeCate?tag_id=212&client_sys=android
@@ -182,7 +186,8 @@
 }
  ```
  ---
- <h4 id="2.0.6">6.体育直播</h4>
+ 
+<h4 id="2.0.6">6.体育直播</h4>
 >
 * 接口描述：外链 体育直播栏目
 * 请求URL：http://capi.douyucdn.cn/api/v1/qie?offset=0&limit=20&client_sys=android
@@ -205,7 +210,7 @@
  ```
  ---
  
- <h4 id="2.0.2">7.体育直播外链详情页</h4>
+<h4 id="2.0.2">7.体育直播外链详情页</h4>
 >
 * 接口描述：全部直播 
 * 请求URL：http://m.live.qq.com/10000181?from=dy
