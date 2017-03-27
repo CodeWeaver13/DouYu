@@ -21,7 +21,6 @@
  * ------------------------[栏目更多--二级直播视频列表](#1.1.2)
 
 <h4 id="1.0.1">1.栏目分类</h4>
-
 >
 * 接口描述： 获取首页分类信息
 * 请求URL：http://capi.douyucdn.cn/api/homeCate/getCateList
@@ -64,7 +63,6 @@
  ---
  
 <h4 id="1.0.2">2.分类详情</h4>
-
 >
 * 接口描述： 获取首页列表详情接口
 * 请求URL：http://capi.douyucdn.cn/api/homeCate/getHotRoom?aid=android1&client_sys=android&identification=3e760da75be261a588c74c4830632360&time=1480493599&auth=b455ecdc27fd82acc4f5ed771d015a3d
@@ -75,7 +73,6 @@
 *        time: 时间戳
 *        auth：32随机数
 * 返回数据:
-
 
  ```
 {
@@ -1636,7 +1633,6 @@
 ----
 
 <h4 id="1.0.3">3.推荐页面轮播图接口</h4>
-
 >
 * 接口描述： 首页推荐页面轮播图接口
 * 请求URL：http://capi.douyucdn.cn/api/v1/slide/6?version=2.421&client_sys=android
@@ -2094,7 +2090,6 @@
  ----
 
 <h4 id="1.0.5">5.推荐页--最热栏目</h4>
-
 >
 * 接口描述：首页--推荐页--最热栏目
 * 请求URL：http://capi.douyucdn.cn/api/v1/getbigDataRoom?aid=android1&client_sys=android&time=1480501445&token=89175431_12_cd2cb4963d259081_1_54371072&auth=43b3facb607f9f0251a49182491bdceb
@@ -2175,7 +2170,6 @@
  
 
 <h4 id="1.0.7">7.直播房间详情页</h4>
-
 >
 * 接口描述：直播房间详情页---为了查找auth的算法，我先是反编译了斗鱼的apk，结果他们把算法藏在了JNI里，随后尝试反汇编找出来的Share Object,无果。然后在斗鱼网页里的javascript里各种找，也没有，不过发现网页里也有一条类似的API，是从swf里发出的。之后去逐个反编译斗鱼网页里的swf，发现核心的core.swf是被加密了的，好在webroom.swf里找到了解密逻辑。解密后找到一个算sign/auth的function，然而没看懂，是一种变形的C。。最后的最后我在github上搜了一下之前解密用的key，发现之前果然有大神找到了auth算法，[附链接](https://github.com/0987363/douyutv-fix/blob/3dd6b9762a4cf5d359170b4a912457a0d4b5f5e5/DouYu-kodi-fix/APIHelper.py)。拿到算法，玩了一圈发现必须是这个格式才行，把android换成ios就会验证失败
 * 请求URL：http://capi.douyucdn.cn/api/v1/room/235520?aid=android1&client_sys=android&ne=1&support_pwd=1&time=1480501469&token=89175431_12_cd2cb4963d259081_1_54371072&auth=6fddd0d2e155255e923e208bebd7efb9
@@ -2188,8 +2182,8 @@
 *        ne：          默认：1
 *        support_pwd： 默认：1
 *        token： 登录后获取token
-*        auth: md5("room/"+roomid+"?aid=android&clientsys=android&time="+1231) 注意：time要和上面一致，android也不能改成ios 
-*        
+*        auth: md5("room/"+roomid+"?aid=android&clientsys=android&time="+1231)注意：time要和上面一致，android也不能改成ios 
+ 
 * 返回数据：
 
  ```
