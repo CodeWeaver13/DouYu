@@ -14,14 +14,14 @@
 - [参考资料](#8.0.0)
 - [Issuse Me](#9.0.0)
 
-<h3 id="1.0.0"> 一.开发环境 </h3>
+##<span id="1.0.0"> 一.开发环境 </span>
 
 | 开发工具  | 开发语言      |SDK版本 |JDK版本|
 |:------ |:---------:| :-----:     | :-----:     |
 | AndroidStudio2.2   | JAVA | 25 |  1.8 |
   
   
-<h3 id="2.0.0">二.更新日志 </h3>
+##<span id="2.0.0">二.更新日志 </span>
 
 ###2017-2-23
 
@@ -60,7 +60,7 @@
 ---
 
  
-<h3 id="3.0.0">三.应用截图</h3>
+###<span id="3.0.0">三.应用截图</span>
   <center>
 <img src="https://github.com/mykj/DouYu/blob/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="50%" height="50%" />
    <p>
@@ -128,7 +128,7 @@
 </center>
 <div></div>
   
-<h3 id="4.0.0">四.下载地址</h3>
+###<span id="4.0.0">四.下载地址</span>
    
    下载方式
    ---
@@ -142,7 +142,7 @@
      
    ---
   
-<h3 id="5.0.0">五.斗鱼接口文档</h3>
+###<span id="5.0.0">五.斗鱼接口文档</span>
  
   * [首页API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/HomeApi.md)
   *  [直播API文档说明](https://github.com/TeamCodeForGit/DouYu/blob/master/document/LiveApi.md)
@@ -152,7 +152,7 @@
   
   ---
   
-<h3 id="6.0.0">六.三方库说明</h3>
+###<span id="6.0.0">六.三方库说明</span>
    
    
  ```
@@ -215,7 +215,7 @@
  ```
   ---
   
-<h3 id="7.0.0">七.项目反馈</h3>
+###<span id="7.0.0">七.项目反馈</span>
    
 | 联系人  | QQ        |邮箱 |
 |:------ |:---------:| :-----:     |
@@ -224,7 +224,7 @@
 
 ---
 
-<h3 id="8.0.0">八.参考资料</h3>
+###<span id="8.0.0">八.参考资料</span>
 
 * 弹幕三方库：[DanMu](https://github.com/Bilibili/DanmakuFlameMaster)
 
@@ -240,7 +240,7 @@
 
 ---
 
-<h3 id="9.0.0">九.Issuse</h3>
+###<span id="9.0.0">九.Issuse</span>
 
 
    <div>&nbsp;&nbsp;&nbsp;&nbsp;本项目所有的API利用Charles抓取，项目只适合分享，学习，交流！不得用于商业用途，觉得项目不错的小伙伴，可以在右上角Star一下，后期项目会不断优化，在这过程中遇到什么问题与BUG ，欢迎大家[Issuse Me](https://github.com/mykj/DouYu/issues)</div>
