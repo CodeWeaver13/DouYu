@@ -26,8 +26,6 @@ import static com.team.zhuoke.R.id.btn_close_popup;
 
 public class LoginPopWindow extends BasePopupWindow  {
 
-
-
     @BindView(R.id.tv_login_way)
     TextView tvLoginWay;
     @BindView(btn_close_popup)
@@ -82,7 +80,6 @@ public class LoginPopWindow extends BasePopupWindow  {
     @OnClick(R.id.btn_close_popup)
     public void closePopup()
     {
-        Toast.makeText(getContext(),"ddd",Toast.LENGTH_LONG).show();
         this.dismiss();
     }
 //    @Override

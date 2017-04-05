@@ -7,13 +7,13 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.team.zhuoke"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-//   提高编译速度！
+    //   提高编译速度！  第一次运行需要注释掉，不然会报错，因为需要编译SO库文件 ！
     tasks.whenTaskAdded { task ->
         if (task.name.contains("lint")//如果instant run不生效，把clean这行干掉
                 ||task.name.equals("clean")//项目中有用到aidl则不可以舍弃这个任务
@@ -27,6 +27,7 @@ android {
             task.enabled = false
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false

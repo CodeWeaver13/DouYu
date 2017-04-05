@@ -11,6 +11,9 @@ package com.team.zhuoke.model.logic.live.bean;
  **/
 public class LiveAllList {
 
+
+
+
     /**
      * room_id : 522423
      * room_src : https://rpic.douyucdn.cn/a1702/07/17/522423_170207171134.jpg

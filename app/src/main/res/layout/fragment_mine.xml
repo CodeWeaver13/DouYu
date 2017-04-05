@@ -40,8 +40,9 @@
                 android:layout_height="@dimen/wh30.0dimens30.0dp"
                 android:background="@drawable/login_or_register"
                 android:text="@string/usercenter_login"
+                android:gravity="center"
                 android:textColor="@color/login_or_register"
-                android:textSize="15sp"
+
                 />
 
             <Button
@@ -51,7 +52,8 @@
                 android:background="@drawable/login_or_register"
                 android:text="@string/usercenter_register"
                 android:textColor="@color/login_or_register"
-                android:textSize="14sp"
+
+                android:gravity="center"
                 android:layout_toRightOf="@id/btn_login"
                 android:layout_marginLeft="@dimen/wh7.0dimens7.0dp"
                 />

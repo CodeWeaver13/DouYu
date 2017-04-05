@@ -71,7 +71,7 @@
         android:text="超人归来"
         android:textColor="#888888"
         android:textSize="10sp"
-       />
+        />
     <ImageView
         android:id="@+id/img_watch"
         android:layout_width="@dimen/wh10.0dimens10.0dp"

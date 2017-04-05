@@ -7,7 +7,7 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/img_item_gridview"
         android:layout_width="@dimen/wh200.0dimens200.0dp"
-        android:layout_height="@dimen/wh200.0dimens200.0dp"
+        android:layout_height="@dimen/wh250.0dimens250.0dp"
         fresco:placeholderImage="@mipmap/image_loading_1_1"
         fresco:actualImageScaleType="centerCrop"
         fresco:placeholderImageScaleType="centerCrop"

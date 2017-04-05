@@ -13,6 +13,7 @@ import java.io.Serializable;
  **/
 public class LiveOtherTwoColumn implements Serializable{
 
+
     /**
      * tag_id : 1
      * short_name : LOL
