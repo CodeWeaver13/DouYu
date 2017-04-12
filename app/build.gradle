@@ -12,6 +12,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' ,'arm64-v8a'//, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     //   提高编译速度！  第一次运行需要注释掉，不然会报错，因为需要编译SO库文件 ！
     tasks.whenTaskAdded { task ->
@@ -106,4 +110,6 @@ dependencies {
     //  通用PopupWindow
     compile 'com.github.razerdp:BasePopup:v1.6.2'
     compile files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
 }
