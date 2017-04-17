@@ -44,7 +44,7 @@ public class DYApplication extends Application {
        String processName= getProcessName(Process.myPid());
         CrashReport.UserStrategy strategy=new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName==null||processName.equals(packageName));
-        CrashReport.initCrashReport(context,"83ba79924d",false);
+        CrashReport.initCrashReport(context,"3d003498d9",false);
         Fresco.initialize(context);
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         //TbsDownloader.needDownload(getApplicationContext(), false);
