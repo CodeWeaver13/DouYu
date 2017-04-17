@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.squareup.leakcanary.LeakCanary;
 import com.team.zhuoke.api.NetWorkApi;
 import com.team.zhuoke.net.config.NetWorkConfiguration;
 import com.team.zhuoke.net.http.HttpUtils;
@@ -19,6 +20,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 
 /**
@@ -80,7 +83,14 @@ public class DYApplication extends Application {
         QbSdk.initX5Environment(getApplicationContext(),  cb);
         initOkHttpUtils();
         PageManager.initInApp(context);
+        initLeakCanary();
+    }
 
+    private void initLeakCanary() {
+        if(LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     private static String getProcessName(int pid) {
