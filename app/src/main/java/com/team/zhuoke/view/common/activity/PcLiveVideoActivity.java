@@ -351,15 +351,19 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
      */
     private void getViewInfo(OldLiveVideoInfo mLiveVideoInfo) {
         String url = mLiveVideoInfo.getData().getLive_url();
+//        String url="http://c.brightcove.com/services/mobile/streaming/index/rendition.m3u8?assetId=5330721253001&pubId=4938530621001&videoId=5330694577001";
         Uri uri = Uri.parse(url);
         if(tvLiveNickname!=null) {
             tvLiveNickname.setText(mLiveVideoInfo.getData().getRoom_name());
         }
+
         if(vmVideoview!=null) {
             vmVideoview.setVideoURI(uri);
             vmVideoview.setBufferSize(1024 * 1024 * 2);
             vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
             vmVideoview.requestFocus();
+//            vmVideoview.setSubShown(true);
+
             vmVideoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer) {
@@ -430,6 +434,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
         mPresenter.getPresenterPcLiveVideoInfo(Room_id);
         if (vmVideoview != null) {
             vmVideoview.start();
+
         }
         if (danmakuView != null && mDanmuProcess != null) {
             danmakuView.restart();
