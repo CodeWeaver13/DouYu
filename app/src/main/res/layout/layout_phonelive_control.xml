@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--loading-->
+    <FrameLayout
+        android:id="@+id/fl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_live_end"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#73000000"
+           >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+              >
+                <ImageView
+                    android:id="@+id/im_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/image_about_backage" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/im_logo"
+                    android:layout_marginLeft="@dimen/wh35.0dimens35.0dp"
+                    android:layout_marginTop="@dimen/wh10.0dimens10.0dp">
+                    <com.team.zhuoke.ui.loadplay.LoadingView
+                        android:id="@+id/lv_playloading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:innerTriangleColor="@color/colorPrimary"
+                        app:innerTriangleRadius="6dp"
+                        app:isNeedBackground="false"
+                        app:outerCircleColor="@color/colorPrimary"
+                        app:outerCircleRadius="10dp" />
+                    <TextView
+                        android:id="@+id/tv_loading_buffer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/wh35.0dimens35.0dp"
+                        android:layout_marginTop="@dimen/wh13.0dimens13.0dp"
+                        android:layout_toRightOf="@id/lv_playloading"
+                        android:text="直播视频连接中..."
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+    <!--中部控制 亮度 声音-->
+    <RelativeLayout
+        android:id="@+id/control_center"
+        android:layout_width="@dimen/wh110.0dimens110.0dp"
+        android:layout_height="@dimen/wh110.0dimens110.0dp"
+        android:layout_gravity="center"
+        android:background="@drawable/control_shape"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_control_img"
+            android:layout_width="@dimen/wh40.0dimens40.0dp"
+            android:layout_height="@dimen/wh40.0dimens40.0dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/img_volume" />
+
+        <TextView
+            android:id="@+id/tv_control_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/iv_control_img"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/wh7.0dimens7.0dp"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_control_img"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:text="12%"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</FrameLayout>

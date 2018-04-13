@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/guide_bg4"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btn_guide"
+        android:layout_width="500px"
+        android:layout_height="150px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100px"
+        android:background="@drawable/blue_btn_selector"
+        android:text="开启全新体验"
+        android:gravity="center"
+        android:textColor="@color/guide_btn"
+        android:textSize="50px"
+        android:visibility="gone"
+        />
+</com.zhy.autolayout.AutoRelativeLayout>

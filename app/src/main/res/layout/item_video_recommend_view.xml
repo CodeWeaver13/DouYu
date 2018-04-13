@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/wh5.0dimens5.0dp"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_item_gridview"
+        android:layout_width="@dimen/wh200.0dimens200.0dp"
+        android:layout_height="@dimen/wh100.0dimens100.0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/wh10.0dimens10.0dp"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@mipmap/image_loading_5_3"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundedCornerRadius="6dip" />
+
+    <TextView
+        android:id="@+id/tv_column_item_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_item_gridview"
+        android:width="@dimen/wh200.0dimens200.0dp"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:shadowRadius="0.1"
+        android:singleLine="true"
+        android:text="超人不哭"
+        android:textColor="#373737"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img_nickname"
+        android:layout_width="@dimen/wh10.0dimens10.0dp"
+        android:layout_height="@dimen/wh10.0dimens10.0dp"
+        android:layout_below="@+id/tv_column_item_nickname"
+
+        android:layout_marginRight="@dimen/wh5.0dimens5.0dp"
+        android:layout_marginTop="@dimen/wh5.0dimens5.0dp"
+        android:src="@mipmap/home_reco_host_name_icon" />
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/img_nickname"
+        android:layout_below="@+id/tv_column_item_nickname"
+        android:layout_toRightOf="@id/img_nickname"
+        android:layout_marginTop="@dimen/wh5.0dimens5.0dp"
+        android:ellipsize="end"
+        android:text="超人归来"
+        android:textColor="#888888"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_watchnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/img_nickname"
+        android:layout_below="@+id/tv_column_item_nickname"
+
+        android:layout_marginTop="@dimen/wh5.0dimens5.0dp"
+        android:ellipsize="end"
+        android:text="超人归来"
+        android:textColor="#888888"
+        android:textSize="10sp"
+        />
+    <ImageView
+        android:id="@+id/img_watch"
+        android:layout_width="@dimen/wh10.0dimens10.0dp"
+        android:layout_height="@dimen/wh10.0dimens10.0dp"
+        android:layout_below="@+id/tv_column_item_nickname"
+        android:layout_toLeftOf="@id/tv_watchnum"
+
+        android:layout_marginRight="@dimen/wh5.0dimens5.0dp"
+        android:layout_marginTop="@dimen/wh7.0dimens7.0dp"
+        android:src="@mipmap/icon_play_times" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/wh100.0dimens100.0dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="@dimen/wh55.0dimens55.0dp"
+                android:layout_height="@dimen/wh18.0dimens18.0dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/wh5.0dimens5.0dp"
+                android:background="@drawable/recommend_online_bg"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/tv_video_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:text="9999"
+                    android:textColor="#ffffff"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

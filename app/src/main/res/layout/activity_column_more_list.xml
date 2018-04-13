@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+  <include layout="@layout/view_title"/>
+  <RelativeLayout
+      android:id="@+id/rl_twocolumn_bar"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/wh48.0dimens48.0dp"
+      android:background="#ffffff"
+      >
+    <RelativeLayout
+        android:layout_width="@dimen/wh44.0dimens44.0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rl_bar"
+        >
+      <ImageView
+          android:id="@+id/img_popup_live"
+          android:layout_centerInParent="true"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/icon_drop_down"
+          />
+    </RelativeLayout>
+    <com.flyco.tablayout.SlidingTabLayout
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/rl_bar"
+        android:id="@+id/twocolumn_tablayout"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        tl:tl_iconVisible="false"
+        tl:tl_divider_color="#ff7800"
+        tl:tl_divider_width="1px"
+        tl:tl_indicator_color="#ff7800"
+        tl:tl_textSelectColor="#ffffff"
+        tl:tl_textUnselectColor="#bababa"
+        tl:tl_indicator_margin_left="5dp"
+        tl:tl_indicator_margin_right="5dp"
+        tl:tl_indicator_style="BLOCK"
+        />
+  </RelativeLayout>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1px"
+      android:background="#bababa"
+      />
+  <android.support.v4.view.ViewPager
+      android:id="@+id/livetwocolumn_viewpager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+</LinearLayout>
